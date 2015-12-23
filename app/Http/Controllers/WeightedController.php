@@ -23,6 +23,6 @@ class WeightedController extends Controller
             $sale->load('values');
         }
 
-        return view('sales.index')->with('sales', $sales);
+        return view('weighted.index')->with('sales', $sales);
     }
 }
