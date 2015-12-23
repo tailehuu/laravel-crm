@@ -1,4 +1,4 @@
 <ul class="nav nav-sidebar">
-    <li class="active"><a href="#">Full Value <span class="sr-only">(current)</span></a></li>
-    <li><a href="#">Weighted Value</a></li>
+    <li class="active"><a href="{{ url('sale') }}">Full Value</a></li>
+    <li><a href="{{ url('weighted') }}">Weighted Value</a></li>
 </ul>

@@ -11,11 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['uses' => 'SaleController@index']);
 
 Route::resource('sale', 'SaleController');
+Route::get('weighted', ['uses' => 'WeightedController@index']);
 
 /*
 |--------------------------------------------------------------------------

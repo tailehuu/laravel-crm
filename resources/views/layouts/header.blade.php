@@ -7,20 +7,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><span><img src="images/logo.png" height="25" alt="Infonam"/></span> <span class="brand-text">Sale And Revenue Tool</span></a>
+            <a class="navbar-brand" href="/"><span><img src="images/logo.png" height="25" alt="Infonam"/></span> <span class="brand-text">Sale And Revenue Tool</span></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Phong DO <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Log out</a></li>
                     </ul>
                 </li>
             </ul>

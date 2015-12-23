@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
-@section('title', 'Full Value')
+@section('title', 'Weighted Value')
 
 @section('content')
-    <h1 class="page-header">Full Value</h1>
+    <h1 class="page-header">Weighted Value</h1>
     <p>Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam.
         Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id
         elit.</p>
@@ -24,7 +24,6 @@
                 <th>Duration (month)</th>
                 <th>Probability %</th>
                 <th>Start Date</th>
-                <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
@@ -43,11 +42,8 @@
                     <td>{{ $sale->duration }}</td>
                     <td>{{ $sale->probability }}</td>
                     <td>{{ $sale->started_at }}</td>
-                    <td><a href="#">View</a> | <a href="#">Edit</a> | <a href="#">Delete</a></td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-
-        <button type="button" class="btn btn-primary">Create</button>
 @endsection
