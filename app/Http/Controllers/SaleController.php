@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Sale;
+use App\Country;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class SaleController extends Controller
 {
@@ -18,11 +21,11 @@ class SaleController extends Controller
     public function index()
     {
         $sales = Sale::with('user', 'country')->get();
-
+		
         foreach($sales as $sale) {
             $sale->load('values');
         }
-
+       
         return view('sales.index')->with('sales', $sales);
     }
 
@@ -33,7 +36,10 @@ class SaleController extends Controller
      */
     public function create()
     {
-        return view('sales.create');
+	    $users = User::all();
+		$countries = Country::all();
+		
+    	return view('sales.create')->with('users', $users)->with('countries', $countries);
     }
 
     /**
@@ -44,11 +50,32 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        $sale = Sale::insert($request);
 
+    	$data['user_id'] = $request['user_id'];
+		$data['country_id'] = $request['country_id'];
+		$data['customer_name'] = $request['customer_name'];
+		$data['duration'] = $request['duration'];
+		$data['engagement'] = $request['engagement'];
+		$data['head_count'] = $request['head_count'];
+		$data['opportunity_name'] = $request['opportunity_name'];
+		$data['region'] = $request['region'];
+		//$data['started_at'] = $request['started_at'];
+		$data['value'] = $request['value'];
+
+    	$sale = Sale::insert($data);
+
+
+    	
+    	
         // redirect
-        Session::flash('message', 'Successfully created the sale!');
-        return Redirect::to('sale');
+        //Session::flash('message', 'Successfully created the sale!');
+        $sales = Sale::with('user', 'country')->get();
+
+        foreach($sales as $sale) {
+            $sale->load('values');
+        }
+
+        return view('sales.index')->with('sales', $sales);
     }
 
     /**

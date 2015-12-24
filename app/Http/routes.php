@@ -13,8 +13,12 @@
 
 Route::get('/', ['uses' => 'SaleController@index']);
 
-Route::resource('sale', 'SaleController');
+
+// Route::get('/create', 'SaleController@create');
+// Route::post('/store', 'SaleController@store');
 Route::get('weighted', ['uses' => 'WeightedController@index']);
+
+Route::resource('sale', 'SaleController');
 
 /*
 |--------------------------------------------------------------------------

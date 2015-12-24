@@ -56,6 +56,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="{{ asset('assets/js/vendor/jquery.min.js') }}"><\/script>')</script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+
+<script type="text/javascript">
+$(".input-group.date").datepicker({ autoclose: true, todayHighlight: true });
+</script>
 <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 <script src="{{ asset('assets/js/vendor/holder.min.js') }}"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
