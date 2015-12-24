@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
 
 class WeightedController extends Controller
 {
@@ -17,12 +18,14 @@ class WeightedController extends Controller
      */
     public function index()
     {
+
+        $a = Route::getFacadeRoot()->current()->uri();
         $sales = Sale::with('user', 'country')->get();
 
         foreach($sales as $sale) {
             $sale->load('values');
         }
 
-        return view('weighted.index')->with('sales', $sales);
+        return view('weighted.index')->with('sales', $sales)->with('a', $a);
     }
 }

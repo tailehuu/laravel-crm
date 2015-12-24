@@ -43,11 +43,11 @@
                     <td>{{ $sale->duration }}</td>
                     <td>{{ $sale->probability }}</td>
                     <td>{{ $sale->started_at }}</td>
-                    <td><a href="#">View</a> | <a href="#">Edit</a> | <a href="#">Delete</a></td>
+                    <td><a href="/sale/{{ $sale->id }}">View</a> | <a href="/sale/{{ $sale->id }}/edit">Edit</a> | <a href="#">Delete</a></td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
-        <button type="button" class="btn btn-primary">Create</button>
+        <button type="button" class="btn btn-primary"><a href="/sale/create">Create</a></button>
 @endsection

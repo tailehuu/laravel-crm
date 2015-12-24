@@ -33,7 +33,7 @@ class SaleController extends Controller
      */
     public function create()
     {
-
+        return view('sales.create');
     }
 
     /**
@@ -46,7 +46,9 @@ class SaleController extends Controller
     {
         $sale = Sale::insert($request);
 
-        return $sale;
+        // redirect
+        Session::flash('message', 'Successfully created the sale!');
+        return Redirect::to('sale');
     }
 
     /**
@@ -58,8 +60,9 @@ class SaleController extends Controller
     public function show($id)
     {
         $sale = Sale::findOrFail($id);
+        $sale->load('user', 'country');
 
-        return $sale;
+        return view('sales.show')->with('sale', $sale);
     }
 
     /**
@@ -70,7 +73,10 @@ class SaleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sale = Sale::findOrFail($id);
+        $sale->load('user', 'country');
+
+        return view('sales.edit')->with('sale', $sale);
     }
 
     /**
@@ -85,7 +91,9 @@ class SaleController extends Controller
         $sale = Sale::findOrFail($id);
         $sale->update($request->all());
 
-        return $sale;
+        // redirect
+        Session::flash('message', 'Successfully updated the sale!');
+        return Redirect::to('sale');
     }
 
     /**

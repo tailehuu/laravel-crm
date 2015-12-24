@@ -7,7 +7,7 @@
     <p>Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam.
         Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id
         elit.</p>
-
+}}
     <table class="table table-hover">
         <thead>
             <tr>
