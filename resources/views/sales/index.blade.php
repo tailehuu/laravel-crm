@@ -121,8 +121,13 @@
                                     <td>
 
                     <a href="sale/{{ $sale->id }}/edit"><i
-                                            class="icon-pencil"></i></a> <a href="#" data-toggle="modal"
-                                        data-target=".bs-example-modal-sm"><i class="icon-trash"></i></a></td>
+                                            class="icon-pencil"></i></a> 
+{{ Form::open(array('url' => 'sale/' . $sale->id)) }}
+                    {{ Form::hidden('_method', 'DELETE') }}
+
+                    {{ Form::submit('', array('class' => 'btn btn-xs btn-link icon-trash')) }}
+                {{ Form::close() }}
+</td>
                                 </tr>
         
                              @endforeach

@@ -58,9 +58,11 @@ class SaleController extends Controller
 		$data['engagement'] = $request['engagement'];
 		$data['head_count'] = $request['head_count'];
 		$data['opportunity_name'] = $request['opportunity_name'];
+        $data['probability'] = $request['probability'];
 		$data['region'] = $request['region'];
-		//$data['started_at'] = $request['started_at'];
+		$data['started_at'] = date( 'Y-m-d H:i:s', strtotime($request['started_at']) );
 		$data['value'] = $request['value'];
+       
 
     	$sale = Sale::insert($data);
 
@@ -90,6 +92,7 @@ class SaleController extends Controller
         $sale->load('user', 'country');
 
         return view('sales.show')->with('sale', $sale);
+
     }
 
     /**
@@ -102,8 +105,10 @@ class SaleController extends Controller
     {
         $sale = Sale::findOrFail($id);
         $sale->load('user', 'country');
+        $users = User::all();
+        $countries = Country::all();
 
-        return view('sales.edit')->with('sale', $sale);
+        return view('sales.edit')->with('sale', $sale)->with('users',$users)->with('countries',$countries);
     }
 
     /**
@@ -116,10 +121,25 @@ class SaleController extends Controller
     public function update(Request $request, $id)
     {
         $sale = Sale::findOrFail($id);
-        $sale->update($request->all());
+
+        $sale->user_id = $request['user_id'];
+        $sale->country_id = $request['country_id'];
+        $sale->customer_name = $request['customer_name'];
+        $sale->duration = $request['duration'];
+        $sale->engagement = $request['engagement'];
+        $sale->head_count = $request['head_count'];
+        $sale->opportunity_name = $request['opportunity_name'];
+        $sale->probability = $request['probability'];
+        $sale->region = $request['region'];
+        $sale->started_at = date( 'Y-m-d H:i:s', strtotime($request['started_at']) );
+        $sale->value = $request['value'];
+
+
+        $sale->save();
+       // $sale->update($request->all());
 
         // redirect
-        Session::flash('message', 'Successfully updated the sale!');
+       // Session::flash('message', 'Successfully updated the sale!');
         return Redirect::to('sale');
     }
 
@@ -135,7 +155,7 @@ class SaleController extends Controller
         $sale->delete();
 
         // redirect
-        Session::flash('message', 'Successfully deleted the sale!');
+       // Session::flash('message', 'Successfully deleted the sale!');
         return Redirect::to('sale');
     }
 }

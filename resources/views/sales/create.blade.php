@@ -9,7 +9,7 @@
         elit.</p>
         
 
-{{ Form::open(array('url' => 'sale')) }}
+{{ Form::open(array('url' => 'sale', 'class' => 'form-horizontal')) }}
 
 
 
