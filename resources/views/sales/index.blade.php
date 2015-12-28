@@ -83,7 +83,7 @@
                                 <tr>
                                     <td><label>{{ $index+1 }}</label></td>
                                     <td><span class="large-field">{{ $sale->user->name }}</span></td>
-                                    <td><span>{{ $sale->customer_name }}</span></td>
+                                    <td><a href="sale/{{ $sale->id }}"><span>{{ $sale->customer_name }}</span></a></td>
                                     <td><span class="label label-info">{{ $sale->country->name }}</span></td>
                                     <td><span>{{ $regions[$sale->region] }}</span></td>
                                     <td><span>{{ $sale->opportunity_name }}</span></td>
@@ -94,32 +94,33 @@
                                     <td><span>{{ $sale->duration }}</span></td>
                                     <td><span>{{ $sale->probability }}</span></td>
                                     <td><p class="large-field text-left">{{ date('d/m/y', strtotime($sale->started_at)) }}</p></td>
-                                    <td>5</td>
-                                    <td><span class="name">15,000.00</span></td>
-                                    <td>5</td>
-                                    <td><span class="name">15,000.00</span></td>
-                                    <td>5</td>
-                                    <td><span class="name">15,000.00</span></td>
-                                    <td>5</td>
-                                    <td><span class="name">15,000.00</span></td>
-                                    <td>5</td>
-                                    <td><span class="name">15,000.00</span></td>
-                                    <td>5</td>
-                                    <td><span class="name">15,000.00</span></td>
-                                    <td>5</td>
-                                    <td><span class="name">15,000.00</span></td>
-                                    <td>5</td>
-                                    <td><span class="name">15,000.00</span></td>
-                                    <td>5</td>
-                                    <td><span class="name">15,000.00</span></td>
-                                    <td>5</td>
-                                    <td><span class="name">15,000.00</span></td>
-                                    <td>5</td>
-                                    <td><span class="name">15,000.00</span></td>
-                                    <td>5</td>
-                                    <td><span class="name">15,000.00</span></td>
-                                    <td>
-
+                                    <td>{{ $sale->jan_hc > 0 ? $sale->jan_hc : '' }}</td>
+                                    <td><span class="name">{{ $sale->jan_val > 0 ? $sale->jan_val : '' }}</span></td>
+                                    <td>{{ $sale->feb_hc > 0 ? $sale->feb_hc : '' }}</td>
+                                    <td><span class="name">{{ $sale->feb_val > 0 ? $sale->feb_val : '' }}</span></td>
+                                    <td>{{ $sale->mar_hc > 0 ? $sale->mar_hc : '' }}</td>
+                                    <td><span class="name">{{ $sale->mar_val > 0 ? $sale->mar_val : '' }}</span></td>
+                                    <td>{{ $sale->apr_hc > 0 ? $sale->apr_hc : '' }}</td>
+                                    <td><span class="name">{{ $sale->apr_val > 0 ? $sale->apr_val : '' }}</span></td>
+                                    <td>{{ $sale->may_hc > 0 ? $sale->may_hc : '' }}</td>
+                                    <td><span class="name">{{ $sale->may_val > 0 ? $sale->may_val : '' }}</span></td>
+                                    <td>{{ $sale->jun_hc > 0 ? $sale->jun_hc : '' }}</td>
+                                    <td><span class="name">{{ $sale->jun_val > 0 ? $sale->jun_val : '' }}</span></td>
+                                    <td>{{ $sale->jul_hc > 0 ? $sale->jul_hc : '' }}</td>
+                                    <td><span class="name">{{ $sale->jul_val > 0 ? $sale->jul_val : '' }}</span></td>
+                                    <td>{{ $sale->aug_hc > 0 ? $sale->aug_hc : '' }}</td>
+                                    <td><span class="name">{{ $sale->aug_val > 0 ? $sale->aug_val : '' }}</span></td>
+                                    <td>{{ $sale->sep_hc > 0 ? $sale->sep_hc : '' }}</td>
+                                    <td><span class="name">{{ $sale->sep_val > 0 ? $sale->sep_val : '' }}</span></td>
+                                    <td>{{ $sale->oct_hc > 0 ? $sale->oct_hc : '' }}</td>
+                                    <td><span class="name">{{ $sale->oct_val > 0 ? $sale->oct_val : '' }}</span></td>
+                                    <td>{{ $sale->nov_hc > 0 ? $sale->nov_hc : '' }}</td>
+                                    <td><span class="name">{{ $sale->nov_val > 0 ? $sale->nov_val : '' }}</span></td>
+                                    <td>{{ $sale->dec_hc > 0 ? $sale->dec_hc : '' }}</td>
+                                    <td><span class="name">{{ $sale->dec_val > 0 ? $sale->dec_val : '' }}</span></td>
+                                    <td class="action-td">
+<a href="sale/{{ $sale->id }}"><i
+                                            class="icon-check"></i></a> 
                     <a href="sale/{{ $sale->id }}/edit"><i
                                             class="icon-pencil"></i></a> 
 {{ Form::open(array('url' => 'sale/' . $sale->id)) }}

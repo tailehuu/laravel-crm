@@ -724,3 +724,11 @@ body {
 .icon-fullscreen {
 	background-position: -456px -144px;
 }
+.action-td{
+	display: inline-flex;
+	
+}
+.action-td a{
+	margin: 0 5px;
+	border: none !important;
+}
