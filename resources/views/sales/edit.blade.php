@@ -168,7 +168,7 @@
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-5 control-label">HC</label>
+									<label for="inputEmail3" class="col-sm-5 control-label">Head Count</label>
 									<div class="col-sm-7">
 
 										<input type="text" class="form-control" name="head_count" value="{{ $sale->head_count }}">

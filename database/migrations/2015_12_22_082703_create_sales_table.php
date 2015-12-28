@@ -26,6 +26,7 @@ class CreateSalesTable extends Migration
             $table->integer('duration')->default(0)->unsigned();
             $table->integer('probability')->default(0)->unsigned();
             $table->dateTime('started_at');
+            
             $table->float('jan_hc')->default(0)->unsigned();
             $table->float('jan_val')->default(0)->unsigned();
             $table->float('feb_hc')->default(0)->unsigned();

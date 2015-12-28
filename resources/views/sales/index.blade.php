@@ -21,29 +21,29 @@
                                     <th rowspan="2">Opportunity Name</th>
                                     <th rowspan="2">Engagement Type</th>
                                     <th rowspan="2">Service Type</th>
-                                    <th colspan="2">Total</th>
+                                    <th colspan="2" class="text-center">Total</th>
                                     <th rowspan="2">Duration (month)</th>
                                     <th rowspan="2">Probability %</th>
                                     <th rowspan="2">Start Date</th>
             
                                     
                                     
-                                    <th colspan="2">Jan</th>
-                                    <th colspan="2">Feb</th>
-                                    <th colspan="2">March</th>
+                                    <th colspan="2" class="text-center">Jan</th>
+                                    <th colspan="2" class="text-center">Feb</th>
+                                    <th colspan="2" class="text-center">March</th>
 
-                                    <th colspan="2">Apr</th>
-                                    <th colspan="2">May</th>
-                                    <th colspan="2">Jun</th>
+                                    <th colspan="2" class="text-center">Apr</th>
+                                    <th colspan="2" class="text-center">May</th>
+                                    <th colspan="2" class="text-center">Jun</th>
 
-                                    <th colspan="2">Jul</th>
-                                    <th colspan="2">Aug</th>
-                                    <th colspan="2">Sep</th>
+                                    <th colspan="2" class="text-center">Jul</th>
+                                    <th colspan="2" class="text-center">Aug</th>
+                                    <th colspan="2" class="text-center">Sep</th>
 
-                                    <th colspan="2">Oct</th>
-                                    <th colspan="2">Nov</th>
-                                    <th colspan="2">Dec</th>
-                                    <th rowspan="2">Action</th>
+                                    <th colspan="2" class="text-center">Oct</th>
+                                    <th colspan="2" class="text-center">Nov</th>
+                                    <th colspan="2" class="text-center">Dec</th>
+                                    <th rowspan="2" class="text-center">Action</th>
 
 
                                 </tr>
@@ -118,11 +118,11 @@
                                     <td><span class="name">{{ $sale->nov_val > 0 ? $sale->nov_val : '' }}</span></td>
                                     <td>{{ $sale->dec_hc > 0 ? $sale->dec_hc : '' }}</td>
                                     <td><span class="name">{{ $sale->dec_val > 0 ? $sale->dec_val : '' }}</span></td>
-                                    <td class="action-td">
+                                    <td>
 <a href="sale/{{ $sale->id }}"><i
-                                            class="icon-check"></i></a> 
+                                            class="icon-check"></i></a> <br>
                     <a href="sale/{{ $sale->id }}/edit"><i
-                                            class="icon-pencil"></i></a> 
+                                            class="icon-pencil"></i></a> <br>
 {{ Form::open(array('url' => 'sale/' . $sale->id)) }}
                     {{ Form::hidden('_method', 'DELETE') }}
 

@@ -3,7 +3,7 @@
 @section('title', 'Full Value')
 
 @section('content')
-    <h1 class="page-header">Edit</h1>
+    <h1 class="page-header">Create</h1>
     <p>Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam.
         Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id
         elit.</p>
@@ -149,7 +149,7 @@
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-5 control-label">HC</label>
+									<label for="inputEmail3" class="col-sm-5 control-label">Head Count</label>
 									<div class="col-sm-7">
 
 										<input type="text" class="form-control" name="head_count">
