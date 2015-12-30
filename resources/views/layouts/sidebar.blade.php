@@ -5,8 +5,8 @@
 <div id='cssmenu'>
 <ul>
    <li {{ (Request::is('*sale') ? 'class=active' : '') }} ><a href="{{ url('sale') }}" class="dropdown-toggle" data-drop="magazine"> Opportunity </a></li>
-   <li class='has-sub {{ (Request::is('*weighted') ? 'open active' : '') }}' ><a href='#'><span>Value</span></a>
-      <ul style="display:{{ (Request::is('*weighted') ? 'block' : 'none') }}">
+   <li class='has-sub {{ (Request::is('*value*') ? 'open active' : '') }}' ><a href='#'><span>Value</span></a>
+      <ul style="display:{{ (Request::is('*value*') ? 'block' : 'none') }}">
          <li><a href='/value/full'><span>Full Value</span></a>
          </li>
          <li><a href="/value/weighted"><span> Weighted Value</span></a>
