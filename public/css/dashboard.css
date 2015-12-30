@@ -45,10 +45,10 @@ body {
     left: 0;
     z-index: 1000;
     display: block;
-    padding: 20px;
+   
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #353535;
+   	padding-left: 0 !important;
     border-right: 1px solid #eee;
   }
 }
@@ -731,4 +731,106 @@ body {
 .action-td a{
 	margin: 0 5px;
 	border: none !important;
+}
+.navigation {
+    border-bottom: 1px solid #e8e8e8;
+    display: block;
+    height: 52px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    width: 100%;
+    z-index: 1000;
+}
+.navigation {
+    background-color: white;
+    color: black;
+   
+    left: 0;
+    position: fixed;
+    top: 0;
+}
+.navigation-first {
+    border-left: 10px solid white;
+    border-right: 10px solid white;
+    height: 51px;
+    line-height: 51px;
+    padding: 0;
+}
+.navigation-first .navigation-logo {
+    background-position: 0 11px;
+    background-size: 110px auto;
+    border: medium none;
+    float: left;
+    height: 47px;
+    width: 110px;
+}
+.navigation-main-selector {
+    display: inline-block;
+    margin-left: 10px;
+}
+.navigation-main-selector > div {
+    border: medium none;
+    float: left;
+    height: 52px;
+    line-height: 52px;
+}
+.navigation-main-selector > div > a {
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    color: black;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 0 8px;
+    position: relative;
+    text-transform: uppercase;
+    z-index: 4001;
+}
+.navigation-main-selector > div > a:hover{
+	color: #8700ff;
+}
+.navigation-main-selector .current{
+	
+}
+.navigation-community-links {
+    float: right;
+    height: 52px;
+    line-height: 52px;
+    position: relative;
+}
+.navigation-community-links .navigation-dropdown {
+    background-color: white;
+    border: 1px solid #e8e8e8;
+    display: none;
+    min-width: 180px;
+    position: absolute;
+    right: -5px;
+    text-transform: none;
+    top: 51px;
+    z-index: 40001;
+}
+.navigation-community-links .dropdown-toggle {
+    height: 48px;
+    padding-left: 15px;
+    padding-top: 3px;
+    width: 82px;
+}
+.navigation-community-links .dropdown-toggle {
+    float: left;
+    height: 40px;
+    padding-left: 0;
+    padding-top: 3px;
+    width: 30px;
+}
+.navigation-community-links {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+}
+.navbar-toggle
+{
+	background-color: #333;
+	
+}
+.btn-link {
+    padding: 0 !important;
 }

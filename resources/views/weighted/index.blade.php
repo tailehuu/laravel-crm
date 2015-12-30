@@ -28,22 +28,22 @@
             
                                     
                                     
-                                    <th colspan="2" class="text-center">Jan</th>
-                                    <th colspan="2" class="text-center">Feb</th>
-                                    <th colspan="2" class="text-center">March</th>
+<!--                                     <th colspan="2" class="text-center">Jan</th> -->
+<!--                                     <th colspan="2" class="text-center">Feb</th> -->
+<!--                                     <th colspan="2" class="text-center">March</th> -->
 
-                                    <th colspan="2" class="text-center">Apr</th>
-                                    <th colspan="2" class="text-center">May</th>
-                                    <th colspan="2" class="text-center">Jun</th>
+<!--                                     <th colspan="2" class="text-center">Apr</th> -->
+<!--                                     <th colspan="2" class="text-center">May</th> -->
+<!--                                     <th colspan="2" class="text-center">Jun</th> -->
 
-                                    <th colspan="2" class="text-center">Jul</th>
-                                    <th colspan="2" class="text-center">Aug</th>
-                                    <th colspan="2" class="text-center">Sep</th>
+<!--                                     <th colspan="2" class="text-center">Jul</th> -->
+<!--                                     <th colspan="2" class="text-center">Aug</th> -->
+<!--                                     <th colspan="2" class="text-center">Sep</th> -->
 
-                                    <th colspan="2" class="text-center">Oct</th>
-                                    <th colspan="2" class="text-center">Nov</th>
-                                    <th colspan="2" class="text-center">Dec</th>
-<!--                                     <th rowspan="2" class="text-center">Action</th> -->
+<!--                                     <th colspan="2" class="text-center">Oct</th> -->
+<!--                                     <th colspan="2" class="text-center">Nov</th> -->
+<!--                                     <th colspan="2" class="text-center">Dec</th> -->
+                                    <th rowspan="2" class="text-center">Action</th> 
 
 
                                 </tr>
@@ -52,30 +52,30 @@
                                     <th>HC</th>
                                     <th>Value</th>
 
-                                    <th>HC</th>
-                                    <th>USD</th>
-                                    <th>HC</th>
-                                    <th>USD</th>
-                                    <th>HC</th>
-                                    <th>USD</th>
-                                    <th>HC</th>
-                                    <th>USD</th>
-                                    <th>HC</th>
-                                    <th>USD</th>
-                                    <th>HC</th>
-                                    <th>USD</th>
-                                    <th>HC</th>
-                                    <th>USD</th>
-                                    <th>HC</th>
-                                    <th>USD</th>
-                                    <th>HC</th>
-                                    <th>USD</th>
-                                    <th>HC</th>
-                                    <th>USD</th>
-                                    <th>HC</th>
-                                    <th>USD</th>
-                                    <th>HC</th>
-                                    <th>USD</th>
+<!--                                     <th>HC</th> -->
+<!--                                     <th>USD</th> -->
+<!--                                     <th>HC</th> -->
+<!--                                     <th>USD</th> -->
+<!--                                     <th>HC</th> -->
+<!--                                     <th>USD</th> -->
+<!--                                     <th>HC</th> -->
+<!--                                     <th>USD</th> -->
+<!--                                     <th>HC</th> -->
+<!--                                     <th>USD</th> -->
+<!--                                     <th>HC</th> -->
+<!--                                     <th>USD</th> -->
+<!--                                     <th>HC</th> -->
+<!--                                     <th>USD</th> -->
+<!--                                     <th>HC</th> -->
+<!--                                     <th>USD</th> -->
+<!--                                     <th>HC</th> -->
+<!--                                     <th>USD</th> -->
+<!--                                     <th>HC</th> -->
+<!--                                     <th>USD</th> -->
+<!--                                     <th>HC</th> -->
+<!--                                     <th>USD</th> -->
+<!--                                     <th>HC</th> -->
+<!--                                     <th>USD</th> -->
                                 </tr>
                             </thead>
                              <tbody>
@@ -94,41 +94,34 @@
                                     <td><span>{{ $sale->duration }}</span></td>
                                     <td><span>{{ $sale->probability }}</span></td>
                                     <td><p class="large-field text-left">{{ date('d/m/y', strtotime($sale->started_at)) }}</p></td>
-                                    <td>{{ $sale->w_jan_hc > 0 ? $sale->w_jan_hc : '' }}</td>
-                                    <td><span class="name">{{ $sale->w_jan_val > 0 ? $sale->w_jan_val : '' }}</span></td>
-                                    <td>{{ $sale->w_feb_hc > 0 ? $sale->w_feb_hc : '' }}</td>
-                                    <td><span class="name">{{ $sale->w_feb_val > 0 ? $sale->w_feb_val : '' }}</span></td>
-                                    <td>{{ $sale->w_mar_hc > 0 ? $sale->w_mar_hc : '' }}</td>
-                                    <td><span class="name">{{ $sale->w_mar_val > 0 ? $sale->w_mar_val : '' }}</span></td>
-                                    <td>{{ $sale->w_apr_hc > 0 ? $sale->w_apr_hc : '' }}</td>
-                                    <td><span class="name">{{ $sale->w_apr_val > 0 ? $sale->w_apr_val : '' }}</span></td>
-                                    <td>{{ $sale->w_may_hc > 0 ? $sale->w_may_hc : '' }}</td>
-                                    <td><span class="name">{{ $sale->w_may_val > 0 ? $sale->w_may_val : '' }}</span></td>
-                                    <td>{{ $sale->w_jun_hc > 0 ? $sale->w_jun_hc : '' }}</td>
-                                    <td><span class="name">{{ $sale->w_jun_val > 0 ? $sale->w_jun_val : '' }}</span></td>
-                                    <td>{{ $sale->w_jul_hc > 0 ? $sale->w_jul_hc : '' }}</td>
-                                    <td><span class="name">{{ $sale->w_jul_val > 0 ? $sale->w_jul_val : '' }}</span></td>
-                                    <td>{{ $sale->w_aug_hc > 0 ? $sale->w_aug_hc : '' }}</td>
-                                    <td><span class="name">{{ $sale->w_aug_val > 0 ? $sale->w_aug_val : '' }}</span></td>
-                                    <td>{{ $sale->w_sep_hc > 0 ? $sale->w_sep_hc : '' }}</td>
-                                    <td><span class="name">{{ $sale->w_sep_val > 0 ? $sale->w_sep_val : '' }}</span></td>
-                                    <td>{{ $sale->w_oct_hc > 0 ? $sale->w_oct_hc : '' }}</td>
-                                    <td><span class="name">{{ $sale->w_oct_val > 0 ? $sale->w_oct_val : '' }}</span></td>
-                                    <td>{{ $sale->w_nov_hc > 0 ? $sale->w_nov_hc : '' }}</td>
-                                    <td><span class="name">{{ $sale->w_nov_val > 0 ? $sale->w_nov_val : '' }}</span></td>
-                                    <td>{{ $sale->w_dec_hc > 0 ? $sale->w_dec_hc : '' }}</td>
-                                    <td><span class="name">{{ $sale->w_dec_val > 0 ? $sale->w_dec_val : '' }}</span></td>
-                                  <!--   <td>
-<a href="sale/{{ $sale->id }}"><i
-                                            class="icon-check"></i></a> <br>
-                    <a href="sale/{{ $sale->id }}/edit"><i
-                                            class="icon-pencil"></i></a> <br>
-{{ Form::open(array('url' => 'sale/' . $sale->id)) }}
-                    {{ Form::hidden('_method', 'DELETE') }}
+<!--                                     <td>{{ $sale->w_jan_hc > 0 ? $sale->w_jan_hc : '' }}</td> -->
+<!--                                     <td><span class="name">{{ $sale->w_jan_val > 0 ? $sale->w_jan_val : '' }}</span></td> -->
+<!--                                     <td>{{ $sale->w_feb_hc > 0 ? $sale->w_feb_hc : '' }}</td> -->
+<!--                                     <td><span class="name">{{ $sale->w_feb_val > 0 ? $sale->w_feb_val : '' }}</span></td> -->
+<!--                                     <td>{{ $sale->w_mar_hc > 0 ? $sale->w_mar_hc : '' }}</td> -->
+<!--                                     <td><span class="name">{{ $sale->w_mar_val > 0 ? $sale->w_mar_val : '' }}</span></td> -->
+<!--                                     <td>{{ $sale->w_apr_hc > 0 ? $sale->w_apr_hc : '' }}</td> -->
+<!--                                     <td><span class="name">{{ $sale->w_apr_val > 0 ? $sale->w_apr_val : '' }}</span></td> -->
+<!--                                     <td>{{ $sale->w_may_hc > 0 ? $sale->w_may_hc : '' }}</td> -->
+<!--                                     <td><span class="name">{{ $sale->w_may_val > 0 ? $sale->w_may_val : '' }}</span></td> -->
+<!--                                     <td>{{ $sale->w_jun_hc > 0 ? $sale->w_jun_hc : '' }}</td> -->
+<!--                                     <td><span class="name">{{ $sale->w_jun_val > 0 ? $sale->w_jun_val : '' }}</span></td> -->
+<!--                                     <td>{{ $sale->w_jul_hc > 0 ? $sale->w_jul_hc : '' }}</td> -->
+<!--                                     <td><span class="name">{{ $sale->w_jul_val > 0 ? $sale->w_jul_val : '' }}</span></td> -->
+<!--                                     <td>{{ $sale->w_aug_hc > 0 ? $sale->w_aug_hc : '' }}</td> -->
+<!--                                     <td><span class="name">{{ $sale->w_aug_val > 0 ? $sale->w_aug_val : '' }}</span></td> -->
+<!--                                     <td>{{ $sale->w_sep_hc > 0 ? $sale->w_sep_hc : '' }}</td> -->
+<!--                                     <td><span class="name">{{ $sale->w_sep_val > 0 ? $sale->w_sep_val : '' }}</span></td> -->
+<!--                                     <td>{{ $sale->w_oct_hc > 0 ? $sale->w_oct_hc : '' }}</td> -->
+<!--                                     <td><span class="name">{{ $sale->w_oct_val > 0 ? $sale->w_oct_val : '' }}</span></td> -->
+<!--                                     <td>{{ $sale->w_nov_hc > 0 ? $sale->w_nov_hc : '' }}</td> -->
+<!--                                     <td><span class="name">{{ $sale->w_nov_val > 0 ? $sale->w_nov_val : '' }}</span></td> -->
+<!--                                     <td>{{ $sale->w_dec_hc > 0 ? $sale->w_dec_hc : '' }}</td> -->
+<!--                                     <td><span class="name">{{ $sale->w_dec_val > 0 ? $sale->w_dec_val : '' }}</span></td> -->
+                                <td>
+<a href="weighted/{{ $sale->id }}">View</a>
 
-                    {{ Form::submit('', array('class' => 'btn btn-xs btn-link icon-trash')) }}
-                {{ Form::close() }}
-</td> -->
+</td>
                                 </tr>
         
                              @endforeach

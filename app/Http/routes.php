@@ -16,8 +16,8 @@ Route::get('/', ['uses' => 'SaleController@index']);
 
 // Route::get('/create', 'SaleController@create');
 // Route::post('/store', 'SaleController@store');
-Route::get('weighted', ['uses' => 'WeightedController@index']);
-
+//Route::get('weighted', ['uses' => 'WeightedController@index']);
+Route::resource('weighted', 'WeightedController');
 Route::resource('sale', 'SaleController');
 
 /*

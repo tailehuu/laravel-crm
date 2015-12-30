@@ -33,18 +33,21 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-6">
+							
+						</div>
+
+<div class="row">
+
+<div class="col-sm-6">
 								<div class="form-group">
 									<label for="inputPassword3" class="col-sm-5 control-label">Prospect/
 										Customer Name</label>
 									<div class="col-sm-7">
-										<input type="text" class="form-control" name="customer_name">
+										<input type="text" class="form-control required" name="customer_name">
 									</div>
 								</div>
 							</div>
-						</div>
-
-
+</div>
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group">
@@ -63,7 +66,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-6">
+							
+						</div>
+<div class="row">
+<div class="col-sm-6">
 								<div class="form-group">
 									<label for="inputPassword3" class="col-sm-5 control-label">Region</label>
 									<div class="col-sm-7">
@@ -78,8 +84,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
-
+</div>
 
 						<div class="row">
 							<div class="col-sm-6">
@@ -89,14 +94,18 @@
 									<div class="col-sm-7">
 
 									
-										<input type="text" class="form-control" name="opportunity_name">
+										<input type="text" class="form-control required" name="opportunity_name">
 									
 
 
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-6">
+							
+						</div>
+						
+						<div class="row">
+						<div class="col-sm-6">
 								<div class="form-group">
 									<label for="inputPassword3" class="col-sm-5 control-label">Engagement
 										Type</label>
@@ -132,19 +141,22 @@
 								</div>
 							</div>
 
-							<div class="col-sm-6">
+							
+
+						</div>
+						<div class="row">
+						<div class="col-sm-6">
 								<div class="form-group">
 									<label for="inputPassword3" class="col-sm-5 control-label">Start
 										Date</label>
 									<div class="col-sm-7">
 										<div class="input-group date" id="dp3">
-      <input class="form-control" type="text" name="started_at">
+      <input class="form-control required" type="text" name="started_at">
       <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
     </div>
 									</div>
 								</div>
 							</div>
-
 						</div>
 						<div class="row">
 							<div class="col-sm-6">
@@ -152,47 +164,40 @@
 									<label for="inputEmail3" class="col-sm-5 control-label">Head Count</label>
 									<div class="col-sm-7">
 
-										<input type="text" class="form-control" name="head_count">
+										<input type="text" class="form-control required" name="head_count">
 
 
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-6">
+							
+						</div>
+<div class="row">
+
+<div class="col-sm-6">
 								<div class="form-group">
 									<label for="inputPassword3" class="col-sm-5 control-label">Value</label>
 									<div class="col-sm-7">
-										<input type="text" class="form-control" name="value">
+										<input type="text" class="form-control required" name="value">
 									</div>
 								</div>
 							</div>
-						</div>
-
+</div>
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-5 control-label">Duration
 										(month)</label>
 									<div class="col-sm-7">									
+<input type="text" class="form-control required" name="duration">
 
-<select class="form-control select-value" name="duration">
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-											<option value="6">6</option>
-											<option value="7">7</option>
-											<option value="8">8</option>
-											<option value="9">9</option>
-											<option value="10">10</option>
-											<option value="11">11</option>
-											<option value="12">12</option>
-										</select>
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-6">
+							
+						</div>
+<div class="row">
+<div class="col-sm-6">
 								<div class="form-group">
 									<label for="inputPassword3" class="col-sm-5 control-label">Probability
 										%</label>
@@ -201,238 +206,237 @@
 									</div>
 								</div>
 							</div>
-						</div>
-
+</div>
     <hr>
     
-    	<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-3 control-label">January:   HC</label>
-									<div class="col-sm-3">
+<!--     	<div class="row"> -->
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<label for="inputEmail3" class="col-sm-3 control-label">January:   HC</label> -->
+<!-- 									<div class="col-sm-3"> -->
 
-										<input type="text" class="form-control" name="jan_hc">
+<!-- 										<input type="text" class="form-control" name="jan_hc"> -->
 
 
-									</div>
-									<label for="inputEmail3" class="col-sm-2 control-label">Value</label>
-									<div class="col-sm-4">
+<!-- 									</div> -->
+<!-- 									<label for="inputEmail3" class="col-sm-2 control-label">Value</label> -->
+<!-- 									<div class="col-sm-4"> -->
 
-										<input type="text" class="form-control" name="jan_val">
+<!-- 										<input type="text" class="form-control" name="jan_val"> -->
 
 
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-3 control-label">February:   HC</label>
-									<div class="col-sm-3">
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<label for="inputEmail3" class="col-sm-3 control-label">February:   HC</label> -->
+<!-- 									<div class="col-sm-3"> -->
 
-										<input type="text" class="form-control" name="feb_hc">
+<!-- 										<input type="text" class="form-control" name="feb_hc"> -->
 
 
-									</div>
-									<label for="inputEmail3" class="col-sm-2 control-label">Value</label>
-									<div class="col-sm-4">
+<!-- 									</div> -->
+<!-- 									<label for="inputEmail3" class="col-sm-2 control-label">Value</label> -->
+<!-- 									<div class="col-sm-4"> -->
 
-										<input type="text" class="form-control" name="feb_val">
+<!-- 										<input type="text" class="form-control" name="feb_val"> -->
 
 
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-3 control-label">March:   HC</label>
-									<div class="col-sm-3">
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<label for="inputEmail3" class="col-sm-3 control-label">March:   HC</label> -->
+<!-- 									<div class="col-sm-3"> -->
 
-										<input type="text" class="form-control" name="mar_hc">
+<!-- 										<input type="text" class="form-control" name="mar_hc"> -->
 
 
-									</div>
-									<label for="inputEmail3" class="col-sm-2 control-label">Value</label>
-									<div class="col-sm-4">
+<!-- 									</div> -->
+<!-- 									<label for="inputEmail3" class="col-sm-2 control-label">Value</label> -->
+<!-- 									<div class="col-sm-4"> -->
 
-										<input type="text" class="form-control" name="mar_val">
+<!-- 										<input type="text" class="form-control" name="mar_val"> -->
 
 
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-3 control-label">April:   HC</label>
-									<div class="col-sm-3">
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<label for="inputEmail3" class="col-sm-3 control-label">April:   HC</label> -->
+<!-- 									<div class="col-sm-3"> -->
 
-										<input type="text" class="form-control" name="apr_hc">
+<!-- 										<input type="text" class="form-control" name="apr_hc"> -->
 
 
-									</div>
-									<label for="inputEmail3" class="col-sm-2 control-label">Value</label>
-									<div class="col-sm-4">
+<!-- 									</div> -->
+<!-- 									<label for="inputEmail3" class="col-sm-2 control-label">Value</label> -->
+<!-- 									<div class="col-sm-4"> -->
 
-										<input type="text" class="form-control" name="apr_val">
+<!-- 										<input type="text" class="form-control" name="apr_val"> -->
 
 
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-3 control-label">May:   HC</label>
-									<div class="col-sm-3">
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<label for="inputEmail3" class="col-sm-3 control-label">May:   HC</label> -->
+<!-- 									<div class="col-sm-3"> -->
 
-										<input type="text" class="form-control" name="may_hc">
+<!-- 										<input type="text" class="form-control" name="may_hc"> -->
 
 
-									</div>
-									<label for="inputEmail3" class="col-sm-2 control-label">Value</label>
-									<div class="col-sm-4">
+<!-- 									</div> -->
+<!-- 									<label for="inputEmail3" class="col-sm-2 control-label">Value</label> -->
+<!-- 									<div class="col-sm-4"> -->
 
-										<input type="text" class="form-control" name="may_val">
+<!-- 										<input type="text" class="form-control" name="may_val"> -->
 
 
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-3 control-label">June:   HC</label>
-									<div class="col-sm-3">
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<label for="inputEmail3" class="col-sm-3 control-label">June:   HC</label> -->
+<!-- 									<div class="col-sm-3"> -->
 
-										<input type="text" class="form-control" name="jun_hc">
+<!-- 										<input type="text" class="form-control" name="jun_hc"> -->
 
 
-									</div>
-									<label for="inputEmail3" class="col-sm-2 control-label">Value</label>
-									<div class="col-sm-4">
+<!-- 									</div> -->
+<!-- 									<label for="inputEmail3" class="col-sm-2 control-label">Value</label> -->
+<!-- 									<div class="col-sm-4"> -->
 
-										<input type="text" class="form-control" name="jun_val">
+<!-- 										<input type="text" class="form-control" name="jun_val"> -->
 
 
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-3 control-label">July:   HC</label>
-									<div class="col-sm-3">
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<label for="inputEmail3" class="col-sm-3 control-label">July:   HC</label> -->
+<!-- 									<div class="col-sm-3"> -->
 
-										<input type="text" class="form-control" name="jul_hc">
+<!-- 										<input type="text" class="form-control" name="jul_hc"> -->
 
 
-									</div>
-									<label for="inputEmail3" class="col-sm-2 control-label">Value</label>
-									<div class="col-sm-4">
+<!-- 									</div> -->
+<!-- 									<label for="inputEmail3" class="col-sm-2 control-label">Value</label> -->
+<!-- 									<div class="col-sm-4"> -->
 
-										<input type="text" class="form-control" name="jul_val">
+<!-- 										<input type="text" class="form-control" name="jul_val"> -->
 
 
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-3 control-label">August:   HC</label>
-									<div class="col-sm-3">
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<label for="inputEmail3" class="col-sm-3 control-label">August:   HC</label> -->
+<!-- 									<div class="col-sm-3"> -->
 
-										<input type="text" class="form-control" name="aug_hc">
+<!-- 										<input type="text" class="form-control" name="aug_hc"> -->
 
 
-									</div>
-									<label for="inputEmail3" class="col-sm-2 control-label">Value</label>
-									<div class="col-sm-4">
+<!-- 									</div> -->
+<!-- 									<label for="inputEmail3" class="col-sm-2 control-label">Value</label> -->
+<!-- 									<div class="col-sm-4"> -->
 
-										<input type="text" class="form-control" name="aug_val">
+<!-- 										<input type="text" class="form-control" name="aug_val"> -->
 
 
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-3 control-label">Septerber:   HC</label>
-									<div class="col-sm-3">
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<label for="inputEmail3" class="col-sm-3 control-label">Septerber:   HC</label> -->
+<!-- 									<div class="col-sm-3"> -->
 
-										<input type="text" class="form-control" name="sep_hc">
+<!-- 										<input type="text" class="form-control" name="sep_hc"> -->
 
 
-									</div>
-									<label for="inputEmail3" class="col-sm-2 control-label">Value</label>
-									<div class="col-sm-4">
+<!-- 									</div> -->
+<!-- 									<label for="inputEmail3" class="col-sm-2 control-label">Value</label> -->
+<!-- 									<div class="col-sm-4"> -->
 
-										<input type="text" class="form-control" name="sep_val">
+<!-- 										<input type="text" class="form-control" name="sep_val"> -->
 
 
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-3 control-label">Octorber:   HC</label>
-									<div class="col-sm-3">
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<label for="inputEmail3" class="col-sm-3 control-label">Octorber:   HC</label> -->
+<!-- 									<div class="col-sm-3"> -->
 
-										<input type="text" class="form-control" name="oct_hc">
+<!-- 										<input type="text" class="form-control" name="oct_hc"> -->
 
 
-									</div>
-									<label for="inputEmail3" class="col-sm-2 control-label">Value</label>
-									<div class="col-sm-4">
+<!-- 									</div> -->
+<!-- 									<label for="inputEmail3" class="col-sm-2 control-label">Value</label> -->
+<!-- 									<div class="col-sm-4"> -->
 
-										<input type="text" class="form-control" name="oct_val">
+<!-- 										<input type="text" class="form-control" name="oct_val"> -->
 
 
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-3 control-label">November:   HC</label>
-									<div class="col-sm-3">
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<label for="inputEmail3" class="col-sm-3 control-label">November:   HC</label> -->
+<!-- 									<div class="col-sm-3"> -->
 
-										<input type="text" class="form-control" name="nov_hc">
+<!-- 										<input type="text" class="form-control" name="nov_hc"> -->
 
 
-									</div>
-									<label for="inputEmail3" class="col-sm-2 control-label">Value</label>
-									<div class="col-sm-4">
+<!-- 									</div> -->
+<!-- 									<label for="inputEmail3" class="col-sm-2 control-label">Value</label> -->
+<!-- 									<div class="col-sm-4"> -->
 
-										<input type="text" class="form-control" name="nov_val">
+<!-- 										<input type="text" class="form-control" name="nov_val"> -->
 
 
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-3 control-label">December:   HC</label>
-									<div class="col-sm-3">
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<label for="inputEmail3" class="col-sm-3 control-label">December:   HC</label> -->
+<!-- 									<div class="col-sm-3"> -->
 
-										<input type="text" class="form-control" name="dec_hc">
+<!-- 										<input type="text" class="form-control" name="dec_hc"> -->
 
 
-									</div>
-									<label for="inputEmail3" class="col-sm-2 control-label">Value</label>
-									<div class="col-sm-4">
+<!-- 									</div> -->
+<!-- 									<label for="inputEmail3" class="col-sm-2 control-label">Value</label> -->
+<!-- 									<div class="col-sm-4"> -->
 
-										<input type="text" class="form-control" name="dec_val">
+<!-- 										<input type="text" class="form-control" name="dec_val"> -->
 
 
-									</div>
-								</div>
-							</div>
-						</div>
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 
     {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 

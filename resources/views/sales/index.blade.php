@@ -3,10 +3,13 @@
 @section('title', 'Sale')
 
 @section('content')
-    <h1 class="page-header">Full Value</h1>
-    <p>Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam.
-        Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id
-        elit.</p>
+<div class="row">
+<div class="col-sm-11 "><h1 class="page-header">Opportunity</h1></div>
+<div class="col-sm-1"><a href="sale/create" class="text-right"><button type="button" class="btn btn-primary">Create</button></a></div>
+
+</div>
+    
+ 
 <div class="table-responsive">
                         <table
                             class="table table-condensed table-striped table-bordered table-hover no-margin">
@@ -28,7 +31,7 @@
             
                                     
                                     
-                                    <th colspan="2" class="text-center">Jan</th>
+                                  <!--   <th colspan="2" class="text-center">Jan</th>
                                     <th colspan="2" class="text-center">Feb</th>
                                     <th colspan="2" class="text-center">March</th>
 
@@ -42,8 +45,8 @@
 
                                     <th colspan="2" class="text-center">Oct</th>
                                     <th colspan="2" class="text-center">Nov</th>
-                                    <th colspan="2" class="text-center">Dec</th>
-                                    <th rowspan="2" class="text-center">Action</th>
+                                    <th colspan="2" class="text-center">Dec</th>-->
+                                    <th rowspan="2" class="text-center">Action</th> 
 
 
                                 </tr>
@@ -52,7 +55,7 @@
                                     <th>HC</th>
                                     <th>Value</th>
 
-                                    <th>HC</th>
+                                 <!--    <th>HC</th>
                                     <th>USD</th>
                                     <th>HC</th>
                                     <th>USD</th>
@@ -75,7 +78,7 @@
                                     <th>HC</th>
                                     <th>USD</th>
                                     <th>HC</th>
-                                    <th>USD</th>
+                                    <th>USD</th> -->
                                 </tr>
                             </thead>
                              <tbody>
@@ -93,8 +96,8 @@
                                     <td><span>{{ $sale->value }}</span></td>
                                     <td><span>{{ $sale->duration }}</span></td>
                                     <td><span>{{ $sale->probability }}</span></td>
-                                    <td><p class="large-field text-left">{{ date('d/m/y', strtotime($sale->started_at)) }}</p></td>
-                                    <td>{{ $sale->jan_hc > 0 ? $sale->jan_hc : '' }}</td>
+                                   <td><p class="large-field text-left">{{ date('d/m/y', strtotime($sale->started_at)) }}</p></td>
+                                    <!--  <td>{{ $sale->jan_hc > 0 ? $sale->jan_hc : '' }}</td>
                                     <td><span class="name">{{ $sale->jan_val > 0 ? $sale->jan_val : '' }}</span></td>
                                     <td>{{ $sale->feb_hc > 0 ? $sale->feb_hc : '' }}</td>
                                     <td><span class="name">{{ $sale->feb_val > 0 ? $sale->feb_val : '' }}</span></td>
@@ -117,16 +120,14 @@
                                     <td>{{ $sale->nov_hc > 0 ? $sale->nov_hc : '' }}</td>
                                     <td><span class="name">{{ $sale->nov_val > 0 ? $sale->nov_val : '' }}</span></td>
                                     <td>{{ $sale->dec_hc > 0 ? $sale->dec_hc : '' }}</td>
-                                    <td><span class="name">{{ $sale->dec_val > 0 ? $sale->dec_val : '' }}</span></td>
+                                    <td><span class="name">{{ $sale->dec_val > 0 ? $sale->dec_val : '' }}</span></td> -->
                                     <td>
-<a href="sale/{{ $sale->id }}"><i
-                                            class="icon-check"></i></a> <br>
-                    <a href="sale/{{ $sale->id }}/edit"><i
-                                            class="icon-pencil"></i></a> <br>
+<a href="sale/{{ $sale->id }}">View</a>
+                    <a href="sale/{{ $sale->id }}/edit">Edit</a> 
 {{ Form::open(array('url' => 'sale/' . $sale->id)) }}
                     {{ Form::hidden('_method', 'DELETE') }}
 
-                    {{ Form::submit('', array('class' => 'btn btn-xs btn-link icon-trash')) }}
+                    {{ Form::submit('Delete', array('class' => 'btn btn-link')) }}
                 {{ Form::close() }}
 </td>
                                 </tr>
@@ -142,5 +143,5 @@
                     </div>
 
 
-        <a href="sale/create"><button type="button" class="btn btn-primary">Create</button></a>
+        
 @endsection

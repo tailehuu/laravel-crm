@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/cssmenu/styles.css') }}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]>
@@ -57,7 +58,7 @@
 <script>window.jQuery || document.write('<script src="{{ asset('assets/js/vendor/jquery.min.js') }}"><\/script>')</script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
-
+<script src="{{ asset('css/cssmenu/script.js') }}"></script>
 <script type="text/javascript">
 $(".input-group.date").datepicker({ autoclose: true, todayHighlight: true });
 </script>
