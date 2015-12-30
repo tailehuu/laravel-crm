@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Sale')
+@section('title', 'Opportunity')
 
 @section('content')
 <div class="row">
@@ -8,7 +8,9 @@
 <div class="col-sm-1"><a href="sale/create" class="text-right"><button type="button" class="btn btn-primary">Create</button></a></div>
 
 </div>
-    
+ <p>Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam.
+        Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id
+        elit.</p>   
  
 <div class="table-responsive">
                         <table
@@ -17,7 +19,7 @@
                                 <tr>
     
                                 <th rowspan="2">No</th>
-                                    <th rowspan="2">Salea Person</th>
+                                    <th rowspan="2">Sale Person</th>
                                     <th rowspan="2">Prospect/ Customer Name</th>
                                     <th rowspan="2">Country</th>
                                     <th rowspan="2">Region</th>

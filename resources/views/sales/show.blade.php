@@ -1,4 +1,4 @@
-@extends('layouts.master') @section('title', 'Full Value')
+@extends('layouts.master') @section('title', 'Opportunity')
 
 @section('content')
 <h1 class="page-header">Detail</h1>
@@ -12,9 +12,10 @@
 		<div class="col-sm-6">
 			<div class="form-group">
 
-				<label class="col-sm-5 control-label">Sale Person</label>
+				<label class="col-sm-5  text-left">Sale Person</label>
 				<div class="col-sm-7">
-					<label class="col-sm-7 control-label">{{ $sale->user->name}}</label>
+					<span class="col-sm-7">{{ $sale->user->name}}</span>
+
 
 				</div>
 			</div>
@@ -24,50 +25,22 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label">Prospect/
-					Customer Name</label>
-				<div class="col-sm-7">
-				<label class="col-sm-7 control-label">{{ $sale->customer_name}}</label>
-					
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-6">
-			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-5 control-label">Country</label>
-				<div class="col-sm-7">
-				<label class="col-sm-7 control-label">{{ $sale->country->name }}</label>
-					
-				</div>
-			</div>
-		</div>
-
-	</div>
-	<div class="row">
-		<div class="col-sm-6">
-			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label">Region</label>
-				<div class="col-sm-7">
-				<label class="col-sm-7 control-label">{{ $regions[$sale->region] }}</label>
-					
-
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-sm-6">
-			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-5 control-label">Opportunity
+				<label for="inputPassword3" class="col-sm-5 ">Prospect/ Customer
 					Name</label>
 				<div class="col-sm-7">
-<label class="col-sm-7 control-label">{{ $sale->opportunity_name}}</label>
-					
 
-				
+					<span class="col-sm-7">{{ $sale->customer_name}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<label for="inputEmail3" class="col-sm-5 ">Country</label>
+				<div class="col-sm-7">
+
+					<span class="col-sm-7">{{ $sale->country->name }}</span>
 				</div>
 			</div>
 		</div>
@@ -76,51 +49,26 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label">Engagement
-					Type</label>
+				<label for="inputPassword3" class="col-sm-5 ">Region</label>
 				<div class="col-sm-7">
-				<label class="col-sm-7 control-label">{{ $engagements[$sale->engagement] }}</label>
-					
+
+
+					<span class="col-sm-7">{{ $regions[$sale->region] }}</span>
+
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-5 control-label">Service Type</label>
-				<div class="col-sm-7">
-					
-<label class="col-sm-7 control-label">{{ $services[$sale->service] }}</label>
-
-				</div>
-			</div>
-		</div>
-
-
-
-	</div>
-	<div class="row">
-		<div class="col-sm-6">
-			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label">Start
-					Date</label>
+				<label for="inputEmail3" class="col-sm-5 ">Opportunity Name</label>
 				<div class="col-sm-7">
 
-<label class="col-sm-7 control-label">{{ $sale->started_at }}</label>
-					
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-6">
-			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-5 control-label">HC</label>
-				<div class="col-sm-7">
 
-<label class="col-sm-7 control-label">{{ $sale->head_count }}</label>
-					
+					<span class="col-sm-7">{{ $sale->opportunity_name}}</span>
+
 				</div>
 			</div>
 		</div>
@@ -129,12 +77,10 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label">Value</label>
+				<label for="inputPassword3" class="col-sm-5 ">Engagement Type</label>
 				<div class="col-sm-7">
-				
-<label class="col-sm-7 control-label">{{ $sale->value }}</label>
-					
-					
+
+					<span class="col-sm-7">{{ $engagements[$sale->engagement] }}</span>
 				</div>
 			</div>
 		</div>
@@ -142,14 +88,30 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-5 control-label">Duration
-					(month)</label>
+				<label for="inputEmail3" class="col-sm-5 ">Service Type</label>
 				<div class="col-sm-7">
-						
-<label class="col-sm-7 control-label">{{ $sale->duration }}</label>
-					
-					
-					
+
+					<span class="col-sm-7">{{ $services[$sale->service] }}</span>
+
+
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<label for="inputEmail3" class="col-sm-5 ">Head Count</label>
+				<div class="col-sm-7">
+					<span class="col-sm-7">{{ $sale->head_count }}</span>
+
+
+
+
 				</div>
 			</div>
 		</div>
@@ -158,52 +120,59 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label">Probability
-					%</label>
+				<label for="inputPassword3" class="col-sm-5 ">Value</label>
 				<div class="col-sm-7">
-										
-<label class="col-sm-7 control-label">{{ $sale->probability }}</label>
-					
-				
+					<span class="col-sm-7">{{ $sale->value }}</span>
+
+
+
 				</div>
 			</div>
 		</div>
 	</div>
-	<hr>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<label for="inputEmail3" class="col-sm-5 ">Duration (month)</label>
+				<div class="col-sm-7">
+					<span class="col-sm-7">{{ $sale->duration }}</span>
+
+
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<label for="inputPassword3" class="col-sm-5 ">Probability %</label>
+				<div class="col-sm-7">
+					<span class="col-sm-7">{{ $sale->probability }}</span>
+
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<label for="inputPassword3" class="col-sm-5 ">Start Date</label>
+				<div class="col-sm-7">
+					<span class="col-sm-7">{{ $sale->started_at }}</span>
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	
-	
-	<div class="table-responsive">
-                        <table class="table table-condensed table-striped table-bordered table-hover no-margin">
-                            <thead>
-                                <tr>
-    
-                                <th rowspan="2">Date</th>
-                                    <th >HC</th>
-                                    <th >Value</th>
-                                   
-                                </tr>
-                                
-                            </thead>
-                             <tbody>
-                             @foreach($sale->hc_month as $month)
-                                                             <tr>
-                                    <td><label>{{ $month['date'] }}</label></td>
-                                    <td><span class="large-field">{{ $month['hc'] }}</span></td>
-                                    <td><a href="sale/1"><span>{{ $month['value'] }}</span></a></td>
-                                   
 
 
-                                </tr>
-        
-@endforeach
-                                
-
-                            </tbody>
-                        </table>
-                    </div>
-
-	
 
 
 </div>

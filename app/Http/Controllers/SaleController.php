@@ -20,7 +20,7 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $sales = Sale::with('user', 'country')->get();
+        $sales = Sale::with('user', 'country')->orderBy('id', 'desc')->get();
 		
         foreach($sales as $sale) {
             $sale->load('values');
@@ -62,31 +62,7 @@ class SaleController extends Controller
 		$data['region'] = $request['region'];
 		$data['started_at'] = date( 'Y-m-d H:i:s', strtotime($request['started_at']) );
 		$data['value'] = $request['value'];
-		
-// 		$data['jan_hc'] = $request['jan_hc'];
-// 		$data['jan_val'] = $request['jan_val'];
-// 		$data['feb_hc'] = $request['feb_hc'];
-// 		$data['feb_val'] = $request['feb_val'];
-// 		$data['mar_hc'] = $request['mar_hc'];
-// 		$data['mar_val'] = $request['mar_val'];
-// 		$data['apr_hc'] = $request['apr_hc'];
-// 		$data['apr_val'] = $request['apr_val'];
-// 		$data['may_hc'] = $request['may_hc'];
-// 		$data['may_val'] = $request['may_val'];
-// 		$data['jun_hc'] = $request['jun_hc'];
-// 		$data['jun_val'] = $request['jun_val'];
-// 		$data['jul_hc'] = $request['jul_hc'];
-// 		$data['jul_val'] = $request['jul_val'];
-// 		$data['aug_hc'] = $request['aug_hc'];
-// 		$data['aug_val'] = $request['aug_val'];
-// 		$data['sep_val'] = $request['sep_val'];
-// 		$data['sep_hc'] = $request['sep_hc'];
-// 		$data['oct_val'] = $request['oct_val'];
-// 		$data['oct_hc'] = $request['oct_hc'];
-// 		$data['nov_val'] = $request['nov_val'];
-// 		$data['nov_hc'] = $request['nov_hc'];
-// 		$data['dec_val'] = $request['dec_val'];
-// 		$data['dec_hc'] = $request['dec_hc'];
+		$data['service'] = $request['service'];
        
 
     	$sale = Sale::insert($data);
@@ -161,31 +137,8 @@ class SaleController extends Controller
         $sale->region = $request['region'];
         $sale->started_at = date( 'Y-m-d H:i:s', strtotime($request['started_at']) );
         $sale->value = $request['value'];
-        
-//         $sale->jan_hc = $request['jan_hc'];
-//         $sale->jan_val = $request['jan_val'];
-//         $sale->feb_hc = $request['feb_hc'];
-//         $sale->feb_val = $request['feb_val'];
-//         $sale->mar_hc = $request['mar_hc'];
-//         $sale->mar_val = $request['mar_val'];
-//         $sale->apr_hc = $request['apr_hc'];
-//         $sale->apr_val = $request['apr_val'];
-//         $sale->may_hc = $request['may_hc'];
-//         $sale->may_val = $request['may_val'];
-//         $sale->jun_hc = $request['jun_hc'];
-//         $sale->jun_val = $request['jun_val'];
-//         $sale->jul_hc = $request['jul_hc'];
-//         $sale->jul_val = $request['jul_val'];
-//         $sale->aug_hc = $request['aug_hc'];
-//         $sale->aug_val = $request['aug_val'];
-//         $sale->sep_val = $request['sep_val'];
-//         $sale->sep_hc = $request['sep_hc'];
-//         $sale->oct_val = $request['oct_val'];
-//         $sale->oct_hc = $request['oct_hc'];
-//         $sale->nov_val = $request['nov_val'];
-//         $sale->nov_hc = $request['nov_hc'];
-//         $sale->dec_val = $request['dec_val'];
-//         $sale->dec_hc = $request['dec_hc'];
+        $sale->service = $request['service'];
+
 
 
         $sale->save();

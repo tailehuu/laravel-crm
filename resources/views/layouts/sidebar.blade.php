@@ -4,12 +4,12 @@
 </ul> -->
 <div id='cssmenu'>
 <ul>
-   <li><a href="{{ url('sale') }}" class="dropdown-toggle" data-drop="magazine"> Opportunity </a></li>
+   <li {{ (Request::is('*sale') ? 'class=active' : '') }} ><a href="{{ url('sale') }}" class="dropdown-toggle" data-drop="magazine"> Opportunity </a></li>
    <li class='has-sub {{ (Request::is('*weighted') ? 'open active' : '') }}' ><a href='#'><span>Value</span></a>
       <ul style="display:{{ (Request::is('*weighted') ? 'block' : 'none') }}">
-         <li><a href='#'><span>Full Value</span></a>
+         <li><a href='/value/full'><span>Full Value</span></a>
          </li>
-         <li><a href="{{ url('weighted') }}"><span> Weighted Value</span></a>
+         <li><a href="/value/weighted"><span> Weighted Value</span></a>
             
          </li>
       </ul>

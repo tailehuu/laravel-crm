@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Full Value')
+@section('title', 'Opportunity')
 
 @section('content')
     <h1 class="page-header">Create</h1>
@@ -144,20 +144,7 @@
 							
 
 						</div>
-						<div class="row">
-						<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputPassword3" class="col-sm-5 control-label">Start
-										Date</label>
-									<div class="col-sm-7">
-										<div class="input-group date" id="dp3">
-      <input class="form-control required" type="text" name="started_at">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-    </div>
-									</div>
-								</div>
-							</div>
-						</div>
+						
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group">
@@ -207,6 +194,20 @@
 								</div>
 							</div>
 </div>
+<div class="row">
+						<div class="col-sm-6">
+								<div class="form-group">
+									<label for="inputPassword3" class="col-sm-5 control-label">Start
+										Date</label>
+									<div class="col-sm-7">
+										<div class="input-group date" id="dp3">
+      <input class="form-control required" type="text" name="started_at">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+    </div>
+									</div>
+								</div>
+							</div>
+						</div>
     <hr>
     
 <!--     	<div class="row"> -->
@@ -438,7 +439,7 @@
 <!-- 							</div> -->
 <!-- 						</div> -->
 
-    {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
+    {{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
         

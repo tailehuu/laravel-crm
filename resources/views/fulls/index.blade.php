@@ -1,8 +1,8 @@
-@extends('layouts.master') @section('title', 'Weighted Value')
+@extends('layouts.master') @section('title', 'Full Value')
 
 @section('content')
 
-<h1 class="page-header">Weighted Value</h1>
+<h1 class="page-header">Full Value</h1>
 
 
 <p>Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum
