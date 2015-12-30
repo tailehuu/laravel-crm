@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><span><img src="{{ asset('images/logo.png') }}" height="25" alt="Infonam"/></span></a>
+            <a class="navbar-brand" href="/"><span><img src="{{ asset('images/logo.png') }}" height="25" alt="Infonam"/></span><span class="brand-text">Sale And Revenue Tool</span></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
         <div class="navigation-main-selector three-tabs">

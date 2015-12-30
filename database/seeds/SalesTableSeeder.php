@@ -43,6 +43,7 @@ class SalesTableSeeder extends Seeder
             'value' => 360000,
             'duration' => 12,
             'probability' => 50,
+        		'started_at' => '2015-01-01 00:00:00'
         ]);
 
         DB::table('values')->insert([
@@ -79,6 +80,7 @@ class SalesTableSeeder extends Seeder
             'value' => 300000,
             'duration' => 12,
             'probability' => 30,
+        	'started_at' => '2015-06-01 00:00:00'
         ]);
 
         DB::table('values')->insert([

@@ -28,7 +28,21 @@
 				<th rowspan="2">Duration (month)</th>
 				<th rowspan="2">Probability %</th>
 				<th rowspan="2">Start Date</th>
+				<th colspan="2" class="text-center">Jan</th>
+				<th colspan="2" class="text-center">Feb</th>
+				<th colspan="2" class="text-center">March</th>
 
+				<th colspan="2" class="text-center">Apr</th>
+				<th colspan="2" class="text-center">May</th>
+				<th colspan="2" class="text-center">Jun</th>
+
+				<th colspan="2" class="text-center">Jul</th>
+				<th colspan="2" class="text-center">Aug</th>
+				<th colspan="2" class="text-center">Sep</th>
+
+				<th colspan="2" class="text-center">Oct</th>
+				<th colspan="2" class="text-center">Nov</th>
+				<th colspan="2" class="text-center">Dec</th>
 
 
 
@@ -39,7 +53,30 @@
 
 				<th>HC</th>
 				<th>Value</th>
-
+				<th>HC</th>
+				<th>USD</th>
+				<th>HC</th>
+				<th>USD</th>
+				<th>HC</th>
+				<th>USD</th>
+				<th>HC</th>
+				<th>USD</th>
+				<th>HC</th>
+				<th>USD</th>
+				<th>HC</th>
+				<th>USD</th>
+				<th>HC</th>
+				<th>USD</th>
+				<th>HC</th>
+				<th>USD</th>
+				<th>HC</th>
+				<th>USD</th>
+				<th>HC</th>
+				<th>USD</th>
+				<th>HC</th>
+				<th>USD</th>
+				<th>HC</th>
+				<th>USD</th>
 
 			</tr>
 		</thead>
@@ -59,8 +96,11 @@
 				<td><span>{{ $sale->duration }}</span></td>
 				<td><span>{{ $sale->probability }}</span></td>
 				<td><p class="large-field text-left">{{ date('d/m/y',
-						strtotime($sale->started_at)) }}</p></td>
-
+						strtotime($sale->started_at)) }}</p></td> 
+				@foreach ($sale->months	as $month)
+				<td>{{ $month['hc'] > 0 ? $month['hc'] : '' }}</td>
+				<td><span class="name">{{ $month['value'] > 0 ? $month['value'] : '' }}</span></td>
+				@endforeach
 
 			</tr>
 

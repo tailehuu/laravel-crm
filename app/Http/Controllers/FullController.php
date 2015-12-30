@@ -25,9 +25,11 @@ class FullController extends Controller
 		$sales = Sale::with('user', 'country')->orderBy('id', 'desc')->get();
 	
 		foreach($sales as $sale) {
-			$sale->load('values');
+			$value = Sale::makeFullValue($sale);
+			$sale->months = $value;
+// 			$sale->load('values');
 		}
-		 
+
 		return view('fulls.index')->with('sales', $sales);
 	}
 }
