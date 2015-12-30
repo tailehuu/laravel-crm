@@ -65,4 +65,40 @@ class Sale extends Model
 		
 		return $values;
     }
+    static function makeWeightedValue($sale)
+    {
+    	$currentYear = date ( "Y" );
+    	$startMonth = Carbon::parse ( $sale->started_at )->month;
+    	$startYear = Carbon::parse ( $sale->started_at )->year;
+    
+    	$values = [ ];
+    
+    	if ($currentYear == $startYear) {
+    			
+    		for($i = 1; $i <= 12; $i ++) {
+    
+    			if ($i < $startMonth) {
+    				array_push ( $values, array (
+    				'hc' => 0,
+    				'value' => 0
+    				) );
+    			} else {
+    				array_push ( $values, array (
+    				'hc' => number_format(($sale->head_count / $sale->duration)*($sale->probability/100), 0) ,
+    				'value' => number_format(($sale->value / $sale->duration)*($sale->probability/100), 0)
+    
+    				) );
+    			}
+    		}
+    	} else {
+    		for($i = 1; $i <= 12; $i ++) {
+    			array_push ( $values, array (
+    			'hc' => 0,
+    			'value' => 0
+    			) );
+    		}
+    	}
+    
+    	return $values;
+    }
 }
