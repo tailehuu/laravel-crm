@@ -834,3 +834,14 @@ body {
 .btn-link {
     padding: 0 !important;
 }
+.width-date
+{
+	min-width: 75px;
+}
+.table-condensed thead{
+	background-color: #f9f9f9;
+}
+.no-padding
+{
+	margin-top: 0 !important;
+}

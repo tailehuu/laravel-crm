@@ -56,6 +56,32 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<label for="inputPassword3" class="col-sm-5 ">Vertical</label>
+				<div class="col-sm-7">
+					<span class="col-sm-7">{{ $verticals[$sale->vertical] }}</span>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<label for="inputPassword3" class="col-sm-5 ">Delivery Location</label>
+				<div class="col-sm-7">
+
+
+					<span class="col-sm-7">{{ $deliveryLocations[$sale->delivery_location] }}</span>
+
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="row">
 		<div class="col-sm-6">

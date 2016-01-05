@@ -14,9 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->share('regions', ['West Coast', 'East Coast']);
+        view()->share('regions', ['West Coast', 'East Coast', 'India', 'APAC', 'Europe', 'Others']);
         view()->share('engagements', ['T&M', 'Fixed']);
         view()->share('services', ['Testing', 'Development', 'Sustenance']);
+        view()->share('verticals', ['Com', 'M&E', 'H&T', 'S&A']);
+        view()->share('deliveryLocations', ['India', 'Vietnam', 'US']);
     }
 
     /**

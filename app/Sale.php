@@ -48,8 +48,8 @@ class Sale extends Model
 					) );
 				} else {
 					array_push ( $values, array (
-							'hc' => number_format($sale->head_count / $sale->duration, 2) ,
-							'value' => number_format($sale->value / $sale->duration, 2) 
+							'hc' => $sale->head_count / $sale->duration ,
+							'value' => $sale->value / $sale->duration
 						
 					) );
 				}
@@ -84,8 +84,8 @@ class Sale extends Model
     				) );
     			} else {
     				array_push ( $values, array (
-    				'hc' => number_format(($sale->head_count / $sale->duration)*($sale->probability/100), 2) ,
-    				'value' => number_format(($sale->value / $sale->duration)*($sale->probability/100), 2)
+    				'hc' => ($sale->head_count / $sale->duration)*($sale->probability/100) ,
+    				'value' => ($sale->value / $sale->duration)*($sale->probability/100)
     
     				) );
     			}

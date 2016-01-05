@@ -19,6 +19,13 @@ class FullController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
+		
+		$currentYear = date ("Y");
+		$start_year = $currentYear - 5;
+		$end_year = $currentYear + 5;
+		
+		$years = array('current'=> $currentYear, 'start'=> $start_year, 'end' => $end_year);
+
 		$sales = Sale::with ( 'user', 'country' )->orderBy ( 'id', 'desc' )->get ();
 		$totals = [ ];
 		$hc1 = $hc2 = $hc3 = $hc4 = $hc5 = $hc6 = $hc7 = $hc8 = $hc9 = $hc10 = $hc11 = $hc12 = 0;
@@ -101,6 +108,6 @@ class FullController extends Controller {
 				'value' => $v12 
 		) );
 		
-		return view ( 'fulls.index' )->with ( 'sales', $sales )->with ( 'totals', $totals );
+		return view ( 'fulls.index' )->with ( 'sales', $sales )->with ( 'totals', $totals )->with('years', $years);
 	}
 }

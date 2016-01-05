@@ -17,7 +17,10 @@ class CreateSalesTable extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('customer_name');
             $table->integer('country_id')->unsigned()->nullable();
-            $table->smallInteger('region'); // West Coast, East Coast
+            $table->smallInteger('region');            
+            $table->smallInteger('vertical');
+            $table->smallInteger('delivery_location');
+            
             $table->string('opportunity_name');
             $table->smallInteger('engagement'); // T&M, Fixed
             $table->smallInteger('service'); // Testing, Development, Sustenance
@@ -27,30 +30,7 @@ class CreateSalesTable extends Migration
             $table->integer('probability')->default(0)->unsigned();
             $table->dateTime('started_at');
             
-//             $table->float('jan_hc')->default(0)->unsigned();
-//             $table->float('jan_val')->default(0)->unsigned();
-//             $table->float('feb_hc')->default(0)->unsigned();
-//             $table->float('feb_val')->default(0)->unsigned();
-//             $table->float('mar_hc')->default(0)->unsigned();
-//             $table->float('mar_val')->default(0)->unsigned();
-//             $table->float('apr_hc')->default(0)->unsigned();
-//             $table->float('apr_val')->default(0)->unsigned();
-//             $table->float('may_hc')->default(0)->unsigned();
-//             $table->float('may_val')->default(0)->unsigned();
-//             $table->float('jun_hc')->default(0)->unsigned();
-//             $table->float('jun_val')->default(0)->unsigned();
-//             $table->float('jul_hc')->default(0)->unsigned();
-//             $table->float('jul_val')->default(0)->unsigned();
-//             $table->float('aug_hc')->default(0)->unsigned();
-//             $table->float('aug_val')->default(0)->unsigned();
-//             $table->float('sep_hc')->default(0)->unsigned();
-//             $table->float('sep_val')->default(0)->unsigned();
-//             $table->float('oct_hc')->default(0)->unsigned();
-//             $table->float('oct_val')->default(0)->unsigned();
-//             $table->float('nov_hc')->default(0)->unsigned();
-//             $table->float('nov_val')->default(0)->unsigned();
-//             $table->float('dec_hc')->default(0)->unsigned();
-//             $table->float('dec_val')->default(0)->unsigned();
+            
             $table->timestamps();
 
             // relationship

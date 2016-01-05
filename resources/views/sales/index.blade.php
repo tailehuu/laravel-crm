@@ -1,9 +1,9 @@
 @extends('layouts.master') @section('title', 'Opportunity')
 
 @section('content')
-<div class="row">
+<div class="row page-header">
 	<div class="col-sm-11 ">
-		<h1 class="page-header">Opportunity</h1>
+		<h1 class="no-padding">Opportunity</h1>
 	</div>
 	<div class="col-sm-1">
 		<a href="sale/create" class="text-right"><button type="button"
@@ -28,6 +28,10 @@
 				<th class="text-center" rowspan="2">Country<br> &nbsp
 				</th>
 				<th class="text-center" rowspan="2">Region<br> &nbsp
+				</th>
+				<th class="text-center" rowspan="2">Vertical<br> &nbsp
+				</th>
+				<th class="text-center" rowspan="2">Delivery<br> Location
 				</th>
 				<th class="text-center" rowspan="2">Opportunity<br> Name
 				</th>
@@ -61,9 +65,11 @@
 			<tr>
 				<td><label>{{ $index+1 }}</label></td>
 				<td><span class="large-field">{{ $sale->user->name }}</span></td>
-				<td><a href="sale/{{ $sale->id }}"><span>{{ $sale->customer_name }}</span></a></td>
+				<td><a href="sale/{{ $sale->id }}/edit"><span>{{ $sale->customer_name }}</span></a></td>
 				<td><span class="label label-info">{{ $sale->country->name }}</span></td>
 				<td><span>{{ $regions[$sale->region] }}</span></td>
+				<td><span>{{ $verticals[$sale->vertical] }}</span></td>
+				<td><span>{{ $deliveryLocations[$sale->delivery_location] }}</span></td>
 				<td><span>{{ $sale->opportunity_name }}</span></td>
 				<td><span>{{ $engagements[$sale->engagement] }}</span></td>
 				<td><span>{{ $services[$sale->service] }}</span></td>
@@ -73,12 +79,10 @@
 				<td class="text-right"><span>{{ number_format( $sale->value, 0) }}</span></td>
 				<td class="text-right"><span>{{ number_format( $sale->duration, 0) }}</span></td>
 				<td class="text-right"><span>{{ $sale->probability }}</span></td>
-				<td><p class="large-field text-left">{{ date('d/m/y',
+				<td><p class="large-field text-left width-date">{{ date('M d, Y',
 						strtotime($sale->started_at)) }}</p></td>
 
-				<td><a href="sale/{{ $sale->id }}">View</a> <a
-					href="sale/{{ $sale->id }}/edit">Edit</a> {{ Form::open(array('url'
-					=> 'sale/' . $sale->id)) }} {{ Form::hidden('_method', 'DELETE') }}
+				<td class="width-date"><a href="sale/{{ $sale->id }}/edit">Edit</a> {{ Form::open(array('url'=> 'sale/' . $sale->id)) }} {{ Form::hidden('_method', 'DELETE') }}
 
 					{{ Form::submit('Delete', array('class' => 'btn btn-link')) }} {{
 					Form::close() }}</td>

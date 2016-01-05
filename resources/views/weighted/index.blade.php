@@ -22,6 +22,10 @@
 				</th>
 				<th class="text-center" rowspan="2">Region<br> &nbsp
 				</th>
+				<th class="text-center" rowspan="2">Vertical<br> &nbsp
+				</th>
+				<th class="text-center" rowspan="2">Delivery<br> Location
+				</th>
 				<th class="text-center" rowspan="2">Opportunity<br> Name
 				</th>
 				<th class="text-center" rowspan="2">Engagement<br> Type
@@ -94,6 +98,8 @@
       <td>&nbsp</td>
       <td>&nbsp</td>
       <td>&nbsp</td>
+       <td>&nbsp</td>
+      <td>&nbsp</td>
       <td>&nbsp</td>
       <td>&nbsp</td>
       <td>&nbsp</td>
@@ -115,21 +121,25 @@
 			<tr>
 				<td><label>{{ $index+1 }}</label></td>
 				<td><span class="large-field">{{ $sale->user->name }}</span></td>
-				<td><a href="sale/{{ $sale->id }}"><span>{{ $sale->customer_name }}</span></a></td>
+				<td>
+				{{ link_to_route('sale.edit', $title = $sale->customer_name, $parameters = array('id'=>$sale->id), $attributes = array()) }}
+				</td>
 				<td><span class="label label-info">{{ $sale->country->name }}</span></td>
 				<td><span>{{ $regions[$sale->region] }}</span></td>
+				<td><span>{{ $verticals[$sale->vertical] }}</span></td>
+				<td><span>{{ $deliveryLocations[$sale->delivery_location] }}</span></td>
 				<td><span>{{ $sale->opportunity_name }}</span></td>
 				<td><span>{{ $engagements[$sale->engagement] }}</span></td>
 				<td><span>{{ $services[$sale->service] }}</span></td>
-				<td><span>{{ $sale->head_count }}</span></td>
-				<td><span>{{ $sale->value }}</span></td>
-				<td><span>{{ $sale->duration }}</span></td>
-				<td><span>{{ $sale->probability }}</span></td>
-				<td><p class="large-field text-left">{{ date('d/m/y',
+				<td class="text-right"><span>{{ number_format($sale->head_count, 2) }}</span></td>
+				<td class="text-right"><span>{{ number_format($sale->value, 2) }}</span></td>
+				<td class="text-right"><span>{{ $sale->duration }}</span></td>
+				<td class="text-right"><span>{{ $sale->probability }}</span></td>
+				<td class="text-right"><p class="large-field text-left width-date">{{ date('M d, Y',
 						strtotime($sale->started_at)) }}</p></td> 
 				@foreach ($sale->months	as $month)
-				<td class="text-right">{{ $month['hc'] > 0 ? $month['hc'] : '' }}</td>
-				<td class="text-right"><span class="name">{{ $month['value'] > 0 ? $month['value'] : '' }}</span></td>
+				<td class="text-right">{{ $month['hc'] > 0 ? number_format($month['hc'], 2) : '' }}</td>
+				<td class="text-right"><span class="name">{{ $month['value'] > 0 ? number_format($month['value'], 2) : '' }}</span></td>
 				@endforeach
 
 			</tr>

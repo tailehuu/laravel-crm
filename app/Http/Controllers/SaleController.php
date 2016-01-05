@@ -56,6 +56,8 @@ class SaleController extends Controller {
 		$data ['opportunity_name'] = $request ['opportunity_name'];
 		$data ['probability'] = $request ['probability'];
 		$data ['region'] = $request ['region'];
+		$data ['vertical'] = $request ['vertical'];
+		$data ['delivery_location'] = $request ['delivery_location'];
 		$data ['started_at'] = date ( 'Y-m-d H:i:s', strtotime ( $request ['started_at'] ) );
 		$data ['value'] = $request ['value'];
 		$data ['service'] = $request ['service'];
@@ -122,6 +124,9 @@ class SaleController extends Controller {
 		$sale->opportunity_name = $request ['opportunity_name'];
 		$sale->probability = $request ['probability'];
 		$sale->region = $request ['region'];
+		$sale->vertical = $request ['vertical'];
+		$sale->delivery_location = $request ['delivery_location'];
+		
 		$sale->started_at = date ( 'Y-m-d H:i:s', strtotime ( $request ['started_at'] ) );
 		$sale->value = $request ['value'];
 		$sale->service = $request ['service'];
