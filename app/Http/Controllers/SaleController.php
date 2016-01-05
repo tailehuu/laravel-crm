@@ -70,7 +70,7 @@ class SaleController extends Controller {
 			$sale->load ( 'values' );
 		}
 		
-		return view ( 'sales.index' )->with ( 'sales', $sales );
+		return redirect ( 'sale');
 	}
 	
 	/**
