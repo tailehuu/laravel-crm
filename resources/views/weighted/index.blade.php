@@ -5,10 +5,6 @@
 <h1 class="page-header">Weighted Value</h1>
 
 
-<p>Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum
-	nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem
-	lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies
-	vehicula ut id elit.</p>
 
 <div class="table-responsive">
 	<table
@@ -16,18 +12,29 @@
 		<thead>
 			<tr>
 
-				<th rowspan="2">No</th>
-				<th rowspan="2">Sale Person</th>
-				<th rowspan="2">Prospect/ Customer Name</th>
-				<th rowspan="2">Country</th>
-				<th rowspan="2">Region</th>
-				<th rowspan="2">Opportunity Name</th>
-				<th rowspan="2">Engagement Type</th>
-				<th rowspan="2">Service Type</th>
-				<th colspan="2" class="text-center">Total</th>
-				<th rowspan="2">Duration (month)</th>
-				<th rowspan="2">Probability %</th>
-				<th rowspan="2">Start Date</th>
+				<th class="text-center" rowspan="2">No<br> &nbsp
+				</th>
+				<th class="text-center" rowspan="2">Sale<br> Person
+				</th>
+				<th class="text-center" rowspan="2">Customer<br> Name
+				</th>
+				<th class="text-center" rowspan="2">Country<br> &nbsp
+				</th>
+				<th class="text-center" rowspan="2">Region<br> &nbsp
+				</th>
+				<th class="text-center" rowspan="2">Opportunity<br> Name
+				</th>
+				<th class="text-center" rowspan="2">Engagement<br> Type
+				</th>
+				<th class="text-center" rowspan="2">Service<br> Type
+				</th>
+				<th class="text-center" colspan="2" class="text-center">Total</th>
+				<th class="text-center" rowspan="2">Duration<br> (month)
+				</th>
+				<th class="text-center" rowspan="2">Probability<br> (%)
+				</th>
+				<th class="text-center" rowspan="2">Start<br> Date
+				</th>
 				<th colspan="2" class="text-center">Jan</th>
 				<th colspan="2" class="text-center">Feb</th>
 				<th colspan="2" class="text-center">March</th>
@@ -51,35 +58,58 @@
 			</tr>
 			<tr>
 
-				<th>HC</th>
-				<th>Value</th>
-				<th>HC</th>
-				<th>USD</th>
-				<th>HC</th>
-				<th>USD</th>
-				<th>HC</th>
-				<th>USD</th>
-				<th>HC</th>
-				<th>USD</th>
-				<th>HC</th>
-				<th>USD</th>
-				<th>HC</th>
-				<th>USD</th>
-				<th>HC</th>
-				<th>USD</th>
-				<th>HC</th>
-				<th>USD</th>
-				<th>HC</th>
-				<th>USD</th>
-				<th>HC</th>
-				<th>USD</th>
-				<th>HC</th>
-				<th>USD</th>
-				<th>HC</th>
-				<th>USD</th>
+				<th class="text-center">HC</th>
+				<th class="text-center">Value</th>
+				<th class="text-center">HC</th>
+				<th class="text-center">USD</th>
+				<th class="text-center">HC</th>
+				<th class="text-center">USD</th>
+				<th class="text-center">HC</th>
+				<th class="text-center">USD</th>
+				<th class="text-center">HC</th>
+				<th class="text-center">USD</th>
+				<th class="text-center">HC</th>
+				<th class="text-center">USD</th>
+				<th class="text-center">HC</th>
+				<th class="text-center">USD</th>
+				<th class="text-center">HC</th>
+				<th class="text-center">USD</th>
+				<th class="text-center">HC</th>
+				<th class="text-center">USD</th>
+				<th class="text-center">HC</th>
+				<th class="text-center">USD</th>
+				<th class="text-center">HC</th>
+				<th class="text-center">USD</th>
+				<th class="text-center">HC</th>
+				<th class="text-center">USD</th>
+				<th class="text-center">HC</th>
+				<th class="text-center">USD</th>
 
 			</tr>
 		</thead>
+		<tfoot>
+    <tr>
+     <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td class="text-right"><strong>Total</strong></td>
+      @foreach ($totals	as $total)
+				<td class="text-right"><strong>{{  $total['hc'] > 0 ? number_format($total['hc'], 2) : '' }}</strong></td>
+				<td class="text-right"><strong><span class="name">{{ $total['value'] > 0 ? number_format($total['value'], 2) : '' }}</span></strong></td>
+	@endforeach
+	
+	
+    </tr>
+  </tfoot>
 		<tbody>
 			@foreach ($sales as $index => $sale)
 			<tr>
@@ -98,14 +128,13 @@
 				<td><p class="large-field text-left">{{ date('d/m/y',
 						strtotime($sale->started_at)) }}</p></td> 
 				@foreach ($sale->months	as $month)
-				<td>{{ $month['hc'] > 0 ? $month['hc'] : '' }}</td>
-				<td><span class="name">{{ $month['value'] > 0 ? $month['value'] : '' }}</span></td>
+				<td class="text-right">{{ $month['hc'] > 0 ? $month['hc'] : '' }}</td>
+				<td class="text-right"><span class="name">{{ $month['value'] > 0 ? $month['value'] : '' }}</span></td>
 				@endforeach
 
 			</tr>
 
 			@endforeach
-
 
 
 

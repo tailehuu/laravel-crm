@@ -2,10 +2,7 @@
 
 @section('content')
 <h1 class="page-header">Detail</h1>
-<p>Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum
-	nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem
-	lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies
-	vehicula ut id elit.</p>
+
 
 <div class="form-horizontal">
 	<div class="row">
@@ -147,7 +144,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 ">Probability %</label>
+				<label for="inputPassword3" class="col-sm-5 ">Probability (%)</label>
 				<div class="col-sm-7">
 					<span class="col-sm-7">{{ $sale->probability }}</span>
 
