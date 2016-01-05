@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use DB;
 
 class FullController extends Controller {
 	//
@@ -18,15 +19,95 @@ class FullController extends Controller {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function index() {
+	public function index(Request $request) {
 		
-		$currentYear = date ("Y");
-		$start_year = $currentYear - 5;
-		$end_year = $currentYear + 5;
-		
-		$years = array('current'=> $currentYear, 'start'=> $start_year, 'end' => $end_year);
 
-		$sales = Sale::with ( 'user', 'country' )->orderBy ( 'id', 'desc' )->get ();
+		
+		
+		
+		//$sales = Sale::with ( 'user', 'country' )->orderBy ( 'id', 'desc' )->get ();
+		$sales = Sale::with ( 'user', 'country' )->orderBy ( 'id', 'desc' )->where('id', '>', 0);
+		$flag = 0;
+		
+		$arr_Request = [];
+		if($request ['user_id'] != null)
+		{
+			$arr_Request['user_id'] = $request ['user_id'];	
+			$flag = 1;
+			$sales = $sales->orWhere('id', $arr_Request['user_id']);
+		}
+		else
+		{
+			$arr_Request['user_id'] = null;
+		}			
+		if($request ['customer_name'] != null)
+		{
+			$arr_Request['customer_name'] = $request ['customer_name'];
+			$sales = $sales->orWhere('customer_name', $arr_Request['customer_name']);
+			$flag = 1;
+		}
+		else {
+			$arr_Request['customer_name'] = null;
+		}
+		if($request ['country_id'] != null)
+		{
+			$arr_Request['country_id'] = $request ['country_id'];
+			$flag = 1;
+		}else {
+			$arr_Request['country_id'] = null;
+		}
+		if($request ['region'] != null)
+		{
+			$arr_Request['region'] = $request ['region'];
+			$flag = 1;
+		}else {
+			$arr_Request['region'] = null;
+		}
+		if($request ['vertical'] != null)
+		{
+			$arr_Request['vertical'] = $request ['vertical'];
+			$flag = 1;
+		}else {
+			$arr_Request['vertical'] = null;
+		}
+		if($request ['delivery_location'] != null)
+		{
+			$arr_Request['delivery_location'] = $request ['delivery_location'];
+			$flag = 1;
+		}else {
+			$arr_Request['delivery_location'] = null;
+		}
+		if($request ['engagement'] != null)
+		{
+			$arr_Request['engagement'] = $request ['engagement'];
+			$flag = 1;
+		}else {
+			$arr_Request['engagement'] = null;
+		}
+		if($request ['service'] != null)
+		{
+			$arr_Request['service'] = $request ['service'];
+			$flag = 1;
+		}else {
+			$arr_Request['service'] = null;
+		}
+		if($request ['year'] != null)
+		{
+			$arr_Request['year'] = $request ['year'];
+			$flag = 1;
+		}else {
+			$arr_Request['year'] = null;
+		}
+		//print_r($arr_Request);return ;
+		$currentYear = date ("Y");
+		
+		$years = Sale::getYear();
+
+		$sales = $sales->get();
+		
+// 		print_r($sales);
+// 		return;
+		
 		$totals = [ ];
 		$hc1 = $hc2 = $hc3 = $hc4 = $hc5 = $hc6 = $hc7 = $hc8 = $hc9 = $hc10 = $hc11 = $hc12 = 0;
 		$v1 = $v2 = $v3 = $v4 = $v5 = $v6 = $v7 = $v8 = $v9 = $v10 = $v11 = $v12 = 0;
@@ -108,6 +189,10 @@ class FullController extends Controller {
 				'value' => $v12 
 		) );
 		
-		return view ( 'fulls.index' )->with ( 'sales', $sales )->with ( 'totals', $totals )->with('years', $years);
+		$users = User::all ();
+		$countries = Country::all ();
+		$customerNames = Sale::getCustomerName();
+		return view ( 'fulls.index' )->with ( 'sales', $sales )->with ( 'totals', $totals )->with('years', $years)->with ( 'users', $users )->with ( 'countries', $countries )->with('arr_Request', $arr_Request)->with('customerNames', $customerNames);
 	}
+	
 }

@@ -65,6 +65,20 @@ class Sale extends Model
 		
 		return $values;
     }
+    static function getYear()
+    {
+    	$currentYear = date ("Y");
+    	$start_year = $currentYear - 5;
+    	$end_year = $currentYear + 5;
+    	$years = [];
+    	
+    	for($i = $start_year; $i<= $end_year; $i++)
+    	{
+    	array_push($years,$i);
+    	}
+    	
+    	return $years;
+    }
     static function makeWeightedValue($sale)
     {
     	$currentYear = date ( "Y" );
@@ -100,5 +114,9 @@ class Sale extends Model
     	}
     
     	return $values;
+    }
+    static function getCustomerName(){
+    	$customerNames = Sale::select('customer_name')->distinct()->groupBy('customer_name')->get();
+    	return $customerNames;
     }
 }

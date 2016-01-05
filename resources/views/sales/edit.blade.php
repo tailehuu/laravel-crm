@@ -14,7 +14,8 @@
 				<label class="col-sm-5 control-label">Sale Person</label>
 				<div class="col-sm-7">
 					<select class="form-control select-value" name="user_id"> 
-					@foreach($users as $key => $user) @if( $sale->user_id == $user->id)
+					@foreach($users as $key => $user) 
+					@if( $sale->user_id == $user->id)
 						<option value="{{ $user->id }}" selected="selected">{{ $user->name
 							}}</option> @else
 						<option value="{{ $user->id }}">{{ $user->name }}</option> @endif

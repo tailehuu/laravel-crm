@@ -5,7 +5,241 @@
 <h1 class="page-header">Full Value</h1>
 
 
+{{ Form::open(array('url' => 'value/full', 'method' => 'get', 'class' => 'form-horizontal')) }}
 
+<h4>Filter</h4>
+
+<div class="row">
+	<div class="col-sm-6">
+		<div class="form-group">
+
+			<label class="col-sm-5 control-label">Sale Person</label>
+			<div class="col-sm-7">
+				<select class="form-control select-value" name="user_id">
+				<option></option> 
+				@foreach($users as $key => $user)
+					@if($arr_Request['user_id'] == $user->id)
+					<option value="{{ $user->id }}" selected="selected">{{ $user->name }}</option>
+					@else
+					<option value="{{ $user->id }}">{{ $user->name }}</option>
+					@endif
+					@endforeach
+
+				</select>
+
+
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="row">
+
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label for="inputPassword3" class="col-sm-5 control-label">Prospect/
+				Customer Name</label>
+			<div class="col-sm-7">
+				
+					<select class="form-control select-value" name="customer_name">
+				<option></option> 
+				@foreach($customerNames as $key => $customerName)
+					@if($arr_Request['customer_name'] == $customerName->customer_name)
+					<option value="{{ $customerName->customer_name }}" selected="selected">{{ $customerName->customer_name }}</option>
+					@else
+					<option value="{{ $customerName->customer_name }}">{{ $customerName->customer_name }}</option>
+					@endif
+					@endforeach
+
+				</select>
+					
+					
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-5 control-label">Country</label>
+			<div class="col-sm-7">
+				<select class="form-control select-value" name="country_id">
+				<option ></option> 
+					@foreach ($countries as $country)					
+					@if($arr_Request['country_id'] == $country->id)
+					<option value="{{ $country->id }}" selected="selected">{{ $country->name }}</option>
+					@else
+					<option value="{{ $country->id }}">{{ $country->name }}</option>
+					@endif
+					@endforeach			
+
+				</select>
+
+
+			</div>
+		</div>
+	</div>
+
+</div>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label for="inputPassword3" class="col-sm-5 control-label">Region</label>
+			<div class="col-sm-7">
+				<select class="form-control select-value" name="region"> 
+				<option ></option> 
+				@foreach($regions as $key => $region)
+					@if($arr_Request['region'] != '' && $arr_Request['region'] == $key)
+					
+					<option value="{{ $key }}" selected="selected">{{ $region }}</option>
+					@else
+					<option value="{{ $key }}">{{ $region }}</option>
+					@endif
+					@endforeach
+					
+					
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label for="inputPassword3" class="col-sm-5 control-label">Vertical</label>
+			<div class="col-sm-7">
+				<select class="form-control select-value" name="vertical"> 
+				<option ></option> 
+				@foreach($verticals as $key => $vertical)
+					@if($arr_Request['vertical'] == $key && $arr_Request['vertical'] != '')
+					<option value="{{ $key }}" selected="selected">{{ $vertical }}</option>
+					@else
+					<option value="{{ $key }}">{{ $vertical }}</option>
+					@endif
+					@endforeach
+
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label for="inputPassword3" class="col-sm-5 control-label">Delivery Location</label>
+			<div class="col-sm-7">
+				<select class="form-control select-value" name="delivery_location"> 
+				<option ></option> 
+				@foreach($deliveryLocations as $key => $deliveryLocation)
+					@if($arr_Request['delivery_location'] == $key && $arr_Request['delivery_location'] != '')
+					<option value="{{ $key }}" selected="selected">{{ $deliveryLocation }}</option>
+					@else
+					<option value="{{ $key }}">{{ $deliveryLocation }}</option>
+					@endif
+
+					@endforeach
+
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label for="inputPassword3" class="col-sm-5 control-label">Engagement
+				Type</label>
+			<div class="col-sm-7">
+				<select class="form-control select-value" name="engagement">
+				<option ></option> 
+					@foreach ($engagements as $key => $engagement)
+					
+					@if($arr_Request['engagement'] == $key && $arr_Request['engagement'] != '')
+					<option value="{{ $key }}" selected="selected">{{ $engagement }}</option>
+					@else
+					<option value="{{ $key }}">{{ $engagement }}</option>
+					@endif
+					@endforeach
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-5 control-label">Service Type</label>
+			<div class="col-sm-7">
+
+				<select class="form-control select-value" name="service"> 
+				<option ></option> 
+				@foreach($services as $key => $service)
+				
+				@if($arr_Request['service'] == $key && $arr_Request['service'] != '')
+					<option value="{{ $key }}" selected="selected">{{ $service }}</option>
+					@else
+					<option value="{{ $key }}">{{ $service }}</option>
+					@endif
+					@endforeach
+				</select>
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+</div>
+
+<div class="row">
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-5 control-label">Year</label>
+			<div class="col-sm-7">
+
+				<select class="form-control select-value" name="year"> 
+				<option ></option> 
+				@foreach($years as $year)
+				
+				@if($arr_Request['year'] == $year)
+					<option value="{{ $year }}" selected="selected">{{ $year }}</option>
+					@else
+					<option value="{{ $year }}">{{ $year }}</option>
+					@endif
+					@endforeach
+				</select>
+			</div>
+		</div>
+	</div>
+
+
+
+</div>
+
+
+<div class="row">
+	<div class="col-sm-6">
+		<label class="col-sm-5 control-label"></label>
+
+		<div class="col-sm-7">{{ Form::submit('Filter', array('class' => 'btn
+			btn-primary')) }}</div>
+
+	</div>
+
+</div>
+
+
+
+
+{{ Form::close() }}
+
+<br>
 <div class="table-responsive">
 	<table
 		class="table table-condensed table-striped table-bordered table-hover no-margin">
