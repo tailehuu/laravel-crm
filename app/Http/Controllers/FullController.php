@@ -109,7 +109,7 @@ class FullController extends Controller {
 		}else {
 			$arr_Request['q'] = null;
 		}
-	
+		$arr_Request['flag'] = $flag;
 		$years = Sale::getYear();
 
 		$sales = $sales->get();

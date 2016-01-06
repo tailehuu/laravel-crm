@@ -12,10 +12,12 @@
 	</div>
 
 </div>
+@if($arr_Request['flag'] == 1)
+<div class="collapse in" id="demo" aria-expanded="true" style="">
+@elseif($arr_Request['flag'] == 0)
+<div id="demo" class="collapse">
+@endif
 
-
-
-  <div id="demo" class="collapse">
 {{ Form::open(array('url' => 'value', 'method' => 'get', 'class' => 'form-horizontal')) }}
  
  
