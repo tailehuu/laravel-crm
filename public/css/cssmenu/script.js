@@ -18,7 +18,7 @@ $('#cssmenu li.has-sub>a').on('click', function(){
 		}
 	});
 
-	$('#cssmenu>ul>li.has-sub>a').append('<span class="holder"></span>');
+	
 
 	(function getColor() {
 		var r, g, b;

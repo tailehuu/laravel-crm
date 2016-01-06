@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use DB;
 
 class WeightedController extends Controller
 {
@@ -20,17 +21,102 @@ class WeightedController extends Controller
      * @return \Illuminate\Http\Response
      */
 	
-    public function index()
+    public function index(Request $request)
     {
 
-       $sales = Sale::with('user', 'country')->orderBy('id', 'desc')->get();
+    	$sales = Sale::with ( 'user', 'country' )->orderBy ( 'id', 'desc' )->where('id', '>', 0);
+    	$flag = 0;
+    	
+    	$arr_Request = [];
+    	if($request ['user_id'] != null)
+    	{
+    		$arr_Request['user_id'] = $request ['user_id'];
+    		$flag = 1;
+    		$sales = $sales->where('user_id', $arr_Request['user_id']);
+    	}
+    	else
+    	{
+    		$arr_Request['user_id'] = null;
+    	}
+    	if($request ['customer_name'] != null)
+    	{
+    		$arr_Request['customer_name'] = $request ['customer_name'];
+    		$sales = $sales->where('customer_name', $arr_Request['customer_name']);
+    		$flag = 1;
+    	}
+    	else {
+    		$arr_Request['customer_name'] = null;
+    	}
+    	if($request ['country_id'] != null)
+    	{
+    		$arr_Request['country_id'] = $request ['country_id'];
+    		$sales = $sales->where('country_id', $arr_Request['country_id']);
+    		$flag = 1;
+    	}else {
+    		$arr_Request['country_id'] = null;
+    	}
+    	if($request ['region'] != null)
+    	{
+    		$arr_Request['region'] = $request ['region'];
+    		$sales = $sales->where('region', $arr_Request['region']);
+    		$flag = 1;
+    	}else {
+    		$arr_Request['region'] = null;
+    	}
+    	if($request ['vertical'] != null)
+    	{
+    		$arr_Request['vertical'] = $request ['vertical'];
+    		$sales = $sales->where('vertical', $arr_Request['vertical']);
+    		$flag = 1;
+    	}else {
+    		$arr_Request['vertical'] = null;
+    	}
+    	if($request ['delivery_location'] != null)
+    	{
+    		$arr_Request['delivery_location'] = $request ['delivery_location'];
+    		$sales = $sales->where('delivery_location', $arr_Request['delivery_location']);
+    		$flag = 1;
+    	}else {
+    		$arr_Request['delivery_location'] = null;
+    	}
+    	if($request ['engagement'] != null)
+    	{
+    		$arr_Request['engagement'] = $request ['engagement'];
+    		$sales = $sales->where('engagement', $arr_Request['engagement']);
+    		$flag = 1;
+    	}else {
+    		$arr_Request['engagement'] = null;
+    	}
+    	if($request ['service'] != null)
+    	{
+    		$arr_Request['service'] = $request ['service'];
+    		$sales = $sales->where('service', $arr_Request['service']);
+    		$flag = 1;
+    	}else {
+    		$arr_Request['service'] = null;
+    	}
+    	$currentYear = date ("Y");
+    	if($request ['year'] != null)
+    	{
+    		$arr_Request['year'] = $request ['year'];
+    		$currentYear = $arr_Request['year'];
+    		$flag = 1;
+    	}else {
+    		$arr_Request['year'] = null;
+    	}
+    	
+    	$years = Sale::getYear();
+    	
+    	$sales = $sales->get();
+    	
+    	
 		
        $totals = [];
        $hc1 = $hc2 = $hc3 = $hc4 = $hc5 = $hc6 = $hc7 = $hc8 = $hc9 = $hc10 = $hc11 = $hc12 = 0;
        $v1 = $v2 = $v3 = $v4 = $v5 = $v6 = $v7 = $v8 = $v9 = $v10 = $v11 = $v12 = 0;
        
 		foreach($sales as $sale) {
-			$value = Sale::makeWeightedValue($sale);
+			$value = Sale::makeWeightedValue($sale,$currentYear);
 			$sale->months = $value;
 			
 			$hc1 += $sale->months [0] ['hc'];
@@ -107,8 +193,11 @@ class WeightedController extends Controller
 		'hc' => $hc12,
 		'value' => $v12
 		) );
-		 
-		return view('weighted.index')->with('sales', $sales)->with ( 'totals', $totals );
+
+		$countries = Country::all ();
+		$customerNames = Sale::getCustomerName();
+		$users = User::all ();
+		return view('weighted.index')->with('sales', $sales)->with ( 'totals', $totals )->with('years', $years)->with ( 'users', $users )->with ( 'countries', $countries )->with('arr_Request', $arr_Request)->with('customerNames', $customerNames);
     }
 
 }

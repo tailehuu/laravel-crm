@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use Validator;
 
 class SaleController extends Controller {
 	/**
@@ -36,7 +37,6 @@ class SaleController extends Controller {
 	public function create() {
 		$users = User::all ();
 		$countries = Country::all ();
-		
 		return view ( 'sales.create' )->with ( 'users', $users )->with ( 'countries', $countries );
 	}
 	
@@ -47,6 +47,19 @@ class SaleController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request) {
+
+		$validator = Validator::make($request->all(), [
+				//'title' => 'required|unique:posts|max:255',
+				'customer_name' => 'required',
+		]);
+		
+		if ($validator->fails()) {
+			
+			echo "loi";
+			return;
+		}
+		
+		
 		$data ['user_id'] = $request ['user_id'];
 		$data ['country_id'] = $request ['country_id'];
 		$data ['customer_name'] = $request ['customer_name'];

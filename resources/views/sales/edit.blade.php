@@ -37,7 +37,7 @@
 				<label for="inputPassword3" class="col-sm-5 control-label">Prospect/
 					Customer Name</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" name="customer_name"
+					<input type="text" class="form-control" required name="customer_name"
 						value="{{ $sale->customer_name}}">
 				</div>
 			</div>
@@ -128,7 +128,7 @@
 				<div class="col-sm-7">
 
 
-					<input type="text" class="form-control" name="opportunity_name"
+					<input type="text" class="form-control" required name="opportunity_name"
 						value="{{ $sale->opportunity_name}}">
 
 
@@ -190,7 +190,7 @@
 				<label for="inputEmail3" class="col-sm-5 control-label">Head Count</label>
 				<div class="col-sm-7">
 
-					<input type="text" class="form-control" name="head_count"
+					<input type="text" class="form-control" required name="head_count"
 						value="{{ $sale->head_count }}">
 
 
@@ -204,7 +204,7 @@
 			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-5 control-label">Value</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" name="value"
+					<input type="text" class="form-control" required name="value"
 						value="{{ $sale->value }}">
 				</div>
 			</div>
@@ -216,7 +216,7 @@
 				<label for="inputEmail3" class="col-sm-5 control-label">Duration
 					(month)</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" name="duration"
+					<input type="text" class="form-control" required name="duration"
 						value="{{ $sale->duration }}">
 
 
@@ -232,7 +232,7 @@
 				<label for="inputPassword3" class="col-sm-5 control-label">Probability
 					(%)</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" name="probability"
+					<input type="text" class="form-control" required name="probability"
 						value="{{ $sale->probability }}">
 				</div>
 			</div>
@@ -245,7 +245,7 @@
 					Date</label>
 				<div class="col-sm-7">
 					<div class="input-group date" id="dp3">
-						<input class="form-control" type="text" name="started_at"
+						<input class="form-control" type="text" required name="started_at"
 							value="{{ $sale->started_at }}"> <span class="input-group-addon"><i
 							class="glyphicon glyphicon-calendar"></i></span>
 					</div>

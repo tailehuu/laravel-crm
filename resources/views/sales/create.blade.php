@@ -4,7 +4,6 @@
 <h1 class="page-header">Create</h1>
 
 
-
 {{ Form::open(array('url' => 'sale', 'class' => 'form-horizontal')) }}
 
 
@@ -15,7 +14,8 @@
 
 			<label class="col-sm-5 control-label">Sale Person</label>
 			<div class="col-sm-7">
-				<select class="form-control select-value" name="user_id"> 
+				<select class="form-control select-value" required name="user_id"> 
+				
 				@foreach($users as $key => $user)
 
 					<option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -38,8 +38,8 @@
 			<label for="inputPassword3" class="col-sm-5 control-label">Prospect/
 				Customer Name</label>
 			<div class="col-sm-7">
-				<input type="text" class="form-control required"
-					name="customer_name">
+				<input type="text" class="form-control"
+					name="customer_name" required>
 			</div>
 		</div>
 	</div>
@@ -120,7 +120,7 @@
 			<div class="col-sm-7">
 
 
-				<input type="text" class="form-control required"
+				<input type="text" required class="form-control required"
 					name="opportunity_name">
 
 
@@ -173,7 +173,7 @@
 			<label for="inputEmail3" class="col-sm-5 control-label">Head Count</label>
 			<div class="col-sm-7">
 
-				<input type="text" class="form-control required" name="head_count">
+				<input type="text" required class="form-control required" name="head_count">
 
 
 			</div>
@@ -187,7 +187,7 @@
 		<div class="form-group">
 			<label for="inputPassword3" class="col-sm-5 control-label">Value</label>
 			<div class="col-sm-7">
-				<input type="text" class="form-control required" name="value">
+				<input type="text" class="form-control" required name="value">
 			</div>
 		</div>
 	</div>
@@ -198,7 +198,7 @@
 			<label for="inputEmail3" class="col-sm-5 control-label">Duration
 				(month)</label>
 			<div class="col-sm-7">
-				<input type="text" class="form-control required" name="duration">
+				<input type="text" required class="form-control required" name="duration">
 
 			</div>
 		</div>
@@ -211,7 +211,7 @@
 			<label for="inputPassword3" class="col-sm-5 control-label">Probability
 				%</label>
 			<div class="col-sm-7">
-				<input type="text" class="form-control" name="probability">
+				<input type="text" required class="form-control" name="probability">
 			</div>
 		</div>
 	</div>
@@ -222,7 +222,7 @@
 			<label for="inputPassword3" class="col-sm-5 control-label">Start Date</label>
 			<div class="col-sm-7">
 				<div class="input-group date" id="dp3">
-					<input class="form-control required" type="text" name="started_at">
+					<input class="form-control required" required type="text" name="started_at">
 					<span class="input-group-addon"><i
 						class="glyphicon glyphicon-calendar"></i></span>
 				</div>
@@ -244,4 +244,6 @@
 
 
 
-{{ Form::close() }} @endsection
+{{ Form::close() }} 
+
+@endsection

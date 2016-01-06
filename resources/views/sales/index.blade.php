@@ -82,10 +82,11 @@
 				<td><p class="large-field text-left width-date">{{ date('M d, Y',
 						strtotime($sale->started_at)) }}</p></td>
 
-				<td class="width-date"><a href="sale/{{ $sale->id }}/edit">Edit</a> {{ Form::open(array('url'=> 'sale/' . $sale->id)) }} {{ Form::hidden('_method', 'DELETE') }}
+				<td class="width-date"><a href="sale/{{ $sale->id }}/edit">Edit</a> 
+					{{ Form::open(array('url'=> 'sale/' . $sale->id,'onsubmit' => 'return ConfirmDelete()')) }} {{ Form::hidden('_method', 'DELETE') }}
 
-					{{ Form::submit('Delete', array('class' => 'btn btn-link')) }} {{
-					Form::close() }}</td>
+					{{ Form::submit('Delete', array('class' => 'btn btn-link')) }} 
+					{{ Form::close() }}</td>
 			</tr>
 
 			@endforeach
@@ -98,6 +99,17 @@
 	</table>
 </div>
 
+<script>
 
+  function ConfirmDelete()
+  {
+  var x = confirm("Are you sure you want to delete?");
+  if (x)
+    return true;
+  else
+    return false;
+  }
+
+</script>
 
 @endsection
