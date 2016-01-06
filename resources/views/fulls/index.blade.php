@@ -2,12 +2,23 @@
 
 @section('content')
 
-<h1 class="page-header">Full Value</h1>
+
+<div class="row page-header">
+	<div class="col-sm-11 ">
+		<h1 class="no-padding">Full Value</h1>
+	</div>
+	<div class="col-sm-1">
+		<button type="button" class="btn btn-info pull-right" data-toggle="collapse" data-target="#demo">Filter</button>
+	</div>
+
+</div>
 
 
-{{ Form::open(array('url' => 'value/full', 'method' => 'get', 'class' => 'form-horizontal')) }}
 
-<h4>Filter</h4>
+  <div id="demo" class="collapse">
+    {{ Form::open(array('url' => 'value/full', 'method' => 'get', 'class' => 'form-horizontal')) }}
+
+
 
 <div class="row">
 	<div class="col-sm-6">
@@ -238,6 +249,9 @@
 
 
 {{ Form::close() }}
+  </div>
+
+
 
 <br>
 <div class="table-responsive">
