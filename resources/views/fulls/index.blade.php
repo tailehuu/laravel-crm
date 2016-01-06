@@ -5,7 +5,13 @@
 
 <div class="row page-header">
 	<div class="col-sm-11 ">
+	@if($arr_Request['q'] == 'weighted')
+		<h1 class="no-padding">Weighted Value</h1>
+	@elseif($arr_Request['q'] == 'full')
 		<h1 class="no-padding">Full Value</h1>
+		@else
+		<h1 class="no-padding">Full Value</h1>
+		@endif
 	</div>
 	<div class="col-sm-1">
 		<a class="show-hide-filter pull-right" data-toggle="collapse" data-target="#demo">Filter <span class="caret"></span></a> 
