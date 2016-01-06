@@ -102,6 +102,13 @@ class FullController extends Controller {
 		}else {
 			$arr_Request['year'] = null;
 		}
+		if($request ['q'] != null)
+		{
+			$arr_Request['q'] = $request ['q'];
+
+		}else {
+			$arr_Request['q'] = null;
+		}
 	
 		$years = Sale::getYear();
 
@@ -112,8 +119,20 @@ class FullController extends Controller {
 		$totals = [ ];
 		$hc1 = $hc2 = $hc3 = $hc4 = $hc5 = $hc6 = $hc7 = $hc8 = $hc9 = $hc10 = $hc11 = $hc12 = 0;
 		$v1 = $v2 = $v3 = $v4 = $v5 = $v6 = $v7 = $v8 = $v9 = $v10 = $v11 = $v12 = 0;
+		
+		
 		foreach ( $sales as $sale ) {
-			$value = Sale::makeFullValue ( $sale, $currentYear );
+			$value = [];
+			if($request ['q'] != null && $request ['q'] == 'full')
+			{
+				$value = Sale::makeFullValue ( $sale, $currentYear );
+			}elseif($request ['q'] != null && $request ['q'] == 'weighted')
+			{
+				$value = Sale::makeWeightedValue ( $sale, $currentYear );
+			}else {
+				$value = Sale::makeFullValue ( $sale, $currentYear );
+			}
+			
 			$sale->months = $value;
 			
 			$hc1 += $sale->months [0] ['hc'];

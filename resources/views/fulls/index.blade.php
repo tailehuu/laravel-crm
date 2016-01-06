@@ -8,7 +8,7 @@
 		<h1 class="no-padding">Full Value</h1>
 	</div>
 	<div class="col-sm-1">
-		<button type="button" class="btn btn-info pull-right" data-toggle="collapse" data-target="#demo">Filter</button>
+		<a class="show-hide-filter pull-right" data-toggle="collapse" data-target="#demo">Filter <span class="caret"></span></a> 
 	</div>
 
 </div>
@@ -16,10 +16,12 @@
 
 
   <div id="demo" class="collapse">
-    {{ Form::open(array('url' => 'value/full', 'method' => 'get', 'class' => 'form-horizontal')) }}
-
-
-
+{{ Form::open(array('url' => 'value', 'method' => 'get', 'class' => 'form-horizontal')) }}
+ 
+ 
+ @if($arr_Request['q'] == 'full' || $arr_Request['q'] == 'weighted')
+	<input type="hidden" name="q" value="{{ $arr_Request['q'] }}">
+ @endif
 <div class="row">
 	<div class="col-sm-6">
 		<div class="form-group">

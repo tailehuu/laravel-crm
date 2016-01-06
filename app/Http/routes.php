@@ -13,7 +13,7 @@
 
 Route::get('/', ['uses' => 'SaleController@index']);
 
-Route::get('/value/full', 'FullController@index');
+Route::get('/value', 'FullController@index');
 Route::get('/value/weighted', 'WeightedController@index');
 Route::resource('sale', 'SaleController');
 
