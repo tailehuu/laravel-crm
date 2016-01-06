@@ -14,8 +14,7 @@
   box-sizing: border-box;
 }
 #cssmenu {
-  width: 210px;
-  font-family: Helvetica, Arial, sans-serif;
+  width: 100%;
   color: #ffffff;
 }
 #cssmenu ul ul {
