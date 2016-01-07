@@ -839,7 +839,7 @@ body {
 	min-width: 75px;
 }
 .table-condensed thead{
-	background-color: #f9f9f9;
+	background-color: #eeeeee;
 }
 .no-padding
 {
@@ -852,3 +852,18 @@ body {
 .show-hide-filter{
 	cursor: pointer;
 }
+.column_filter {
+    width: 100px;
+}
+#example_filter,#example_info{
+	display: none;
+}
+#example_paginate{
+	float: left !important;
+	margin:10px 0px;
+}
+tfoot input {
+        width: 100%;
+        padding: 3px;
+        box-sizing: border-box;
+    }

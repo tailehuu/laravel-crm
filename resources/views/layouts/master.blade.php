@@ -20,12 +20,17 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/cssmenu/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]>
     <script src="{{ asset('assets/js/ie8-responsive-file-warning.js') }}"></script><![endif]-->
     <script src="{{ asset('assets/js/ie-emulation-modes-warning.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -61,6 +66,26 @@
 <script src="{{ asset('css/cssmenu/script.js') }}"></script>
 <script type="text/javascript">
 $(".input-group.date").datepicker({ autoclose: true, todayHighlight: true });
+</script>
+<script type="text/javascript">
+      
+function filterColumn ( i ) {
+    $('#example').DataTable().column( i ).search(
+        $('#col'+i+'_filter').val()
+    ).draw();
+}
+ 
+$(document).ready(function() {
+    $('#example').DataTable({
+    	"ordering": false
+        });
+ 
+
+    $('input.column_filter').on( 'keyup click', function () {
+        filterColumn( $(this).parents('th').attr('data-column') );
+    } );
+} );
+
 </script>
 <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 <script src="{{ asset('assets/js/vendor/holder.min.js') }}"></script>

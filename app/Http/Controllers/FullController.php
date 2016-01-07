@@ -22,7 +22,7 @@ class FullController extends Controller {
 	public function index(Request $request) {
 
 		//$sales = Sale::with ( 'user', 'country' )->orderBy ( 'id', 'desc' )->get ();
-		$sales = Sale::with ( 'user', 'country' )->orderBy ( 'id', 'desc' )->where('id', '>', 0);
+		$sales = Sale::with ( 'user', 'country' )->orderBy ( 'id', 'desc' );
 		$flag = 0;
 		
 		$arr_Request = [];
@@ -120,8 +120,11 @@ class FullController extends Controller {
 		$hc1 = $hc2 = $hc3 = $hc4 = $hc5 = $hc6 = $hc7 = $hc8 = $hc9 = $hc10 = $hc11 = $hc12 = 0;
 		$v1 = $v2 = $v3 = $v4 = $v5 = $v6 = $v7 = $v8 = $v9 = $v10 = $v11 = $v12 = 0;
 		
-		
+		$total_hc = 0;
+		$total_value = 0;
 		foreach ( $sales as $sale ) {
+			$total_hc += $sale->head_count;
+			$total_value += $sale->value;
 			$value = [];
 			if($request ['q'] != null && $request ['q'] == 'full')
 			{
@@ -212,7 +215,7 @@ class FullController extends Controller {
 		$users = User::all ();
 		$countries = Country::all ();
 		$customerNames = Sale::getCustomerName();
-		return view ( 'fulls.index' )->with ( 'sales', $sales )->with ( 'totals', $totals )->with('years', $years)->with ( 'users', $users )->with ( 'countries', $countries )->with('arr_Request', $arr_Request)->with('customerNames', $customerNames);
+		return view ( 'fulls.index' )->with ( 'sales', $sales )->with ( 'totals', $totals )->with('years', $years)->with ( 'users', $users )->with ( 'countries', $countries )->with('arr_Request', $arr_Request)->with('customerNames', $customerNames)->with('total_hc',$total_hc)->with('total_value',$total_value);
 	}
 	
 }

@@ -15,36 +15,49 @@
 
 <div class="table-responsive">
 	<table
-		class="table table-condensed table-striped table-bordered table-hover no-margin">
+		class="table table-condensed table-striped table-bordered table-hover no-margin" id="example">
 		<thead>
 			<tr class="text-center">
 
 				<th class="text-center" rowspan="2">No<br> &nbsp
 				</th>
-				<th class="text-center" rowspan="2">Sale<br> Person
+				<th class="text-center" rowspan="2" data-column="1">Sale Person
+				<input class="column_filter" id="col1_filter" type="text">
+				</th>		
+			
+				<th class="text-center" rowspan="2" data-column="2">Customer Name
+				<input class="column_filter" id="col2_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Customer<br> Name
+				<th class="text-center" rowspan="2" data-column="3">Country
+				<input class="column_filter" id="col3_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Country<br> &nbsp
+				<th class="text-center" rowspan="2" data-column="4">Region
+				<input class="column_filter" id="col4_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Region<br> &nbsp
+				<th class="text-center" rowspan="2" data-column="5">Vertical
+				<input class="column_filter" id="col5_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Vertical<br> &nbsp
+				<th class="text-center" rowspan="2" data-column="6">Delivery Location
+				<input class="column_filter" id="col6_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Delivery<br> Location
+				<th class="text-center" rowspan="2" data-column="7">Opportunity Name
+				<input class="column_filter" id="col7_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Opportunity<br> Name
+				<th class="text-center" rowspan="2" data-column="8">Engagement Type
+				<input class="column_filter" id="col8_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Engagement<br> Type
-				</th>
-				<th class="text-center" rowspan="2">Service<br> Type
+				<th class="text-center" rowspan="2" data-column="9">Service Type
+				<input class="column_filter" id="col9_filter" type="text">
 				</th>
 				<th class="text-center" colspan="2" class="text-center">Total</th>
-				<th class="text-center" rowspan="2">Duration<br> (month)
+				<th class="text-center" rowspan="2" data-column="11">Duration (month)
+				<input class="column_filter" id="col11_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Probability<br> (%)
+				<th class="text-center" rowspan="2" data-column="12">Probability (%)
+				<input class="column_filter" id="col12_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Start<br> Date
+				<th class="text-center" rowspan="2" data-column="13">Start Date
+				<input class="column_filter" id="col13_filter" type="text">
 				</th>
 
 

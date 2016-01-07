@@ -25,69 +25,71 @@ class SalesTableSeeder extends Seeder {
 		// $table->float('value')->default(0)->unsigned();
 		// $table->integer('month')->default(1)->unsigned();
 		// $table->integer('sale_id')->unsigned()->nullable();
-		
-		// 1
-		$sale_id = DB::table ( 'sales' )->insertGetId ( [ 
-				'user_id' => 1,
-				'customer_name' => 'Cisco',
-				'country_id' => 210,
-				'region' => 0,
-				'vertical' => 0,
-				'delivery_location' => 0,
-				'opportunity_name' => 'Router Testing',
-				'engagement' => 0,
-				'service' => 0,
-				'head_count' => 120,
-				'value' => 360000,
-				'duration' => 12,
-				'probability' => 50,
-				'started_at' => '2016-01-01 00:00:00' 
-		] );
-		
-		DB::table ( 'values' )->insert ( [ 
-				'head_count' => 10,
-				'value' => 30000,
-				'month' => 1,
-				'sale_id' => $sale_id 
-		] );
-		
-		DB::table ( 'values' )->insert ( [ 
-				'head_count' => 10,
-				'value' => 30000,
-				'month' => 2,
-				'sale_id' => $sale_id 
-		] );
-		
-		DB::table ( 'values' )->insert ( [ 
-				'head_count' => 10,
-				'value' => 30000,
-				'month' => 3,
-				'sale_id' => $sale_id 
-		] );
-		
-		// 2
-		$sale_id = DB::table ( 'sales' )->insertGetId ( [ 
-				'user_id' => 2,
-				'customer_name' => 'Viscard',
-				'country_id' => 210,
-				'region' => 1,
-				'vertical' => 1,
-				'delivery_location' => 1,
-				'opportunity_name' => 'SPortal',
-				'engagement' => 1,
-				'service' => 1,
-				'head_count' => 100,
-				'value' => 300000,
-				'duration' => 12,
-				'probability' => 30,
-				'started_at' => '2016-06-01 00:00:00' 
-		] );
-		
-		DB::table ( 'values' )->insert ( [ 
-				'head_count' => 16.66,
-				'value' => 49980,
-				'month' => 3,
-				'sale_id' => $sale_id 
-		] );
+		for($i = 0; $i < 49; $i ++) {
+			
+			// 1
+			$sale_id = DB::table ( 'sales' )->insertGetId ( [ 
+					'user_id' => 1,
+					'customer_name' => 'Cisco',
+					'country_id' => 210,
+					'region' => 0,
+					'vertical' => 0,
+					'delivery_location' => 0,
+					'opportunity_name' => 'Router Testing',
+					'engagement' => 0,
+					'service' => 0,
+					'head_count' => 120,
+					'value' => 360000,
+					'duration' => 12,
+					'probability' => 50,
+					'started_at' => '2016-01-01 00:00:00' 
+			] );
+			
+			DB::table ( 'values' )->insert ( [ 
+					'head_count' => 10,
+					'value' => 30000,
+					'month' => 1,
+					'sale_id' => $sale_id 
+			] );
+			
+			DB::table ( 'values' )->insert ( [ 
+					'head_count' => 10,
+					'value' => 30000,
+					'month' => 2,
+					'sale_id' => $sale_id 
+			] );
+			
+			DB::table ( 'values' )->insert ( [ 
+					'head_count' => 10,
+					'value' => 30000,
+					'month' => 3,
+					'sale_id' => $sale_id 
+			] );
+			
+			// 2
+			$sale_id = DB::table ( 'sales' )->insertGetId ( [ 
+					'user_id' => 2,
+					'customer_name' => 'Viscard',
+					'country_id' => 210,
+					'region' => 1,
+					'vertical' => 1,
+					'delivery_location' => 1,
+					'opportunity_name' => 'SPortal',
+					'engagement' => 1,
+					'service' => 1,
+					'head_count' => 100,
+					'value' => 300000,
+					'duration' => 12,
+					'probability' => 30,
+					'started_at' => '2016-06-01 00:00:00' 
+			] );
+			
+			DB::table ( 'values' )->insert ( [ 
+					'head_count' => 16.66,
+					'value' => 49980,
+					'month' => 3,
+					'sale_id' => $sale_id 
+			] );
+		}
 	}
 }

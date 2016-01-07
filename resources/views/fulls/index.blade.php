@@ -13,219 +13,22 @@
 		<h1 class="no-padding">Full Value</h1>
 		@endif
 	</div>
-	<div class="col-sm-1">
-		<a class="show-hide-filter pull-right" data-toggle="collapse" data-target="#demo">Filter <span class="caret"></span></a> 
-	</div>
+<!-- 	<div class="col-sm-1"> -->
+<!-- 		<a class="show-hide-filter pull-right" data-toggle="collapse" data-target="#demo">Filter <span class="caret"></span></a>  -->
+<!-- 	</div> -->
 
 </div>
-@if($arr_Request['flag'] == 1)
-<div class="collapse in" id="demo" aria-expanded="true" style="">
-@elseif($arr_Request['flag'] == 0)
-<div id="demo" class="collapse">
-@endif
-
 {{ Form::open(array('url' => 'value', 'method' => 'get', 'class' => 'form-horizontal')) }}
- 
- 
- @if($arr_Request['q'] == 'full' || $arr_Request['q'] == 'weighted')
+@if($arr_Request['q'] == 'full' || $arr_Request['q'] == 'weighted')
 	<input type="hidden" name="q" value="{{ $arr_Request['q'] }}">
  @endif
 <div class="row">
 	<div class="col-sm-6">
 		<div class="form-group">
-
-			<label class="col-sm-5 control-label">Sale Person</label>
-			<div class="col-sm-7">
-				<select class="form-control select-value" name="user_id">
-				<option></option> 
-				@foreach($users as $key => $user)
-					@if($arr_Request['user_id'] == $user->id)
-					<option value="{{ $user->id }}" selected="selected">{{ $user->name }}</option>
-					@else
-					<option value="{{ $user->id }}">{{ $user->name }}</option>
-					@endif
-					@endforeach
-
-				</select>
-
-
-			</div>
-		</div>
-	</div>
-
-</div>
-
-<div class="row">
-
-	<div class="col-sm-6">
-		<div class="form-group">
-			<label for="inputPassword3" class="col-sm-5 control-label">Prospect/
-				Customer Name</label>
-			<div class="col-sm-7">
-				
-					<select class="form-control select-value" name="customer_name">
-				<option></option> 
-				@foreach($customerNames as $key => $customerName)
-					@if($arr_Request['customer_name'] == $customerName->customer_name)
-					<option value="{{ $customerName->customer_name }}" selected="selected">{{ $customerName->customer_name }}</option>
-					@else
-					<option value="{{ $customerName->customer_name }}">{{ $customerName->customer_name }}</option>
-					@endif
-					@endforeach
-
-				</select>
-					
-					
-			</div>
-		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-sm-6">
-		<div class="form-group">
-			<label for="inputEmail3" class="col-sm-5 control-label">Country</label>
-			<div class="col-sm-7">
-				<select class="form-control select-value" name="country_id">
-				<option ></option> 
-					@foreach ($countries as $country)					
-					@if($arr_Request['country_id'] == $country->id)
-					<option value="{{ $country->id }}" selected="selected">{{ $country->name }}</option>
-					@else
-					<option value="{{ $country->id }}">{{ $country->name }}</option>
-					@endif
-					@endforeach			
-
-				</select>
-
-
-			</div>
-		</div>
-	</div>
-
-</div>
-<div class="row">
-	<div class="col-sm-6">
-		<div class="form-group">
-			<label for="inputPassword3" class="col-sm-5 control-label">Region</label>
-			<div class="col-sm-7">
-				<select class="form-control select-value" name="region"> 
-				<option ></option> 
-				@foreach($regions as $key => $region)
-					@if($arr_Request['region'] != '' && $arr_Request['region'] == $key)
-					
-					<option value="{{ $key }}" selected="selected">{{ $region }}</option>
-					@else
-					<option value="{{ $key }}">{{ $region }}</option>
-					@endif
-					@endforeach
-					
-					
-				</select>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-sm-6">
-		<div class="form-group">
-			<label for="inputPassword3" class="col-sm-5 control-label">Vertical</label>
-			<div class="col-sm-7">
-				<select class="form-control select-value" name="vertical"> 
-				<option ></option> 
-				@foreach($verticals as $key => $vertical)
-					@if($arr_Request['vertical'] == $key && $arr_Request['vertical'] != '')
-					<option value="{{ $key }}" selected="selected">{{ $vertical }}</option>
-					@else
-					<option value="{{ $key }}">{{ $vertical }}</option>
-					@endif
-					@endforeach
-
-				</select>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-sm-6">
-		<div class="form-group">
-			<label for="inputPassword3" class="col-sm-5 control-label">Delivery Location</label>
-			<div class="col-sm-7">
-				<select class="form-control select-value" name="delivery_location"> 
-				<option ></option> 
-				@foreach($deliveryLocations as $key => $deliveryLocation)
-					@if($arr_Request['delivery_location'] == $key && $arr_Request['delivery_location'] != '')
-					<option value="{{ $key }}" selected="selected">{{ $deliveryLocation }}</option>
-					@else
-					<option value="{{ $key }}">{{ $deliveryLocation }}</option>
-					@endif
-
-					@endforeach
-
-				</select>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<div class="row">
-	<div class="col-sm-6">
-		<div class="form-group">
-			<label for="inputPassword3" class="col-sm-5 control-label">Engagement
-				Type</label>
-			<div class="col-sm-7">
-				<select class="form-control select-value" name="engagement">
-				<option ></option> 
-					@foreach ($engagements as $key => $engagement)
-					
-					@if($arr_Request['engagement'] == $key && $arr_Request['engagement'] != '')
-					<option value="{{ $key }}" selected="selected">{{ $engagement }}</option>
-					@else
-					<option value="{{ $key }}">{{ $engagement }}</option>
-					@endif
-					@endforeach
-				</select>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-sm-6">
-		<div class="form-group">
-			<label for="inputEmail3" class="col-sm-5 control-label">Service Type</label>
 			<div class="col-sm-7">
 
-				<select class="form-control select-value" name="service"> 
-				<option ></option> 
-				@foreach($services as $key => $service)
-				
-				@if($arr_Request['service'] == $key && $arr_Request['service'] != '')
-					<option value="{{ $key }}" selected="selected">{{ $service }}</option>
-					@else
-					<option value="{{ $key }}">{{ $service }}</option>
-					@endif
-					@endforeach
-				</select>
-
-
-			</div>
-		</div>
-	</div>
-
-
-
-</div>
-
-<div class="row">
-	<div class="col-sm-6">
-		<div class="form-group">
-			<label for="inputEmail3" class="col-sm-5 control-label">Year</label>
-			<div class="col-sm-7">
-
-				<select class="form-control select-value" name="year"> 
-				<option ></option> 
+				<select class="form-control select-value" name="year" id="year"> 
+				<option value="" >Select year</option> 
 				@foreach($years as $year)
 				
 				@if($arr_Request['year'] == $year)
@@ -238,64 +41,60 @@
 			</div>
 		</div>
 	</div>
-
-
-
 </div>
-
-
-<div class="row">
-	<div class="col-sm-6">
-		<label class="col-sm-5 control-label"></label>
-
-		<div class="col-sm-7">{{ Form::submit('Filter', array('class' => 'btn
-			btn-primary')) }}</div>
-
-	</div>
-
-</div>
-
-
-
-
 {{ Form::close() }}
-  </div>
-
-
-
 <br>
-<div class="table-responsive">
-	<table
-		class="table table-condensed table-striped table-bordered table-hover no-margin">
+
+
+
+
+    <div class="table-responsive">
+	<table class="table table-condensed display table-striped table-bordered table-hover no-margin" id="example">
 		<thead>
 			<tr>
 
 				<th class="text-center" rowspan="2">No<br> &nbsp
+				
 				</th>
-				<th class="text-center" rowspan="2">Sale<br> Person
+				<th class="text-center" rowspan="2" data-column="1">Sale Person
+
+				<input class="column_filter" id="col1_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Customer<br> Name
+				<th class="text-center" rowspan="2" data-column="2">Customer Name
+<input class="column_filter" id="col2_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Country<br> &nbsp
+				<th class="text-center" rowspan="2" data-column="3">Country &nbsp
+				<input class="column_filter" id="col3_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Region<br> &nbsp
+				<th class="text-center" rowspan="2" data-column="4">Region &nbsp
+				<input class="column_filter" id="col4_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Vertical<br> &nbsp
+				<th class="text-center" rowspan="2" data-column="5">Vertical &nbsp
+				<input class="column_filter" id="col5_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Delivery<br> Location
+				<th class="text-center" rowspan="2" data-column="6">Delivery Location
+				<input class="column_filter" id="col6_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Opportunity<br> Name
+				<th class="text-center" rowspan="2" data-column="7">Opportunity Name
+				<input class="column_filter" id="col7_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Engagement<br> Type
+				<th class="text-center" rowspan="2" data-column="8">Engagement Type
+				<input class="column_filter" id="col8_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Service<br> Type
+				<th class="text-center" rowspan="2" data-column="9">Service Type
+				<input class="column_filter" id="col9_filter" type="text">
 				</th>
-				<th class="text-center" colspan="2" class="text-center">Total</th>
-				<th class="text-center" rowspan="2">Duration<br> (month)
+				<th class="text-center" colspan="2" class="text-center" data-column="10">Total
+				
 				</th>
-				<th class="text-center" rowspan="2">Probability<br> (%)
+				<th class="text-center" rowspan="2" data-column="11">Duration (month)
+				<input class="column_filter" id="col11_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2">Start<br> Date
+				<th class="text-center" rowspan="2" data-column="12">Probability (%)
+				<input class="column_filter" id="col12_filter" type="text">
+				</th>
+				<th class="text-center" rowspan="2" data-column="13">Start Date
+				<input class="column_filter" id="col13_filter" type="text">
 				</th>
 				<th colspan="2" class="text-center">Jan</th>
 				<th colspan="2" class="text-center">Feb</th>
@@ -348,35 +147,15 @@
 				<th class="text-center">USD</th>
 
 			</tr>
+			
 		</thead>
-		<tfoot>
-    <tr>
-     <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-       <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td class="text-right"><strong>Total</strong></td>
-      @foreach ($totals	as $total)
-				<td class="text-right"><strong>{{  $total['hc'] > 0 ? number_format($total['hc'], 2) : '' }}</strong></td>
-				<td class="text-right"><strong><span class="name">{{ $total['value'] > 0 ? number_format($total['value'], 2) : '' }}</span></strong></td>
-	@endforeach
+		
 	
-	
-    </tr>
-  </tfoot>
+
 		<tbody>
 			@foreach ($sales as $index => $sale)
 			<tr>
+			
 				<td><label>{{ $index+1 }}</label></td>
 				<td><span class="large-field">{{ $sale->user->name }}</span></td>
 				<td>
@@ -404,13 +183,44 @@
 
 			@endforeach
 
-
+  <tr>
+     <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+       <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td class="text-right"><strong>Total</strong></td>
+      <td>{{  $total_hc > 0 ? number_format($total_hc, 2) : '' }}</td>
+      <td>{{  $total_value > 0 ? number_format($total_value, 2) : '' }}</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      
+      @foreach ($totals	as $total)
+				<td class="text-right"><strong>{{  $total['hc'] > 0 ? number_format($total['hc'], 2) : '' }}</strong></td>
+				<td class="text-right"><strong><span class="name">{{ $total['value'] > 0 ? number_format($total['value'], 2) : '' }}</span></strong></td>
+	@endforeach
+	
+	
+    </tr>
+			
 
 
 		</tbody>
 	</table>
+    
 </div>
+    
+<script type="text/javascript">
+var select = document.getElementById('year');
+select.onchange = function(){
+    this.form.submit();
+};
 
-
+</script>
 
 @endsection
