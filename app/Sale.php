@@ -117,7 +117,7 @@ class Sale extends Model
     {
     	$currentYear = date ("Y");
     	$start_year = $currentYear - 5;
-    	$end_year = $currentYear + 5;
+    	$end_year = $currentYear + 2;
     	$years = [];
     	
     	for($i = $end_year; $i >= $start_year; $i--)
