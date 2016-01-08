@@ -31,7 +31,7 @@ class SalesTableSeeder extends Seeder {
 			$sale_id = DB::table ( 'sales' )->insertGetId ( [ 
 					'user_id' => 1,
 					'customer_name' => 'Cisco',
-					'country_id' => 210,
+					'country_id' => 1,
 					'region' => 0,
 					'vertical' => 0,
 					'delivery_location' => 0,
@@ -57,7 +57,7 @@ class SalesTableSeeder extends Seeder {
 			$sale_id = DB::table ( 'sales' )->insertGetId ( [ 
 					'user_id' => 2,
 					'customer_name' => 'Viscard',
-					'country_id' => 210,
+					'country_id' => 2,
 					'region' => 1,
 					'vertical' => 1,
 					'delivery_location' => 1,

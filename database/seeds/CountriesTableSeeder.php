@@ -13,6 +13,26 @@ class CountriesTableSeeder extends Seeder
     {
         $json = '[
                     {
+                      "name": "United States",
+                      "isoName": "US",
+                      "code": "1"
+                    },
+        			{
+                      "name": "India",
+                      "isoName": "IN",
+                      "code": "91"
+                    },
+        			{
+                      "name": "Vietnam",
+                      "isoName": "VN",
+                      "code": "84"
+                    },
+        			{
+                      "name": "Germany",
+                      "isoName": "DE",
+                      "code": "49"
+                    },
+                    {
                       "name": "Afghanistan",
                       "isoName": "AF",
                       "code": "93"
@@ -387,11 +407,7 @@ class CountriesTableSeeder extends Seeder
                       "isoName": "GE",
                       "code": "995"
                     },
-                    {
-                      "name": "Germany",
-                      "isoName": "DE",
-                      "code": "49"
-                    },
+                    
                     {
                       "name": "Ghana",
                       "isoName": "GH",
@@ -466,12 +482,7 @@ class CountriesTableSeeder extends Seeder
                       "name": "Iceland",
                       "isoName": "IS",
                       "code": "354"
-                    },
-                    {
-                      "name": "India",
-                      "isoName": "IN",
-                      "code": "91"
-                    },
+                    },                    
                     {
                       "name": "Indonesia",
                       "isoName": "ID",
@@ -1058,11 +1069,6 @@ class CountriesTableSeeder extends Seeder
                       "code": "44"
                     },
                     {
-                      "name": "United States",
-                      "isoName": "US",
-                      "code": "1"
-                    },
-                    {
                       "name": "Uruguay",
                       "isoName": "UY",
                       "code": "598"
@@ -1076,12 +1082,7 @@ class CountriesTableSeeder extends Seeder
                       "name": "Venezuela",
                       "isoName": "VE",
                       "code": "58"
-                    },
-                    {
-                      "name": "Vietnam",
-                      "isoName": "VN",
-                      "code": "84"
-                    },
+                    },                   
                     {
                       "name": "Western Sahara",
                       "isoName": "EH",
