@@ -122,7 +122,7 @@ class FullController extends Controller {
 		
 		$total_hc = 0;
 		$total_value = 0;
-		foreach ( $sales as $sale ) {
+		foreach ( $sales as $key => $sale ) {
 			$total_hc += $sale->head_count;
 			$total_value += $sale->value;
 			$value = [];
@@ -136,8 +136,19 @@ class FullController extends Controller {
 				$value = Sale::makeFullValue ( $sale, $currentYear );
 			}
 			
+			$total_val_hc = $total_val_value = 0;
+			foreach($value as $val)
+			{
+				$total_val_hc += $val['hc'];
+				$total_val_value += $val['value'];
+				
+			}
+			if($total_val_hc == 0 && $total_val_value == 0)
+			{
+				unset($sales[$key]);
+				$sale->success = false;
+			}
 			$sale->months = $value;
-			
 			$hc1 += $sale->months [0] ['hc'];
 			$hc2 += $sale->months [1] ['hc'];
 			$hc3 += $sale->months [2] ['hc'];
@@ -163,6 +174,7 @@ class FullController extends Controller {
 			$v11 += $sale->months [10] ['value'];
 			$v12 += $sale->months [11] ['value'];
 		}
+		
 		array_push ( $totals, array (
 				'hc' => $hc1,
 				'value' => $v1 

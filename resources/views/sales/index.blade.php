@@ -79,7 +79,7 @@
 				<td><label>{{ $index+1 }}</label></td>
 				<td><span class="large-field">{{ $sale->user->name }}</span></td>
 				<td><a href="sale/{{ $sale->id }}/edit"><span>{{ $sale->customer_name }}</span></a></td>
-				<td><span class="label label-info">{{ $sale->country->name }}</span></td>
+				<td><span>{{ $sale->country->name }}</span></td>
 				<td><span>{{ $regions[$sale->region] }}</span></td>
 				<td><span>{{ $verticals[$sale->vertical] }}</span></td>
 				<td><span>{{ $deliveryLocations[$sale->delivery_location] }}</span></td>

@@ -173,7 +173,7 @@
 			<label for="inputEmail3" class="col-sm-5 control-label">Head Count</label>
 			<div class="col-sm-7">
 
-				<input type="text" required class="form-control required" name="head_count">
+				<input type="number" data-fv-numeric-message="" required class="form-control required" name="head_count">
 
 
 			</div>
@@ -187,7 +187,7 @@
 		<div class="form-group">
 			<label for="inputPassword3" class="col-sm-5 control-label">Value</label>
 			<div class="col-sm-7">
-				<input type="text" class="form-control" required name="value">
+				<input type="number" class="form-control" required name="value">
 			</div>
 		</div>
 	</div>
@@ -198,7 +198,7 @@
 			<label for="inputEmail3" class="col-sm-5 control-label">Duration
 				(month)</label>
 			<div class="col-sm-7">
-				<input type="text" required class="form-control required" name="duration">
+				<input type="number" required class="form-control required" name="duration">
 
 			</div>
 		</div>
@@ -211,7 +211,7 @@
 			<label for="inputPassword3" class="col-sm-5 control-label">Probability
 				%</label>
 			<div class="col-sm-7">
-				<input type="text" required class="form-control" name="probability">
+				<input type="number" data-fv-integer-message="The value is not an integer" required class="form-control" name="probability">
 			</div>
 		</div>
 	</div>

@@ -161,7 +161,7 @@
 				<td>
 				{{ link_to_route('sale.edit', $title = $sale->customer_name, $parameters = array('id'=>$sale->id), $attributes = array()) }}
 				</td>
-				<td><span class="label label-info">{{ $sale->country->name }}</span></td>
+				<td><span>{{ $sale->country->name }}</span></td>
 				<td><span>{{ $regions[$sale->region] }}</span></td>
 				<td><span>{{ $verticals[$sale->vertical] }}</span></td>
 				<td><span>{{ $deliveryLocations[$sale->delivery_location] }}</span></td>

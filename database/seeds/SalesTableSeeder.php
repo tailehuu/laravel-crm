@@ -52,19 +52,6 @@ class SalesTableSeeder extends Seeder {
 					'sale_id' => $sale_id 
 			] );
 			
-			DB::table ( 'values' )->insert ( [ 
-					'head_count' => 10,
-					'value' => 30000,
-					'month' => 2,
-					'sale_id' => $sale_id 
-			] );
-			
-			DB::table ( 'values' )->insert ( [ 
-					'head_count' => 10,
-					'value' => 30000,
-					'month' => 3,
-					'sale_id' => $sale_id 
-			] );
 			
 			// 2
 			$sale_id = DB::table ( 'sales' )->insertGetId ( [ 
@@ -84,12 +71,7 @@ class SalesTableSeeder extends Seeder {
 					'started_at' => '2016-06-01 00:00:00' 
 			] );
 			
-			DB::table ( 'values' )->insert ( [ 
-					'head_count' => 16.66,
-					'value' => 49980,
-					'month' => 3,
-					'sale_id' => $sale_id 
-			] );
+
 		}
 	}
 }

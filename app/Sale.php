@@ -29,6 +29,16 @@ class Sale extends Model
     {
         return $this->hasMany('App\Value');
     }
+    static function makeHcValue($sale)
+    {
+    	
+    	for($i = 0; $i < $sale->month; $i++)
+    	{
+    		
+    		
+    	}
+
+    }
     static function makeFullValue($sale, $year)
     {
 		$currentYear = $year;

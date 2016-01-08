@@ -81,9 +81,18 @@ class SaleController extends Controller {
 		// Session::flash('message', 'Successfully created the sale!');
 		$sales = Sale::with ( 'user', 'country' )->get ();
 		
+		DB::table ( 'values' )->insert ( [
+		'head_count' => 10,
+		'value' => 30000,
+		'month' => 1,
+		'sale_id' => $sale_id
+		] );
+		
 		foreach ( $sales as $sale ) {
 			$sale->load ( 'values' );
 		}
+		
+		
 		
 		return redirect ( 'sale');
 	}

@@ -232,7 +232,7 @@
 				<label for="inputPassword3" class="col-sm-5 control-label">Probability
 					(%)</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" required name="probability"
+					<input type="number" data-fv-integer-message="The value is not an integer" class="form-control" required name="probability"
 						value="{{ $sale->probability }}">
 				</div>
 			</div>
