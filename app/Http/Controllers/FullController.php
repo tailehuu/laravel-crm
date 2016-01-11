@@ -22,7 +22,7 @@ class FullController extends Controller {
 	public function index(Request $request) {
 
 		//$sales = Sale::with ( 'user', 'country' )->orderBy ( 'id', 'desc' )->get ();
-		$sales = Sale::with ( 'user', 'country' )->orderBy ( 'id', 'desc' );
+		$sales = Sale::with ( 'user', 'country', 'values' )->orderBy ( 'id', 'desc' );
 		$flag = 0;
 		
 		$arr_Request = [];

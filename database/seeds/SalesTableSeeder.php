@@ -25,7 +25,7 @@ class SalesTableSeeder extends Seeder {
 		// $table->float('value')->default(0)->unsigned();
 		// $table->integer('month')->default(1)->unsigned();
 		// $table->integer('sale_id')->unsigned()->nullable();
-		for($i = 0; $i < 49; $i ++) {
+		for($i = 0; $i < 1; $i ++) {
 			
 			// 1
 			$sale_id = DB::table ( 'sales' )->insertGetId ( [ 
@@ -43,13 +43,6 @@ class SalesTableSeeder extends Seeder {
 					'duration' => 12,
 					'probability' => 50,
 					'started_at' => '2016-01-01 00:00:00' 
-			] );
-			
-			DB::table ( 'values' )->insert ( [ 
-					'head_count' => 10,
-					'value' => 30000,
-					'month' => 1,
-					'sale_id' => $sale_id 
 			] );
 			
 			

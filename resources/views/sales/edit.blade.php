@@ -11,7 +11,7 @@
 		<div class="col-sm-6">
 			<div class="form-group">
 
-				<label class="col-sm-5 control-label">Sale Person</label>
+				<label class="col-sm-5 control-label load-left">Sale Person</label>
 				<div class="col-sm-7">
 					<select class="form-control select-value" name="user_id"> 
 					@foreach($users as $key => $user) 
@@ -34,7 +34,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label">Prospect/
+				<label for="inputPassword3" class="col-sm-5 control-label load-left">Prospect/
 					Customer Name</label>
 				<div class="col-sm-7">
 					<input type="text" class="form-control" required name="customer_name"
@@ -47,7 +47,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-5 control-label">Country</label>
+				<label for="inputEmail3" class="col-sm-5 control-label load-left">Country</label>
 				<div class="col-sm-7">
 					<select class="form-control select-value" name="country_id">
 						@foreach ($countries as $country) @if($country->id == $sale->country_id)
@@ -68,7 +68,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label">Region</label>
+				<label for="inputPassword3" class="col-sm-5 control-label load-left">Region</label>
 				<div class="col-sm-7">
 					<select class="form-control select-value" name="region"> 
 					@foreach($regions as $key => $region) @if( $sale->region == $key)
@@ -86,7 +86,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label">Vertical</label>
+				<label for="inputPassword3" class="col-sm-5 control-label load-left">Vertical</label>
 				<div class="col-sm-7">
 					<select class="form-control select-value" name="vertical"> 
 					@foreach($verticals as $key => $vertical) @if( $sale->vertical == $key)
@@ -104,7 +104,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label">Delivery Location</label>
+				<label for="inputPassword3" class="col-sm-5 control-label load-left">Delivery Location</label>
 				<div class="col-sm-7">
 					<select class="form-control select-value" name="delivery_location"> 
 					@foreach($deliveryLocations as $key => $deliveryLocation) @if( $sale->delivery_location == $key)
@@ -123,7 +123,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-5 control-label">Opportunity
+				<label for="inputEmail3" class="col-sm-5 control-label load-left">Opportunity
 					Name</label>
 				<div class="col-sm-7">
 
@@ -142,7 +142,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label">Engagement
+				<label for="inputPassword3" class="col-sm-5 control-label load-left">Engagement
 					Type</label>
 				<div class="col-sm-7">
 					<select class="form-control select-value" name="engagement">
@@ -162,7 +162,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-5 control-label">Service Type</label>
+				<label for="inputEmail3" class="col-sm-5 control-label load-left">Service Type</label>
 				<div class="col-sm-7">
 
 					<select class="form-control select-value" name="service"> 
@@ -187,10 +187,10 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-5 control-label">Head Count</label>
+				<label for="inputEmail3" class="col-sm-5 control-label load-left">Head Count</label>
 				<div class="col-sm-7">
 
-					<input type="text" class="form-control" required name="head_count"
+					<input type="number" class="form-control" required name="head_count"
 						value="{{ $sale->head_count }}">
 
 
@@ -202,9 +202,9 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label">Value</label>
+				<label for="inputPassword3" class="col-sm-5 control-label load-left">Value</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" required name="value"
+					<input type="number" class="form-control" required name="value"
 						value="{{ $sale->value }}">
 				</div>
 			</div>
@@ -213,11 +213,18 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-5 control-label">Duration
+				<label for="inputEmail3" class="col-sm-5 control-label load-left">Duration
 					(month)</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" required name="duration"
+				@if($sale->probability == 100)
+				<input type="number" class="form-control" disabled="disabled" required name="duration"
 						value="{{ $sale->duration }}">
+				@else
+				<input type="text" class="form-control" required name="duration"
+						value="{{ $sale->duration }}">
+				@endif
+				
+					
 
 
 
@@ -229,7 +236,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label">Probability
+				<label for="inputPassword3" class="col-sm-5 control-label load-left">Probability
 					(%)</label>
 				<div class="col-sm-7">
 					<input type="number" data-fv-integer-message="The value is not an integer" class="form-control" required name="probability"
@@ -241,7 +248,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label">Start
+				<label for="inputPassword3" class="col-sm-5 control-label load-left">Start
 					Date</label>
 				<div class="col-sm-7">
 					<div class="input-group date" id="dp3">
@@ -253,11 +260,36 @@
 			</div>
 		</div>
 	</div>
-
-
+	@if($sale->probability == 100)
+	@foreach($sale->values as $key => $value)
+	
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+				<div class="col-sm-2 control-label load-left">Month {{ $value->month }}</div>
+					<div for="inputPassword3" class="col-sm-3 control-label">Head Count </div>
+					<div class="col-sm-7">
+						<input type="text"  class="form-control" required name="hc{{ $value->month }}"
+						value="{{ $value->head_count }}">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+				
+					<div for="inputPassword3" class="col-sm-3 control-label">Value</div>
+					<div class="col-sm-7">
+						<input type="text" data-fv-integer-message="The value is not an integer" class="form-control" required name="value{{ $value->month }}"
+						value="{{ $value->value }}">
+					</div>
+				</div>
+			</div>
+		</div>
+	@endforeach
+	@endif
 	<div class="row">
 		<div class="col-sm-6">
-			<label class="col-sm-5 control-label"></label>
+			<label class="col-sm-5 control-label load-left"></label>
 
 			<div class="col-sm-7">{{ Form::submit('Submit', array('class' => 'btn
 				btn-primary')) }}</div>

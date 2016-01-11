@@ -29,12 +29,18 @@ class Sale extends Model
     {
         return $this->hasMany('App\Value');
     }
-    static function makeHcValue($sale)
+    static function makeHcValue($data)
     {
-    	
-    	for($i = 0; $i < $sale->month; $i++)
+    	$hc = $data['head_count']/$data['duration'];
+    	$value = $data['value']/$data['duration'];
+    	for($i = 1; $i <= $data['duration']; $i++)
     	{
-    		
+    		DB::table ( 'values' )->insert ( [
+    		'head_count' => $hc,
+    		'value' => $value,
+    		'month' => $i,
+    		'sale_id' => $sale_id
+    		] );
     		
     	}
 

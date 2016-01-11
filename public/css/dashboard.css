@@ -870,3 +870,7 @@ tfoot input {
         padding: 3px;
         box-sizing: border-box;
     }
+.load-left{
+	text-align: left !important;
+	 font-weight: 700;
+}

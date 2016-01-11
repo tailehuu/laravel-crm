@@ -15,7 +15,7 @@
 			<label class="col-sm-5 control-label">Sale Person</label>
 			<div class="col-sm-7">
 				<select class="form-control select-value" required name="user_id"> 
-				
+				<option selected="selected"></option>
 				@foreach($users as $key => $user)
 
 					<option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -50,6 +50,7 @@
 			<label for="inputEmail3" class="col-sm-5 control-label">Country</label>
 			<div class="col-sm-7">
 				<select class="form-control select-value" name="country_id">
+				<option selected="selected"></option>
 					@foreach ($countries as $country)
 
 					<option value="{{ $country->id }}">{{ $country->name }}</option>
@@ -69,7 +70,8 @@
 		<div class="form-group">
 			<label for="inputPassword3" class="col-sm-5 control-label">Region</label>
 			<div class="col-sm-7">
-				<select class="form-control select-value" name="region"> 
+				<select class="form-control select-value" name="region">
+				<option selected="selected"></option>
 				@foreach($regions as $key => $region)
 
 					<option value="{{ $key }}">{{ $region }}</option> @endforeach
@@ -86,6 +88,7 @@
 			<label for="inputPassword3" class="col-sm-5 control-label">Vertical</label>
 			<div class="col-sm-7">
 				<select class="form-control select-value" name="vertical"> 
+				<option selected="selected"></option>
 				@foreach($verticals as $key => $vertical)
 
 					<option value="{{ $key }}">{{ $vertical }}</option> @endforeach
@@ -101,7 +104,8 @@
 		<div class="form-group">
 			<label for="inputPassword3" class="col-sm-5 control-label">Delivery Location</label>
 			<div class="col-sm-7">
-				<select class="form-control select-value" name="delivery_location"> 
+				<select class="form-control select-value" name="delivery_location">
+				<option selected="selected"></option> 
 				@foreach($deliveryLocations as $key => $deliveryLocation)
 
 					<option value="{{ $key }}">{{ $deliveryLocation }}</option> @endforeach
@@ -138,6 +142,7 @@
 				Type</label>
 			<div class="col-sm-7">
 				<select class="form-control select-value" name="engagement">
+				<option selected="selected"></option>
 					@foreach ($engagements as $key => $engagement)
 
 					<option value="{{ $key }}">{{ $engagement }}</option> @endforeach
@@ -153,6 +158,7 @@
 			<div class="col-sm-7">
 
 				<select class="form-control select-value" name="service"> 
+				<option selected="selected"></option>
 				@foreach($services as $key => $service)
 
 					<option value="{{ $key }}">{{ $service }}</option> @endforeach

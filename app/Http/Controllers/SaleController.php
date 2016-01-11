@@ -11,6 +11,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Validator;
+use DB;
 
 class SaleController extends Controller {
 	/**
@@ -75,25 +76,19 @@ class SaleController extends Controller {
 		$data ['value'] = $request ['value'];
 		$data ['service'] = $request ['service'];
 		
-		$sale = Sale::insert ( $data );
+		//$sale = Sale::insert ( $data );
+		// insert and make value and head count per month
+		$id = DB::table('sales')->insertGetId($data);
+		Sale::makeHcValue( $data, $id );
 		
 		// redirect
 		// Session::flash('message', 'Successfully created the sale!');
-		$sales = Sale::with ( 'user', 'country' )->get ();
+		$sales = Sale::with ( 'user', 'country' )->get ();	
 		
-		DB::table ( 'values' )->insert ( [
-		'head_count' => 10,
-		'value' => 30000,
-		'month' => 1,
-		'sale_id' => $sale_id
-		] );
 		
 		foreach ( $sales as $sale ) {
 			$sale->load ( 'values' );
-		}
-		
-		
-		
+		}		
 		return redirect ( 'sale');
 	}
 	
@@ -120,10 +115,10 @@ class SaleController extends Controller {
 	 */
 	public function edit($id) {
 		$sale = Sale::findOrFail ( $id );
-		$sale->load ( 'user', 'country' );
+		$sale->load ( 'user', 'country', 'values' );
 		$users = User::all ();
 		$countries = Country::all ();
-		
+
 		return view ( 'sales.edit' )->with ( 'sale', $sale )->with ( 'users', $users )->with ( 'countries', $countries );
 	}
 	
@@ -140,18 +135,36 @@ class SaleController extends Controller {
 		$sale->user_id = $request ['user_id'];
 		$sale->country_id = $request ['country_id'];
 		$sale->customer_name = $request ['customer_name'];
-		$sale->duration = $request ['duration'];
+		if($sale->probability != 100)
+		{
+			$sale->duration = $request ['duration'];
+		}
+		else {
+			DB::table('values')->where('sale_id', '=', $id)->delete();
+							
+		}
+			
 		$sale->engagement = $request ['engagement'];
 		$sale->head_count = $request ['head_count'];
 		$sale->opportunity_name = $request ['opportunity_name'];
 		$sale->probability = $request ['probability'];
 		$sale->region = $request ['region'];
 		$sale->vertical = $request ['vertical'];
-		$sale->delivery_location = $request ['delivery_location'];
-		
+		$sale->delivery_location = $request ['delivery_location'];		
 		$sale->started_at = date ( 'Y-m-d H:i:s', strtotime ( $request ['started_at'] ) );
 		$sale->value = $request ['value'];
 		$sale->service = $request ['service'];
+
+		for($i = 1; $i <= $sale->duration; $i++)
+		{
+			DB::table ( 'values' )->insert ( [
+			'head_count' => $request ['hc'.$i],
+			'value' => $request ['value'.$i],
+			'month' => $i,
+			'sale_id' => $id
+			] );
+		}
+		
 		
 		$sale->save ();
 		// $sale->update($request->all());
