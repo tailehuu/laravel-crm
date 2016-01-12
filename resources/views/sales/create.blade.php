@@ -222,6 +222,21 @@
 		</div>
 	</div>
 </div>
+
+<div class="row">
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label for="inputPassword3" class="col-sm-5 control-label">Closure Date</label>
+			<div class="col-sm-7">
+				<div class="input-group date" id="dp3">
+					<input class="form-control required" required type="text" name="closure_date">
+					<span class="input-group-addon"><i
+						class="glyphicon glyphicon-calendar"></i></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="row">
 	<div class="col-sm-6">
 		<div class="form-group">

@@ -69,6 +69,7 @@ class SaleController extends Controller {
 		$data ['head_count'] = $request ['head_count'];
 		$data ['opportunity_name'] = $request ['opportunity_name'];
 		$data ['probability'] = $request ['probability'];
+		$data ['closure_date'] = date ( 'Y-m-d H:i:s', strtotime ( $request ['closure_date'] ) );
 		$data ['region'] = $request ['region'];
 		$data ['vertical'] = $request ['vertical'];
 		$data ['delivery_location'] = $request ['delivery_location'];
@@ -146,8 +147,8 @@ class SaleController extends Controller {
 			DB::table ( 'values' )->insert ( [
 					'head_count' => $request ['hc'.$i],
 					'value' => $request ['value'.$i],
-							'month' => $i,
-							'sale_id' => $id
+					'month' => Carbon::parse ( $request['started_at'] )->addMonth($i-1),
+					'sale_id' => $id
 					] );
 			}
 							
@@ -157,6 +158,7 @@ class SaleController extends Controller {
 		$sale->head_count = $request ['head_count'];
 		$sale->opportunity_name = $request ['opportunity_name'];
 		$sale->probability = $request ['probability'];
+		$sale->closure_date = date ( 'Y-m-d H:i:s', strtotime ( $request ['closure_date'] ) );		
 		$sale->region = $request ['region'];
 		$sale->vertical = $request ['vertical'];
 		$sale->delivery_location = $request ['delivery_location'];		
@@ -165,7 +167,7 @@ class SaleController extends Controller {
 		$sale->service = $request ['service'];
 
 		
-		
+		echo $sale;
 		
 		$sale->save ();
 		// $sale->update($request->all());

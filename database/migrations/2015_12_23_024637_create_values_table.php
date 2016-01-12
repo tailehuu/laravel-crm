@@ -16,10 +16,10 @@ class CreateValuesTable extends Migration
             $table->increments('id');
             $table->float('head_count')->default(0)->unsigned();
             $table->float('value')->default(0)->unsigned();
-            $table->integer('month')->default(1)->unsigned();
+            $table->dateTime('month');
             $table->integer('sale_id')->unsigned()->nullable();
             $table->timestamps();
-
+            
             // relationship
             $table->foreign('sale_id')->references('id')->on('sales')->onDelete('cascade');
         });

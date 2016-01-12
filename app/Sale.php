@@ -39,7 +39,7 @@ class Sale extends Model
     		DB::table ( 'values' )->insert ( [
     		'head_count' => $hc,
     		'value' => $value,
-    		'month' => $i,
+    		'month' => Carbon::parse ( $data['started_at'] )->addMonth($i-1),
     		'sale_id' => $sale_id
     		] );
     		

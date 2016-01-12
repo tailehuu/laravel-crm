@@ -248,6 +248,20 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
+				<label for="inputPassword3" class="col-sm-5 control-label load-left">Closure Date</label>
+				<div class="col-sm-7">
+					<div class="input-group date" id="dp3">
+						<input class="form-control" type="text" required name="closure_date"
+							value="{{ $sale->closure_date }}"> <span class="input-group-addon"><i
+							class="glyphicon glyphicon-calendar"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-5 control-label load-left">Start
 					Date</label>
 				<div class="col-sm-7">
@@ -266,10 +280,11 @@
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="form-group">
-				<div class="col-sm-2 control-label load-left">Month {{ $value->month }}</div>
+				
+				<div class="col-sm-3 control-label load-left">{{ date('M d, Y', strtotime($value->month)) }}</div>
 					<div for="inputPassword3" class="col-sm-3 control-label">Head Count </div>
-					<div class="col-sm-7">
-						<input type="text"  class="form-control" required name="hc{{ $value->month }}"
+					<div class="col-sm-6">
+						<input type="text"  class="form-control" required name="hc{{ $key + 1 }}"
 						value="{{ $value->head_count }}">
 					</div>
 				</div>
@@ -279,7 +294,7 @@
 				
 					<div for="inputPassword3" class="col-sm-3 control-label">Value</div>
 					<div class="col-sm-7">
-						<input type="text" data-fv-integer-message="The value is not an integer" class="form-control" required name="value{{ $value->month }}"
+						<input type="text" data-fv-integer-message="The value is not an integer" class="form-control" required name="value{{ $key + 1 }}"
 						value="{{ $value->value }}">
 					</div>
 				</div>

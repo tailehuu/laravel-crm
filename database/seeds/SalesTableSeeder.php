@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 class SalesTableSeeder extends Seeder {
 	/**
 	 * Run the database seeds.
@@ -25,7 +26,7 @@ class SalesTableSeeder extends Seeder {
 		// $table->float('value')->default(0)->unsigned();
 		// $table->integer('month')->default(1)->unsigned();
 		// $table->integer('sale_id')->unsigned()->nullable();
-		for($i = 0; $i < 1; $i ++) {
+		for($i = 0; $i < 11; $i ++) {
 			
 			// 1
 			$sale_id = DB::table ( 'sales' )->insertGetId ( [ 
@@ -42,6 +43,7 @@ class SalesTableSeeder extends Seeder {
 					'value' => 360000,
 					'duration' => 12,
 					'probability' => 50,
+					'closure_date' => '2017-01-01 00:00:00',
 					'started_at' => '2016-01-01 00:00:00' 
 			] );
 			for ($j = 0; $j < 12; $j++)
@@ -49,7 +51,7 @@ class SalesTableSeeder extends Seeder {
 				DB::table ( 'values' )->insert ( [
 				'head_count' => 10,
 				'value' => 30000,
-				'month' => $j+1,
+				'month' => Carbon::parse ( '2016-01-01 00:00:00' )->addMonth($j),
 				'sale_id' => $sale_id
 				] );
 			}
@@ -70,6 +72,7 @@ class SalesTableSeeder extends Seeder {
 					'value' => 300000,
 					'duration' => 12,
 					'probability' => 30,
+					'closure_date' => '2017-07-01 00:00:00',
 					'started_at' => '2016-06-01 00:00:00' 
 			] );
 			for ($j = 0; $j < 12; $j++)
@@ -77,7 +80,7 @@ class SalesTableSeeder extends Seeder {
 			DB::table ( 'values' )->insert ( [
 			'head_count' => 8.33,
 					'value' => 25000,
-							'month' => $j+1,
+				'month' => Carbon::parse ( '2016-06-01 00:00:00' )->addMonth($j),
 				'sale_id' => $sale_id
 							] );
 			}

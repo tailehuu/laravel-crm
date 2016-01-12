@@ -56,8 +56,11 @@
 				<th class="text-center" rowspan="2" data-column="12">Probability (%)
 				<input class="column_filter" id="col12_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2" data-column="13">Start Date
+				<th class="text-center" rowspan="2" data-column="13">Closure Date
 				<input class="column_filter" id="col13_filter" type="text">
+				</th>
+				<th class="text-center" rowspan="2" data-column="14">Start Date
+				<input class="column_filter" id="col14_filter" type="text">
 				</th>
 
 
@@ -68,8 +71,8 @@
 			</tr>
 			<tr>
 
-				<th>HC</th>
-				<th>Value</th>
+				<th class="text-center">HC</th>
+				<th class="text-center">Value</th>
 
 			</tr>
 		</thead>
@@ -92,6 +95,8 @@
 				<td class="text-right"><span>{{ number_format( $sale->value, 0) }}</span></td>
 				<td class="text-right"><span>{{ number_format( $sale->duration, 0) }}</span></td>
 				<td class="text-right"><span>{{ $sale->probability }}</span></td>
+				<td><p class="large-field text-left width-date">{{ date('M d, Y',
+						strtotime($sale->closure_date)) }}</p></td>
 				<td><p class="large-field text-left width-date">{{ date('M d, Y',
 						strtotime($sale->started_at)) }}</p></td>
 

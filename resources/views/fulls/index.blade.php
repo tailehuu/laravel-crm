@@ -93,8 +93,11 @@
 				<th class="text-center" rowspan="2" data-column="12">Probability (%)
 				<input class="column_filter" id="col12_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2" data-column="13">Start Date
+				<th class="text-center" rowspan="2" data-column="13">Closure Date
 				<input class="column_filter" id="col13_filter" type="text">
+				</th>
+				<th class="text-center" rowspan="2" data-column="14">Start Date
+				<input class="column_filter" id="col14_filter" type="text">
 				</th>
 				<th colspan="2" class="text-center">Jan</th>
 				<th colspan="2" class="text-center">Feb</th>
@@ -119,8 +122,8 @@
 			</tr>
 			<tr>
 
-				<th class="text-center">HC</th>
-				<th class="text-center">Value</th>
+				<th class="text-center"><span class="text-center">HC</span></th>
+				<th class="text-center"><span class="text-center">Value</span></th>
 				<th class="text-center">HC</th>
 				<th class="text-center">USD</th>
 				<th class="text-center">HC</th>
@@ -172,6 +175,8 @@
 				<td class="text-right"><span>{{ number_format($sale->value, 2) }}</span></td>
 				<td class="text-right"><span>{{ $sale->duration }}</span></td>
 				<td class="text-right"><span>{{ $sale->probability }}</span></td>
+				<td><p class="large-field text-left width-date">{{ date('M d, Y',
+						strtotime($sale->closure_date)) }}</p></td>
 				<td class="text-right"><p class="large-field text-left width-date">{{ date('M d, Y',
 						strtotime($sale->started_at)) }}</p></td> 
 				@foreach ($sale->months	as $month)
@@ -193,9 +198,11 @@
       <td>&nbsp</td>
       <td>&nbsp</td>
       <td>&nbsp</td>
+      
       <td class="text-right"><strong>Total</strong></td>
       <td>{{  $total_hc > 0 ? number_format($total_hc, 2) : '' }}</td>
       <td>{{  $total_value > 0 ? number_format($total_value, 2) : '' }}</td>
+      <td>&nbsp</td>
       <td>&nbsp</td>
       <td>&nbsp</td>
       <td>&nbsp</td>
