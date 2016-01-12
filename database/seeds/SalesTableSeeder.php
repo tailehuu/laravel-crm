@@ -44,6 +44,15 @@ class SalesTableSeeder extends Seeder {
 					'probability' => 50,
 					'started_at' => '2016-01-01 00:00:00' 
 			] );
+			for ($j = 0; $j < 12; $j++)
+			{
+				DB::table ( 'values' )->insert ( [
+				'head_count' => 10,
+				'value' => 30000,
+				'month' => $j+1,
+				'sale_id' => $sale_id
+				] );
+			}
 			
 			
 			// 2
@@ -63,6 +72,15 @@ class SalesTableSeeder extends Seeder {
 					'probability' => 30,
 					'started_at' => '2016-06-01 00:00:00' 
 			] );
+			for ($j = 0; $j < 12; $j++)
+			{
+			DB::table ( 'values' )->insert ( [
+			'head_count' => 8.33,
+					'value' => 25000,
+							'month' => $j+1,
+				'sale_id' => $sale_id
+							] );
+			}
 			
 
 		}

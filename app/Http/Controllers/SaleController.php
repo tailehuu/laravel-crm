@@ -139,8 +139,17 @@ class SaleController extends Controller {
 		{
 			$sale->duration = $request ['duration'];
 		}
-		else {
+		else {			
 			DB::table('values')->where('sale_id', '=', $id)->delete();
+			for($i = 1; $i <= $sale->duration; $i++)
+			{
+			DB::table ( 'values' )->insert ( [
+					'head_count' => $request ['hc'.$i],
+					'value' => $request ['value'.$i],
+							'month' => $i,
+							'sale_id' => $id
+					] );
+			}
 							
 		}
 			
@@ -155,15 +164,7 @@ class SaleController extends Controller {
 		$sale->value = $request ['value'];
 		$sale->service = $request ['service'];
 
-		for($i = 1; $i <= $sale->duration; $i++)
-		{
-			DB::table ( 'values' )->insert ( [
-			'head_count' => $request ['hc'.$i],
-			'value' => $request ['value'.$i],
-			'month' => $i,
-			'sale_id' => $id
-			] );
-		}
+		
 		
 		
 		$sale->save ();

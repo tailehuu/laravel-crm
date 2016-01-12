@@ -3,6 +3,7 @@
 namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Sale extends Model
 {
@@ -29,7 +30,7 @@ class Sale extends Model
     {
         return $this->hasMany('App\Value');
     }
-    static function makeHcValue($data)
+    static function makeHcValue($data, $sale_id)
     {
     	$hc = $data['head_count']/$data['duration'];
     	$value = $data['value']/$data['duration'];
@@ -54,28 +55,47 @@ class Sale extends Model
 		$endMonth = Carbon::parse ( $sale->started_at )->addMonth($sale->duration -1)->month;
 		$endYear = Carbon::parse ( $sale->started_at )->addMonth($sale->duration -1)->year;
 		
-		$values = [ ];
+		$values = [];
 		
+		
+
     	$months = Sale::getMonthInYear( $sale->started_at,  $sale->duration, $currentYear);
 
-			for($i = 1; $i <= 12; $i ++) {
-				if (in_array($i, $months))
-				{
-					array_push ( $values, array (
-					'hc' => $sale->head_count / $sale->duration ,
-					'value' => $sale->value / $sale->duration
-					
-					) );
-				}
-				else {
-					array_push ( $values, array (
-					'hc' => 0,
-					'value' => 0
-					) );
-				}
-				
-			}
-		
+    	
+    	$val = $sale->values;
+    	if(count($val) > 0){
+    		for($i = 1; $i <= 12; $i++) {
+    		
+    			if (in_array($i, $months['val']))
+    			{
+    				$keySearch = array_search($i,$months['val']);
+    				$position = $months['pos'][$keySearch];
+    		
+    				array_push ( $values, array (
+    				'hc' => $val[$position]->head_count ,
+    				'value' => $val[$position]->value
+    					
+    				) );
+    			}
+    			else {
+    				array_push ( $values, array (
+    				'hc' => 0,
+    				'value' => 0
+    				) );
+    			}
+    		
+    		}
+    	}
+    	else {
+    		for($i = 1; $i <= 12; $i++) {
+    		
+    			array_push ( $values, array (
+    				'hc' => 0,
+    				'value' => 0
+    				) );    		
+    		}
+    	}
+			
 		return $values;
     }
     static function makeWeightedValue($sale, $year)
@@ -91,23 +111,40 @@ class Sale extends Model
     
     	$months = Sale::getMonthInYear( $sale->started_at,  $sale->duration, $currentYear);
     	 
-    	for($i = 1; $i <= 12; $i ++) {
-    		if (in_array($i, $months))
-    		{
-    			array_push ( $values, array (
-    			'hc' => ($sale->head_count / $sale->duration)*($sale->probability/100) ,
-    			'value' => ($sale->value / $sale->duration)*($sale->probability/100)
-    
-    			) );
+
+    	$val = $sale->values;
+    	if(count($val) > 0){
+    		for($i = 1; $i <= 12; $i++) {
+    	
+    			if (in_array($i, $months['val']))
+    			{
+    				$keySearch = array_search($i,$months['val']);
+    				$position = $months['pos'][$keySearch];
+    	
+    				array_push ( $values, array (
+    				'hc' => ($val[$position]->head_count)*($sale->probability/100) ,
+    				'value' => ($val[$position]->value)*($sale->probability/100)
+    					
+    				) );
+    			}
+    			else {
+    				array_push ( $values, array (
+    				'hc' => 0,
+    				'value' => 0
+    				) );
+    			}
+    	
     		}
-    		else {
+    	}
+    	else {
+    		for($i = 1; $i <= 12; $i++) {
+    	
     			array_push ( $values, array (
     			'hc' => 0,
     			'value' => 0
     			) );
     		}
-    		 
-    	} 	 
+    	}
     	 
     	 
     
@@ -116,14 +153,16 @@ class Sale extends Model
     static function getMonthInYear($start, $duration, $year)
     {
     	$months = [];
-
+    	$months['val'] = [];
+    	$months['pos'] = [];
     	for($i = 0; $i < $duration; $i++)
     	{
     		$checkYear = Carbon::parse ( $start )->addMonth($i)->year;
     		$month = Carbon::parse ( $start )->addMonth($i)->month;
      		if($checkYear == $year)
      		{
-    			array_push($months, $month);
+    			array_push($months['val'], $month);
+    			array_push($months['pos'], $i);
      		}
     		
     	}
