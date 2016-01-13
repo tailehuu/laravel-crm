@@ -67,26 +67,7 @@
 <script type="text/javascript">
 $(".input-group.date").datepicker({ autoclose: true, todayHighlight: true });
 </script>
-<script type="text/javascript">
-      
-function filterColumn ( i ) {
-    $('#example').DataTable().column( i ).search(
-        $('#col'+i+'_filter').val()
-    ).draw();
-}
- 
-$(document).ready(function() {
-    $('#example').DataTable({
-    	"ordering": false
-        });
- 
 
-    $('input.column_filter').on( 'keyup click', function () {
-        filterColumn( $(this).parents('th').attr('data-column') );
-    } );
-} );
-
-</script>
 <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 <script src="{{ asset('assets/js/vendor/holder.min.js') }}"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

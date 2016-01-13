@@ -10,8 +10,8 @@
 		<a href='#' class="dropdown-toggle" data-drop="magazine"><i class="glyphicon glyphicon-th"></i>&nbspRevenues</a>
 			<ul
 				style="display: {{ (Request::is('*value*') ? 'block' : 'none') }}">
-				<li><a href='/value?q=full'><span class="sub-menu"><i class="glyphicon glyphicon-align-justify"></i>&nbsp; Full Value</span></a></li>
-				<li><a href="/value?q=weighted" class="dropdown-toggle"><span class="sub-menu"><i class="glyphicon glyphicon-align-left"></i>&nbsp; Weighted Value</span></a></li>
+				<li><a href='/value?q=full'><span class="sub-menu"><i class="glyphicon glyphicon-align-justify"></i>&nbsp; Full Revenues</span></a></li>
+				<li><a href="/value?q=weighted" class="dropdown-toggle"><span class="sub-menu"><i class="glyphicon glyphicon-align-left"></i>&nbsp; Weighted Revenues</span></a></li>
 			</ul>
 		</li>
 

@@ -76,6 +76,23 @@
 
 			</tr>
 		</thead>
+		 <tfoot>
+            <tr>
+                <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      
+      <td class="text-right"><strong>Total</strong></td>
+                <th></th>
+                 <th></th>
+            </tr>
+        </tfoot>
 		<tbody>
 			@foreach ($sales as $index => $sale)
 			<tr>
@@ -89,10 +106,10 @@
 				<td><span>{{ $sale->opportunity_name }}</span></td>
 				<td><span>{{ $engagements[$sale->engagement] }}</span></td>
 				<td><span>{{ $services[$sale->service] }}</span></td>
-				<td class="text-right"><span>{{ number_format($sale->head_count, 0)  }}</span></td>
+				<td class="text-right">{{ number_format($sale->head_count, 0)  }}</td>
 				
 				
-				<td class="text-right"><span>{{ number_format( $sale->value, 0) }}</span></td>
+				<td class="text-right">{{ number_format( $sale->value, 0) }}</td>
 				<td class="text-right"><span>{{ number_format( $sale->duration, 0) }}</span></td>
 				<td class="text-right"><span>{{ $sale->probability }}</span></td>
 				<td><p class="large-field text-left width-date">{{ date('M d, Y',
@@ -109,27 +126,6 @@
 
 			@endforeach
 
-<tr>
-     <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-       <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      
-      <td class="text-right"><strong>Total</strong></td>
-      <td>{{  $total_hc > 0 ? number_format($total_hc, 2) : '' }}</td>
-      <td>{{  $total_value > 0 ? number_format($total_value, 2) : '' }}</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-    </tr>
 
 
 
@@ -149,5 +145,57 @@
   }
 
 </script>
+<script type="text/javascript">
+      
+function filterColumn ( i ) {
+    $('#example').DataTable().column( i ).search(
+        $('#col'+i+'_filter').val()
+    ).draw();
+}
+ 
+$(document).ready(function() {
+    $('#example').DataTable({
+    	"ordering": false,
+    	"footerCallback": function ( row, data, start, end, display ) {
+            var api = this.api(), data;
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function ( i ) {
+                return typeof i === 'string' ?
+                    i.replace(/[\$,]/g, '')*1 :
+                    typeof i === 'number' ?
+                        i : 0;
+            };
+    
+            
+            // Total over this page
+            pageTotal = api
+                .column( 10, { page: 'current'} )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+            pageTotalvalue = api
+            .column( 11, { page: 'current'} )
+            .data()
+            .reduce( function (a, b) {
+                return intVal(a) + intVal(b);
+            }, 0 );
+            
+         	// Update footer
+            $( api.column( 10 ).footer() ).html(pageTotal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));            
+            $( api.column( 11 ).footer() ).html(pageTotalvalue.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
 
+            
+            
+        }
+        });
+
+
+    $('input.column_filter').on( 'keyup click', function () {
+        filterColumn( $(this).parents('th').attr('data-column') );
+    } );
+} );
+
+</script>
 @endsection

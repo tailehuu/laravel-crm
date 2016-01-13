@@ -274,7 +274,7 @@
 			</div>
 		</div>
 	</div>
-	@if($sale->probability == 100)
+	@if($sale->probability == 100 && $sale->engagement == 1)
 	@foreach($sale->values as $key => $value)
 	
 		<div class="row">

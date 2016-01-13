@@ -6,11 +6,11 @@
 <div class="row page-header">
 	<div class="col-sm-11 ">
 	@if($arr_Request['q'] == 'weighted')
-		<h1 class="no-padding">Weighted Value</h1>
+		<h1 class="no-padding">Weighted Revenues</h1>
 	@elseif($arr_Request['q'] == 'full')
-		<h1 class="no-padding">Full Value</h1>
+		<h1 class="no-padding">Full Revenues</h1>
 		@else
-		<h1 class="no-padding">Full Value</h1>
+		<h1 class="no-padding">Full Revenues</h1>
 		@endif
 	</div>
 <!-- 	<div class="col-sm-1"> -->
@@ -49,7 +49,7 @@
 
 
     <div class="table-responsive">
-	<table class="table table-condensed display table-striped table-bordered table-hover no-margin" id="example">
+	<table class="table table-condensed display table-striped table-bordered table-hover no-margin" id="example1">
 		<thead>
 			<tr>
 
@@ -153,7 +153,51 @@
 			
 		</thead>
 		
-	
+	 <tfoot>
+            <tr>
+                <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      
+      <td class="text-right"><strong>Total</strong></td>
+                <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+            </tr>
+        </tfoot>
 
 		<tbody>
 			@foreach ($sales as $index => $sale)
@@ -171,8 +215,8 @@
 				<td><span>{{ $sale->opportunity_name }}</span></td>
 				<td><span>{{ $engagements[$sale->engagement] }}</span></td>
 				<td><span>{{ $services[$sale->service] }}</span></td>
-				<td class="text-right"><span>{{ number_format($sale->head_count, 2) }}</span></td>
-				<td class="text-right"><span>{{ number_format($sale->value, 2) }}</span></td>
+				<td class="text-right">{{ number_format($sale->head_count, 2) }}</td>
+				<td class="text-right">{{ number_format($sale->value, 2) }}</td>
 				<td class="text-right"><span>{{ $sale->duration }}</span></td>
 				<td class="text-right"><span>{{ $sale->probability }}</span></td>
 				<td><p class="large-field text-left width-date">{{ date('M d, Y',
@@ -181,41 +225,13 @@
 						strtotime($sale->started_at)) }}</p></td> 
 				@foreach ($sale->months	as $month)
 				<td class="text-right">{{ $month['hc'] > 0 ? number_format($month['hc'], 2) : '' }}</td>
-				<td class="text-right"><span class="name">{{ $month['value'] > 0 ? number_format($month['value'], 2) : '' }}</span></td>
+				<td class="text-right">{{ $month['value'] > 0 ? number_format($month['value'], 2) : '' }}</td>
 				@endforeach
 
 			</tr>
 
 			@endforeach
-@if( count($sales) > 0)
-  <tr>
-     <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-       <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      
-      <td class="text-right"><strong>Total</strong></td>
-      <td>{{  $total_hc > 0 ? number_format($total_hc, 2) : '' }}</td>
-      <td>{{  $total_value > 0 ? number_format($total_value, 2) : '' }}</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      <td>&nbsp</td>
-      
-      @foreach ($totals	as $total)
-				<td class="text-right"><strong>{{  $total['hc'] > 0 ? number_format($total['hc'], 2) : '' }}</strong></td>
-				<td class="text-right"><strong><span class="name">{{ $total['value'] > 0 ? number_format($total['value'], 2) : '' }}</span></strong></td>
-	@endforeach
-	
-	
-    </tr>
-			
-@endif
+
 
 		</tbody>
 	</table>
@@ -227,6 +243,67 @@ var select = document.getElementById('year');
 select.onchange = function(){
     this.form.submit();
 };
+
+</script>
+<script type="text/javascript">
+      
+function filterColumn ( i ) {
+    $('#example1').DataTable().column( i ).search(
+        $('#col'+i+'_filter').val()
+    ).draw();
+}
+ 
+$(document).ready(function() {
+    $('#example1').DataTable({
+    	"ordering": false,
+    	"footerCallback": function ( row, data, start, end, display ) {
+            var api = this.api(), data;
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function ( i ) {
+                return typeof i === 'string' ?
+                    i.replace(/[\$,]/g, '')*1 :
+                    typeof i === 'number' ?
+                        i : 0;
+            };
+    
+            
+            // Total over this page
+            pageTotal = api
+                .column( 10, { page: 'current'} )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+            pageTotalvalue = api
+            .column( 11, { page: 'current'} )
+            .data()
+            .reduce( function (a, b) {
+                return intVal(a) + intVal(b);
+            }, 0 );
+            
+         	// Update footer
+            $( api.column( 10 ).footer() ).html(pageTotal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));            
+            $( api.column( 11 ).footer() ).html(pageTotalvalue.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
+            
+            for (i = 16; i < 40; i++) {
+                var bien = "pageTotalvalue"+i;
+                bien = api.column( i, { page: 'current'} ).data().reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+            	$( api.column( i ).footer() ).html(bien.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
+            	
+            } 
+            
+            
+        }
+        });
+
+
+    $('input.column_filter').on( 'keyup click', function () {
+        filterColumn( $(this).parents('th').attr('data-column') );
+    } );
+} );
 
 </script>
 
