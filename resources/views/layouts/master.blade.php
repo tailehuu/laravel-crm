@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('favicon.ico') }}">
 
-    <title>Sale & Revenue - @yield('title')</title>
+    <title>Terralogic Opportunities & Revenue Tracking System</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">

@@ -187,7 +187,7 @@
 			</tr>
 
 			@endforeach
-
+@if( count($sales) > 0)
   <tr>
      <td>&nbsp</td>
       <td>&nbsp</td>
@@ -215,7 +215,7 @@
 	
     </tr>
 			
-
+@endif
 
 		</tbody>
 	</table>

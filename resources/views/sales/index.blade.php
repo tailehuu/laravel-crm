@@ -3,7 +3,7 @@
 @section('content')
 <div class="row page-header">
 	<div class="col-sm-11 ">
-		<h1 class="no-padding">Opportunity</h1>
+		<h1 class="no-padding">Opportunities</h1>
 	</div>
 	<div class="col-sm-1">
 		<a href="sale/create" class="text-right"><button type="button"
@@ -11,7 +11,7 @@
 	</div>
 
 </div>
-
+<p>Here you can add & modify the Opportunities details. Monthly Head Count & Revenue numbers are automatically calculated. For Opportunities that are Fixed Price & 100%, you can modify the Monthly Head Count & Revenue numbers manually.</p>
 
 <div class="table-responsive">
 	<table
@@ -50,10 +50,10 @@
 				<input class="column_filter" id="col9_filter" type="text">
 				</th>
 				<th class="text-center" colspan="2" class="text-center">Total</th>
-				<th class="text-center" rowspan="2" data-column="11">Duration (month)
+				<th class="text-center" rowspan="2" data-column="11">Duration <br> (month)
 				<input class="column_filter" id="col11_filter" type="text">
 				</th>
-				<th class="text-center" rowspan="2" data-column="12">Probability (%)
+				<th class="text-center" rowspan="2" data-column="12">Probability <br> (%)
 				<input class="column_filter" id="col12_filter" type="text">
 				</th>
 				<th class="text-center" rowspan="2" data-column="13">Closure Date
@@ -109,7 +109,27 @@
 
 			@endforeach
 
-
+<tr>
+     <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+       <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      
+      <td class="text-right"><strong>Total</strong></td>
+      <td>{{  $total_hc > 0 ? number_format($total_hc, 2) : '' }}</td>
+      <td>{{  $total_value > 0 ? number_format($total_value, 2) : '' }}</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+      <td>&nbsp</td>
+    </tr>
 
 
 

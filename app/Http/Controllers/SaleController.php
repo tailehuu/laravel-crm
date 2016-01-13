@@ -22,12 +22,16 @@ class SaleController extends Controller {
 	public function index() {
 		
 		$sales = Sale::with ( 'user', 'country' )->orderBy ( 'id', 'desc' )->get ();
-		
+		$total_hc = 0;
+		$total_value = 0;
 		foreach ( $sales as $sale ) {
+			$total_hc += $sale->head_count;
+			$total_value += $sale->value;
+			
 			$sale->load ( 'values' );
 		}
 		
-		return view ( 'sales.index' )->with ( 'sales', $sales );
+		return view ( 'sales.index' )->with ( 'sales', $sales )->with('total_hc',$total_hc)->with('total_value',$total_value);
 	}
 	
 	/**
