@@ -853,7 +853,7 @@ body {
 	cursor: pointer;
 }
 .column_filter {
-    width: 90px;
+    width: 100px;
 }
 #example_filter,#example_info{
 	display: none;
