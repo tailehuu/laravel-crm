@@ -98,12 +98,12 @@
 			<tr>
 				<td><label>{{ $index+1 }}</label></td>
 				<td><span class="large-field">{{ $sale->user->name }}</span></td>
-				<td><a href="sale/{{ $sale->id }}/edit"><span>{{ $sale->customer_name }}</span></a></td>
+				<td><span>{{ $sale->customer_name }}</span></td>
 				<td><span>{{ $sale->country->name }}</span></td>
 				<td><span>{{ $regions[$sale->region] }}</span></td>
 				<td><span>{{ $verticals[$sale->vertical] }}</span></td>
 				<td><span>{{ $deliveryLocations[$sale->delivery_location] }}</span></td>
-				<td><span>{{ $sale->opportunity_name }}</span></td>
+				<td><a href="sale/{{ $sale->id }}/edit"><span>{{ $sale->opportunity_name }}</span></a></td>
 				<td><span>{{ $engagements[$sale->engagement] }}</span></td>
 				<td><span>{{ $services[$sale->service] }}</span></td>
 				<td class="text-right">{{ number_format($sale->head_count, 0)  }}</td>
