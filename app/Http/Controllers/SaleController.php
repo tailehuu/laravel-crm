@@ -144,17 +144,22 @@ class SaleController extends Controller {
 		{
 			$sale->duration = $request ['duration'];
 		}
-		else {			
-			DB::table('values')->where('sale_id', '=', $id)->delete();
-			for($i = 1; $i <= $sale->duration; $i++)
+		if($sale->probability == 100 && $sale->engagement == 1)
+		{			
+			if($request ['hc1'] != null)
 			{
-			DB::table ( 'values' )->insert ( [
-					'head_count' => $request ['hc'.$i],
-					'value' => $request ['value'.$i],
-					'month' => Carbon::parse ( $request['started_at'] )->addMonth($i-1),
-					'sale_id' => $id
-					] );
+				DB::table('values')->where('sale_id', '=', $id)->delete();
+				for($i = 1; $i <= $sale->duration; $i++)
+				{
+				DB::table ( 'values' )->insert ( [
+				'head_count' => $request ['hc'.$i],
+				'value' => $request ['value'.$i],
+				'month' => Carbon::parse ( $request['started_at'] )->addMonth($i-1),
+				'sale_id' => $id
+				] );
+				}
 			}
+			
 							
 		}
 			

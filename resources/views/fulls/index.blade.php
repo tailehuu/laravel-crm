@@ -201,8 +201,7 @@
 
 		<tbody>
 			@foreach ($sales as $index => $sale)
-			<tr>
-			
+			<tr>			
 				<td><label>{{ $index+1 }}</label></td>
 				<td><span class="large-field">{{ $sale->user->name }}</span></td>
 				<td><span>{{$sale->customer_name}}</span></td>
