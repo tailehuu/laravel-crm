@@ -107,7 +107,7 @@ class SaleController extends Controller {
 		$sale = Sale::findOrFail ( $id );
 		$sale->load ( 'user', 'country' );
 		
-		$sale->hc_month = Sale::makeFullValue ( $sale );
+		//$sale->hc_month = Sale::makeFullValue ( $sale );
 		
 		return view ( 'sales.show' )->with ( 'sale', $sale );
 	}
