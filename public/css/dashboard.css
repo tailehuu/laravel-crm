@@ -878,3 +878,6 @@ tfoot input {
 {
 	height: 80px !important;
 }
+.navbar-right{
+	padding: 15px 0 !important;
+}
