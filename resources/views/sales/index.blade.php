@@ -21,7 +21,7 @@
         <table class="table table-condensed table-striped table-bordered table-hover no-margin" id="example">
             <thead>
             <tr class="text-center">
-                <th class="text-center" rowspan="2">No<br> &nbsp
+                <th class="text-center" rowspan="2">No<br> &nbsp;
                 </th>
                 <th class="text-center" rowspan="2" data-column="1">Sale Person
                     <input class="column_filter" id="col1_filter" type="text">
@@ -66,7 +66,8 @@
                 <th class="text-center" rowspan="2" data-column="15">Start Date
                     <input class="column_filter" id="col15_filter" type="text">
                 </th>
-                <th rowspan="2" class="text-center">Action<br> &nbsp
+                <th class="text-center" rowspan="2">Description <br> &nbsp;</th>
+                <th rowspan="2" class="text-center">Action<br> &nbsp;
                 </th>
             </tr>
             <tr>
@@ -113,6 +114,7 @@
 						strtotime($sale->closure_date)) }}</p></td>
                     <td><p class="large-field text-left width-date">{{ date('M d, Y',
 						strtotime($sale->started_at)) }}</p></td>
+                    <td>{{ $sale->description  }}</td>
                     <td class="width-date"><a href="sale/{{ $sale->id }}/edit">Edit</a>
                         {{ Form::open(array('url'=> 'sale/' . $sale->id,'onsubmit' => 'return ConfirmDelete()')) }} {{ Form::hidden('_method', 'DELETE') }}
                         {{ Form::submit('Delete', array('class' => 'btn btn-link')) }}

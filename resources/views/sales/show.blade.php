@@ -170,6 +170,17 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-5 ">Description</label>
+                    <div class="col-sm-7">
+                        <span class="col-sm-7">{{ $sale->description }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 

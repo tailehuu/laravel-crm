@@ -72,6 +72,7 @@ class SaleController extends Controller {
 		$data ['engagement'] = $request ['engagement'];
 		$data ['head_count'] = $request ['head_count'];
 		$data ['opportunity_name'] = $request ['opportunity_name'];
+		$data ['opportunity_type'] = $request ['opportunity_type'];
 		$data ['probability'] = $request ['probability'];
 		$data ['closure_date'] = date ( 'Y-m-d H:i:s', strtotime ( $request ['closure_date'] ) );
 		$data ['region'] = $request ['region'];
@@ -80,7 +81,8 @@ class SaleController extends Controller {
 		$data ['started_at'] = date ( 'Y-m-d H:i:s', strtotime ( $request ['started_at'] ) );
 		$data ['value'] = $request ['value'];
 		$data ['service'] = $request ['service'];
-		
+		$data ['description'] = $request ['description'];
+
 		//$sale = Sale::insert ( $data );
 		// insert and make value and head count per month
 		$id = DB::table('sales')->insertGetId($data);
@@ -175,6 +177,7 @@ class SaleController extends Controller {
 		$sale->started_at = date ( 'Y-m-d H:i:s', strtotime ( $request ['started_at'] ) );
 		$sale->value = $request ['value'];
 		$sale->service = $request ['service'];
+		$sale->description = $request ['description'];
 
 		
 		echo $sale;

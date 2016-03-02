@@ -22,16 +22,16 @@ class CreateSalesTable extends Migration
             $table->smallInteger('delivery_location');
             
             $table->string('opportunity_name');
-            $table->smallInteger('opportunity_type'); // Existing Account New Business (EN), New Account New Business (NN), Existing Account Old Business (EO)
-            $table->smallInteger('engagement'); // T&M, Fixed
-            $table->smallInteger('service'); // Testing, Development, Sustenance
+            $table->smallInteger('opportunity_type');
+            $table->smallInteger('engagement');
+            $table->smallInteger('service');
             $table->float('head_count')->default(0)->unsigned();
             $table->float('value')->default(0)->unsigned();
             $table->integer('duration')->default(0)->unsigned();
             $table->integer('probability')->default(0)->unsigned();
             $table->dateTime('closure_date');
             $table->dateTime('started_at');
-            
+            $table->text('description');
             
             $table->timestamps();
 

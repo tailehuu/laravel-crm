@@ -41,8 +41,7 @@
         <table class="table table-condensed display table-striped table-bordered table-hover no-margin" id="example1">
             <thead>
             <tr>
-                <th class="text-center" rowspan="2">No<br> &nbsp
-                </th>
+                <th class="text-center" rowspan="2">No<br> &nbsp;</th>
                 <th class="text-center" rowspan="2" data-column="1">Sale Person
                     <input class="column_filter" id="col1_filter" type="text">
                 </th>
@@ -73,7 +72,7 @@
                 <th class="text-center" rowspan="2" data-column="10">Service Type
                     <input class="column_filter" id="col10_filter" type="text">
                 </th>
-                <th class="text-center" colspan="2" class="text-center" data-column="11">Total
+                <th class="text-center" colspan="2" data-column="11">Total
                 </th>
                 <th class="text-center" rowspan="2" data-column="12">Duration (month)
                     <input class="column_filter" id="col12_filter" type="text">
@@ -87,6 +86,7 @@
                 <th class="text-center" rowspan="2" data-column="15">Start Date
                     <input class="column_filter" id="col15_filter" type="text">
                 </th>
+                <th class="text-center" rowspan="2">Description<br> &nbsp;</th>
                 <th colspan="2" class="text-center">Jan</th>
                 <th colspan="2" class="text-center">Feb</th>
                 <th colspan="2" class="text-center">March</th>
@@ -175,6 +175,7 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
             </tfoot>
             <tbody>
@@ -201,6 +202,7 @@
 						strtotime($sale->closure_date)) }}</p></td>
                     <td class="text-right"><p class="large-field text-left width-date">{{ date('M d, Y',
 						strtotime($sale->started_at)) }}</p></td>
+                    <td>{{ $sale->description }}</td>
                     @foreach ($sale->months	as $month)
                         <td class="text-right">{{ $month['hc'] > 0 ? number_format($month['hc'], 2) : '' }}</td>
                         <td class="text-right">{{ $month['value'] > 0 ? number_format($month['value'], 2) : '' }}</td>
@@ -256,7 +258,7 @@
                     $(api.column(11).footer()).html(pageTotal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
                     $(api.column(12).footer()).html(pageTotalvalue.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
 
-                    for (i = 17; i < 41; i++) {
+                    for (i = 18; i < 42; i++) {
                         var bien = "pageTotalvalue" + i;
                         bien = api.column(i, {page: 'current'}).data().reduce(function (a, b) {
                             return intVal(a) + intVal(b);
