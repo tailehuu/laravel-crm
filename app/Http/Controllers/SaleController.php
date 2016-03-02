@@ -166,6 +166,7 @@ class SaleController extends Controller {
 		$sale->engagement = $request ['engagement'];
 		$sale->head_count = $request ['head_count'];
 		$sale->opportunity_name = $request ['opportunity_name'];
+		$sale->opportunity_type = $request ['opportunity_type'];
 		$sale->probability = $request ['probability'];
 		$sale->closure_date = date ( 'Y-m-d H:i:s', strtotime ( $request ['closure_date'] ) );		
 		$sale->region = $request ['region'];

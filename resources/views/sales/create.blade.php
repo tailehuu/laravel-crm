@@ -134,7 +134,22 @@
 	</div>
 
 </div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-5 control-label">Opportunity
+                Type</label>
+            <div class="col-sm-7">
+                <select class="form-control select-value" name="opportunity_type">
+                    <option selected="selected"></option>
+                    @foreach ($opportunityTypes as $key => $opportunityType)
 
+                        <option value="{{ $key }}">{{ $opportunityType }}</option> @endforeach
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row">
 	<div class="col-sm-6">
 		<div class="form-group">

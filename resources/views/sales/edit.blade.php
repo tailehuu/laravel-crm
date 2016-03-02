@@ -142,15 +142,15 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-5 control-label load-left">Engagement
+				<label for="inputPassword3" class="col-sm-5 control-label load-left">Opportunity
 					Type</label>
 				<div class="col-sm-7">
-					<select class="form-control select-value" name="engagement">
-						@foreach ($engagements as $key => $engagement) 
-						@if($sale->engagement == $key)
-						<option value="{{ $key }}" selected="selected">{{ $engagement }}</option>
+					<select class="form-control select-value" name="opportunity_type">
+						@foreach ($opportunityTypes as $key => $opportunityType)
+						@if($sale->opportunity_type == $key)
+						<option value="{{ $key }}" selected="selected">{{ $opportunityType }}</option>
 						@else
-						<option value="{{ $key }}">{{ $engagement }}</option> @endif
+						<option value="{{ $key }}">{{ $opportunityType }}</option> @endif
 
 
 						@endforeach
@@ -159,6 +159,26 @@
 			</div>
 		</div>
 	</div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-5 control-label load-left">Engagement
+                    Type</label>
+                <div class="col-sm-7">
+                    <select class="form-control select-value" name="engagement">
+                        @foreach ($engagements as $key => $engagement)
+                            @if($sale->engagement == $key)
+                                <option value="{{ $key }}" selected="selected">{{ $engagement }}</option>
+                            @else
+                                <option value="{{ $key }}">{{ $engagement }}</option> @endif
+
+
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
