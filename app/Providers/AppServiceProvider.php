@@ -26,9 +26,7 @@ class AppServiceProvider extends ServiceProvider
         view()->share('opportunityTypes', [
             'OO',
             'ON',
-            'Existing Account Old Business (EO)',
-            'Existing Account New Business (EN)',
-            'New Account New Business (NN)',
+            'NN',
         ]);
 
         view()->share('engagements', [
@@ -52,9 +50,9 @@ class AppServiceProvider extends ServiceProvider
         ]);
 
         view()->share('deliveryLocations', [
-            'India',
-            'US',
-            'Vietnam',
+            'BLR',
+            'DAL',
+            'HCM',
         ]);
     }
 

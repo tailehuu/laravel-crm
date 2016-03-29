@@ -30,7 +30,7 @@ class SaleController extends Controller {
 			
 			$sale->load ( 'values' );
 		}
-		
+
 		return view ( 'sales.index' )->with ( 'sales', $sales )->with('total_hc',$total_hc)->with('total_value',$total_value);
 	}
 	
