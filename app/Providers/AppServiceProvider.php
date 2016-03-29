@@ -14,12 +14,48 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->share('regions', ['West Coast', 'East Coast', 'India', 'APAC', 'Europe', 'Others']);
-        view()->share('opportunityTypes', ['Existing Account New Business (EN)', 'New Account New Business (NN)', 'Existing Account Old Business (EO)']);
-        view()->share('engagements', ['T&M', 'Fixed']);
-        view()->share('services', ['Testing', 'Development', 'Sustenance']);
-        view()->share('verticals', ['Com', 'M&E', 'H&T', 'S&A']);
-        view()->share('deliveryLocations', ['India', 'Vietnam', 'US']);
+        view()->share('regions', [
+            'APAC',
+            'East Coast',
+            'Europe',
+            'India',
+            'West Coast',
+            'Others'
+        ]);
+
+        view()->share('opportunityTypes', [
+            'OO',
+            'ON',
+            'Existing Account Old Business (EO)',
+            'Existing Account New Business (EN)',
+            'New Account New Business (NN)',
+        ]);
+
+        view()->share('engagements', [
+            'Fixed',
+            'T&M',
+        ]);
+
+        view()->share('services', [
+            'Engineering',
+            'Development',
+            'IT Services',
+            'Sustenance',
+            'Testing',
+        ]);
+
+        view()->share('verticals', [
+            'Com',
+            'H&T',
+            'M&E',
+            'S&A'
+        ]);
+
+        view()->share('deliveryLocations', [
+            'India',
+            'US',
+            'Vietnam',
+        ]);
     }
 
     /**

@@ -13,20 +13,25 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
+                'name' => 'Karthig',
+                'email' => 'karthig@terralogic.com',
+                'password' => bcrypt('123456')
+            ],
+            [
+                'name' => 'Matt',
+                'email' => 'mart@terralogic.com',
+                'password' => bcrypt('123456')
+            ],
+            [
                 'name' => 'Mansoor',
-                'email' => 'mansoor@infonam.com',
+                'email' => 'mansoor@terralogic.com',
                 'password' => bcrypt('123456')
             ],
             [
                 'name' => 'Srinivas',
-                'email' => 'srinivas@infonam.com',
+                'email' => 'srinivas@terralogic.com',
                 'password' => bcrypt('123456')
             ],
-            [
-                'name' => 'Karthig',
-                'email' => 'karthig@infonam.com',
-                'password' => bcrypt('123456')
-            ]
         ]);
     }
 }
